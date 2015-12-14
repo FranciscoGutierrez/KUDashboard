@@ -1,0 +1,134 @@
+.settings-content {
+  display: none;
+  /*justify-content: center;*/
+  /*align-items: center;*/
+  width: 100%;
+  flex-direction: column;
+  padding-left: 15px;
+}
+.settings-content paper-input {
+  width: 80%;
+}
+
+/****** ************ ******/
+/****** Search Input ******/
+/****** ************ ******/
+.search-results {
+  position: absolute;
+  top: 90px;
+  left: 30px;
+  background: white;
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+  padding: 5px;
+  border-radius: 5px;
+  color: #424242;
+  width: 80%;
+  display:none;
+  z-index: 1;
+}
+
+.search-results .result-course {
+  background: #eceff1;
+  padding: 7px;
+  margin-top: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.result-course paper-ripple {
+  color: #d9aebf;
+}
+
+.search-results .result-course:hover {
+  background: #b25d7e;
+  color: white !important;
+  cursor: pointer;
+}
+
+.search-results .result-name { font-size: 14px; text-transform: capitalize; }
+.search-results .result-desc { font-size: 13px; opacity: 0.6;}
+.search-results .result-desc b {color: #202020;}
+.search-results .result-name:hover { cursor: pointer; }
+.search-results .result-desc:hover { cursor: pointer; }
+.search-results .result-desc b:hover { cursor: pointer; }
+
+/****** ****************  ******/
+/****** Selected Courses ******/
+/****** **************** ******/
+.selected-courses {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-flow: column;
+  align-items: center;
+  position: relative;
+}
+
+.selected-course:hover {
+  background: #eceff1;
+}
+.selected-course .course-name {
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap; /* Don't forget this one */
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+}
+.selected-course .course-id {
+  font-size: 13px;
+  color: #9F9F9F;
+  overflow: hidden;
+  white-space: nowrap; /* Don't forget this one */
+  text-overflow: ellipsis;
+}
+
+.selected-course-meta {
+  overflow: hidden;
+  white-space: nowrap; /* Don't forget this one */
+  text-overflow: ellipsis;
+  color: #424242;
+}
+
+.selected-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.selected-course {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  padding: 3px;
+  padding-left: 10px;
+  margin-top: 4px;
+  align-self: center;
+  background: #eceff1;
+  border-radius: 3px;
+  width: 100%;
+  max-height: 35px;
+  min-height: 35px;
+  cursor: pointer;
+  position: relative;
+}
+
+.selected-course > #checkboxLabel {
+  /*width: 100%;*/
+  opacity: 1 !important;
+}
+
+.selected-course > #checkboxContainer {
+  min-width: 18px;
+  display: none;
+}
+
+.remove-selected-course {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  fill: #b25d7e !important;
+}
+
+.unselected-course {
+  background: none !imporant;
+}

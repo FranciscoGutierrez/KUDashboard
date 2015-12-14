@@ -1,0 +1,61 @@
+.quality-content .title-quality {
+  font-size:  20px;
+  font-weight: 300;
+}
+
+.quality-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: #424242;
+  width: 200px;
+  position: relative;
+}
+
+.quality-content-viz {
+  height: 140px;
+  width:  140px;
+}
+
+.progress-title {
+  font-weight: bold;
+  font-size: 42px;
+  font-family: 'Roboto', Helvetica, Arial;
+  color: #424242;
+  padding-left: 10px;
+}
+
+.progress-subtitle {
+  position: relative;
+  display: flex;
+  font-family: 'Roboto', Helvetica, Arial;
+  font-size: 14px;
+  color: #9F9F9F;
+}
+
+
+.quality-bubble #svgCircle {
+  stroke: #617d8a    !important;
+  stroke-width: 12px !important;
+  transition: stroke-dashoffset 2000ms;
+}
+
+.quality-bubble #bgCircle {
+  stroke: #eceff1 !important;
+  stroke-width: 14px !important;
+}
+
+#progressArc {
+  overflow: inherit;
+}
+
+.quality-bubble {
+  background: none !important;
+  color:  #424242;
+  width:  120px;
+  height: 120px;
+  text-shadow: none;
+  font-size:   42px;
+}

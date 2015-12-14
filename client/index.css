@@ -1,0 +1,226 @@
+* {
+  font-family: 'Roboto', Helvetica, sans-serif;
+  /*color: #424242;*/
+  /*stopselect*/
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+paper-header-panel {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  width:  100%;
+  height: 100%;
+}
+
+.content {
+  padding: 7px;
+  /*margin: 0px;
+  width:  100%;*/
+  height: 100%;
+  display:   -webkit-box;
+  display:   -webkit-flex;
+  display:   -ms-flexbox;
+  display:   flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow-y: scroll;
+  background: #eeeeee;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+paper-material {
+  margin: 7px;
+  height:    450px;
+  min-width: 350px;
+  max-width: 650px;
+  background-color: #fff;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+paper-toolbar {
+  min-height: 240px;
+  max-height: 240px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.middle {
+
+}
+
+.widget-title {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.widget-title-text {
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.widget-title-icon {
+  margin-left: 5px;
+}
+
+/* Icons */
+
+iron-icon {
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+iron-icon:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+paper-toast {
+  z-index: 1000;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #fff;
+  color: #424242;
+}
+
+.toast-reconnect {
+  display: none;
+  text-decoration: underline;
+}
+
+.loading-screen {
+  color: #424242;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+    -webkit-transform: translateZ(0);
+}
+
+.card-title {
+  display: flex;
+  font-size: 25px;
+  color: #424242;
+}
+
+.card-subtitle {
+  font-size: 16px;
+  color: #424242;
+  opacity: 0.6;
+}
+
+.card-subtitle-tool {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+}
+
+.card-settings-icon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.card-settings-icon iron-icon {
+  width:  30px !important;
+  height: 30px !important;
+  align-items: flex-end;
+}
+
+.card-settings-icon iron-icon > svg {
+  margin-left: 5px;
+  fill: #a3456b;
+}
+
+paper-toggle-button {
+  margin-left: 5px;
+}
+
+paper-toggle-button > .toggle-label {
+  display: none !important;
+}
+
+.paperToast {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #424242;
+  flex-direction: row-reverse;
+}
+
+paper-toast #label {
+  margin-left: 10px;
+}

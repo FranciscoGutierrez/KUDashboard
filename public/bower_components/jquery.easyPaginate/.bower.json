@@ -1,0 +1,13 @@
+{
+  "name": "jquery.easyPaginate",
+  "homepage": "https://github.com/st3ph/jquery.easyPaginate",
+  "_release": "c6a1885b0a",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "c6a1885b0ae7e6b7bfeddf22033035e976127292"
+  },
+  "_source": "https://github.com/st3ph/jquery.easyPaginate.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/st3ph/jquery.easyPaginate.git"
+}
