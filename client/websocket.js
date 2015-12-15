@@ -52,7 +52,7 @@ $(document).ready(function() {
         Websocket.send(request);
       }
     } else if (Websocket.readyState == 3) {
-      $("#paperToast").attr("text","Conexión inactiva, volviendo a conectar...");
+      $("#paperToast").attr("text","Connection lost, reconnecting...");
       document.querySelector('#paperToast').show();
       Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
       Websocket.onopen    = function(evt) { onOpen(evt)   };
