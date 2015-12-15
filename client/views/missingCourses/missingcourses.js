@@ -70,9 +70,9 @@ Template.missingcourses.helpers({
     if((selected != "redo") && (year != "all")) query = Grades.find({"student": Session.get("student"), "year": Session.get("studentYear")}, {sort: {year: 1}}).fetch();
     if((selected != "redo") && (year == "all")) query = Grades.find({"student": Session.get("student")}, {sort: {year: 1}}).fetch();
     /* Show me redo's Specific years */
-    if((selected == "redo") && (year != "all")) query = Grades.find({"student": Session.get("student"), "year": Session.get("studentYear"), "status":"RP", "status":{$not: "AP"}}, {sort: {year: 1}}).fetch();
+    if((selected == "redo") && (year != "all")) query = Grades.find({"student": Session.get("student"), "year": Session.get("studentYear"), "status":"Failed", "status":{$not: "Passed"}}, {sort: {year: 1}}).fetch();
     /* Show me redo's All years */
-    if((selected == "redo") && (year == "all")) query = Grades.find({"student": Session.get("student"), "status":"RP"}).fetch();
+    if((selected == "redo") && (year == "all")) query = Grades.find({"student": Session.get("student"), "status":"Failed"}).fetch();
     /**
     **
     **/

@@ -10,8 +10,8 @@ Historial= new Meteor.Collection('historial');
 Recorder = new Meteor.Collection('recorder');
 
 Meteor.publish('grades', function(who){
-  var query = Grades.find({$or: [{course: {$in: who.courses}}, {student: who.student}]});
-  if (!who.courses) query = 0;
+  var query = 0;
+  if (who.courses) query = Grades.find({$or: [{course: {$in: who.courses}}, {student: who.student}]});
   return query;
 });
 

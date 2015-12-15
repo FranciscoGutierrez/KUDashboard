@@ -41,6 +41,9 @@ Template.coursescard.events({
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
+    console.log(event);
+    console.log(template);
+    console.log(this);
     Recorder.insert({
       "user": Meteor.connection._lastSessionId,
       "template": template.view.name,
@@ -59,8 +62,10 @@ Template.coursescard.events({
       courses = _.extend([], courses);
       courses.push(course._id);
       Session.set("courses", courses);
+
+      var grades = {courses: courses, student: Session.get("student")};
       Meteor.subscribe("this_courses", courses);
-      Meteor.subscribe("grades", courses);
+      Meteor.subscribe("grades", grades);
 
       var str = "";
       if(courses) {

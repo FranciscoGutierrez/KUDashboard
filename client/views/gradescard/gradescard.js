@@ -107,55 +107,55 @@ Template.registerHelper('isCourse',function(input){
 */
 Template.gradescard.helpers({
   excellent: function () {
-    var sc   = Grades.find({ grade: { $gte : "8.9"} }, {limit: 50}).fetch();
+    var sc   = Grades.find({ grade: { $gte : "16.5", $lte : "20" } }, {limit: 50}).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#25a085";
-      sc[i].grade        = (((sc[i].grade - 4.5) * 350) / 5.45);
-      sc[i].performance  = ((1.0 - sc[i].performance) * 180) + 10;
+      sc[i].grade        = (sc[i].grade * 350)/20;
+      sc[i].performance  = (sc[i].performance * 165);
     }
     return sc;
   },
   good: function () {
-    var sc   = Grades.find({ grade: { $gte : "7.9", $lt : "8.9" } }, {limit: 50}).fetch();
+    var sc   = Grades.find({ grade: { $gte : "15", $lt : "16.5" } }, {limit: 50}).fetch();
     for (i = 0; i < sc.length; i++) {
-      sc[i].gp          = "#27ae60";
-      sc[i].grade       = (((sc[i].grade - 4.5) * 350) / 5.45);
-      sc[i].performance = ((1.0 - sc[i].performance) * 180) + 10;
+      sc[i].gp           = "#27ae60";
+      sc[i].grade        = (sc[i].grade * 350)/20;
+      sc[i].performance  = (sc[i].performance * 165);
     }
     return sc;
   },
   regular: function () {
-    var sc   = Grades.find({ grade: { $gte : "6.9", $lt : "7.9" } }, {limit: 50}).fetch();
+    var sc   = Grades.find({ grade: { $gte : "13.5", $lt : "15" } }, {limit: 50}).fetch();
     for (i = 0; i < sc.length; i++) {
-      sc[i].gp          = "#f0c30e";
-      sc[i].grade       = (((sc[i].grade - 4.5) * 350) / 5.45);
-      sc[i].performance = ((1.0 - sc[i].performance) * 180) + 10;
+      sc[i].gp           = "#f0c30e";
+      sc[i].grade        = (sc[i].grade * 350)/20;
+      sc[i].performance  = (sc[i].performance * 165);
     }
     return sc;
   },
   lazy: function () {
-    var sc   = Grades.find({ grade: { $gte : "5.9", $lt : "6.9" } }, {limit: 50}).fetch();
+    var sc   = Grades.find({ grade: { $gte : "10", $lt : "13.5" } }, {limit: 50}).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#e67d22";
-      sc[i].grade        = (((sc[i].grade - 4.5) * 350) / 5.45);
-      sc[i].performance  = ((1.0 - sc[i].performance) * 180) + 10;
+      sc[i].grade        = (sc[i].grade * 350)/20;
+      sc[i].performance  = (sc[i].performance * 165);
     }
     return sc;
   },
   bad: function () {
-    var sc   = Grades.find({ grade: { $lt : "5.9"} }, {limit: 50}).fetch();
+    var sc   = Grades.find({ grade: { $gte : "1", $lt : "10"} }, {limit: 50}).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#e74c3c";
-      sc[i].grade        = (((sc[i].grade + 1) * 150) / 10);
-      sc[i].performance  = ((1.0 - sc[i].performance) * 180) + 10;
+      sc[i].grade        = (sc[i].grade * 350)/20;
+      sc[i].performance  = (sc[i].performance * 165);
     }
     return sc;
   },
   thisStudent: function() {
     var sc = Students.findOne({});
     if(sc) {
-      sc.gpa         = (((sc.gpa) * 356) / 10);
-      sc.performance = ((1.0 - sc.performance) * 180) + 10;
+      sc.gpa         = (sc.gpa * 350)/20;
+      sc.performance = sc.performance * 10;
     }
     return sc;
   },
