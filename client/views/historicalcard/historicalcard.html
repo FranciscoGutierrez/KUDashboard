@@ -5,15 +5,11 @@
       <div class="card-content-top">
         <div class="card-content-top-text">
           <div class="card-title">
-            <div class="card-title-text">
-              Registros Históricos
-            </div>
-            <iron-icon icon="icons:info"></iron-icon>
+            <div class="card-title-text">Historical Records</div>
+            <iron-icon class="card-info" icon="icons:info"></iron-icon>
           </div>
           {{#if isOn}}
-          <div class="card-subtitle">
-            Fuerte influencia en la predicción
-          </div>
+          <div class="card-subtitle">Strong influence in prediction</div>
           {{/if}}
         </div>
       </div>
@@ -26,7 +22,7 @@
       <div class="card-content-middle">
         <div class="sg-chart-container">
           <div class="sg-vertical-axis" style="left: -7px;">
-            <div class="sg-vertical-axis-title">Estudiantes</div>
+            <div class="sg-vertical-axis-title">Students</div>
           </div>
           <div class="hc-svg-container">
             <svg id="area">
@@ -52,13 +48,13 @@
       <!-- Bottom Content -->
       <div class="card-content-bottom" style="margin-top: 26px;">
         <div class="card-content-control">
-          <div class="control-title">Predicción Basada en:</div>
+          <div class="control-title">Prediction based in:</div>
           <div class="horizontal-section">
             <div class="selected-container animated fadeIn">
               <div class="selected-course" checked>
                 <div id="checkboxLabel" class="selected-course-meta">
-                  <div class="course-name">{{students}} Estudiantes en {{courses}} Cursos</div>
-                  <div class="course-id">Desde {{from}} hasta {{to}}</div>
+                  <div class="course-name">{{students}} Students in {{courses}} Courses</div>
+                  <div class="course-id">From {{from}} to {{to}}</div>
                 </div>
                 <paper-ripple></paper-ripple>
               </div>
@@ -69,10 +65,22 @@
       {{else}}
       <div class="card-content-middle">
         <div class="cc-nothing animated fadeIn" style="background: none; height: 400px;">
-          <div class="cc-nothing-message">Esta tarjeta está apagada</div>
+          <div class="cc-nothing-message">This card is turned off</div>
         </div>
       </div>
       {{/if}}
+    </div>
+    <div class="help-info animated fadeIn">
+      <iron-icon class="close-info" icon="icons:clear"></iron-icon>
+      <!-- <div class="help-text ht-top">
+        Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
+      </div> -->
+      <div class="help-text ht-middle">
+        Shows something...
+      </div>
+      <!-- <div class="help-text ht-bottom">
+        Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
+      </div> -->
     </div>
   </paper-material>
 </template>

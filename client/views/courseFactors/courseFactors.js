@@ -17,6 +17,36 @@ Template.coursefactors.events({
       }
     });
     CoursesFactorsChart.update();
+  },
+  "click .cf-toggle": function(event,template) {
+    if(template.$(".cf-toggle").attr("checked")){
+      Session.set("cf-toggle",true);
+      template.$(".card-content-middle").fadeIn();
+      template.$(".card-subtitle").fadeIn();
+      template.$(".card-content-bottom").fadeIn();
+      template.$(".control-title").fadeIn(300, function(){
+        template.$(".cf-nothing").fadeOut();
+      });
+    }
+    else {
+      Session.set("cf-toggle",false);
+      template.$(".card-content-middle").fadeOut();
+      template.$(".card-subtitle").fadeOut();
+      template.$(".card-content-bottom").fadeOut();
+      template.$(".control-title").fadeIn(300, function(){
+        template.$(".cf-nothing").css("display","flex");
+      });
+
+    }
+  },
+  "click .card-info": function (event,template) {
+    template.$(".help-info").css("display","flex");
+  },
+  "click .close-info": function (event,template) {
+    template.$(".help-info").fadeOut();
+  },
+  "click .help-info": function (event,template) {
+    template.$(".help-info").fadeOut();
   }
 });
 

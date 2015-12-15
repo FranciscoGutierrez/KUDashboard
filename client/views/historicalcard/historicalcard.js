@@ -107,6 +107,30 @@ Template.historicalcard.events({
     if(n==2) template.$(".historicalcard-paper").css("opacity","0.65");
     if(n==1) template.$(".historicalcard-paper").css("opacity","0.55");
     if(n==0) template.$(".historicalcard-paper").css("opacity","0.45");
+  },
+  "click .card-info": function (event,template) {
+    template.$(".help-info").css("display","flex");
+  },
+  "click .close-info": function (event,template) {
+    template.$(".help-info").fadeOut("fast");
+  },
+  "click .help-info": function (event,template) {
+    template.$(".help-info").fadeOut("fast");
+  },
+  "click": function(event,template){
+    /*** Interaction Recorder ***/
+    var self = this;
+    var myEvent = event;
+    Recorder.insert({
+      "user": Meteor.connection._lastSessionId,
+      "template": template.view.name,
+      "target": $(event.target).first().attr('class'),
+      "screenX": event.screenX,
+      "screenY": event.screenY,
+      "offsetX": event.offsetX,
+      "offsetY": event.offsetY,
+      "timestamp": new Date()
+    });
   }
 });
 

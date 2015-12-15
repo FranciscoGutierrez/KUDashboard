@@ -5,33 +5,46 @@
         <div class="card-content-top-text">
           <div class="card-title">
             <div class="card-title-text">
-              Habilidades del Estudiante
+              Student Skills
             </div>
-            <iron-icon icon="icons:info"></iron-icon>
+            <iron-icon class="card-info" icon="icons:info"></iron-icon>
           </div>
           <div class="card-subtitle">
-            Sin Influencia en la predicción
+            No Influence in Prediction
           </div>
         </div>
       </div>
       <div class="card-settings-icon">
         <!-- <iron-icon class="settings-icon" icon="icons:settings"></iron-icon> -->
-        <paper-toggle-button checked></paper-toggle-button>
+        <paper-toggle-button class="sf-toggle" checked></paper-toggle-button>
       </div>
       <!-- Middle Content -->
       <div class="card-content-middle">
         <canvas id="sf-chart" width="350" height="300"></canvas>
       </div>
+      <div class="cf-nothing">This card is turned off</div>
       <!-- Bottom Content -->
       <div class="card-content-bottom">
         <div class="card-content-control">
-          <div class="control-title">Estudiantes</div>
+          <div class="control-title">Students</div>
           <div class="horizontal-section">
-            <paper-checkbox class="sf-student animated fadeIn" checked>Este Estudiante</paper-checkbox>
-            <paper-checkbox class="sf-similar animated fadeIn" checked>Estudiantes Similares</paper-checkbox>
+            <paper-checkbox class="sf-student animated fadeIn" checked>This Student</paper-checkbox>
+            <paper-checkbox class="sf-similar animated fadeIn" checked>Similar Students</paper-checkbox>
           </div>
         </div>
       </div>
+    </div>
+    <div class="help-info animated fadeIn">
+      <iron-icon class="close-info" icon="icons:clear"></iron-icon>
+      <!-- <div class="help-text ht-top">
+        Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
+      </div> -->
+      <div class="help-text ht-middle">
+       "Card info goes here"
+      </div>
+      <!-- <div class="help-text ht-bottom">
+        Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
+      </div> -->
     </div>
   </paper-material>
 </template>

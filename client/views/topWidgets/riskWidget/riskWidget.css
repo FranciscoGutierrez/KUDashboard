@@ -91,11 +91,17 @@
   background: rgba(66, 66, 66, 0.45);
   position: absolute;
   top: 0;
-  border-radius: 5px;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   display: none;
+  flex-flow: column;
+  z-index: 1;
+}
+
+.help-info iron-icon.iron-icon-0 {
+  fill: white;
 }
 
 .help-text {
@@ -106,6 +112,7 @@
   color: #fff;
   font-size: 12px;
   padding: 2%;
+  margin: 5%;
   text-align: center;
 }
 

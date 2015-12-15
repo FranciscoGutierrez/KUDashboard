@@ -5,13 +5,13 @@
         <div class="card-content-top-text">
           <div class="card-title">
             <div class="card-title-text">
-              Calificaciones
+              Grades
             </div>
-            <iron-icon icon="icons:info"></iron-icon>
+            <iron-icon class="card-info" icon="icons:info"></iron-icon>
           </div>
           {{#if isOn}}
           <div class="card-subtitle">
-            Sin influencia en la predicción
+            No influence in prediction.
           </div>
           {{/if}}
         </div>
@@ -26,10 +26,10 @@
         {{#if isCourse}}
         <div class="sg-chart-container">
           <div class="sg-vertical-axis">
-            <div class="sg-vertical-axis-title">Desempeño</div>
+            <div class="sg-vertical-axis-title">Performance</div>
           </div>
           <div class="sg-horizontal-axis">
-            <div class="sg-horizontal-axis-title">Estudiantes</div>
+            <div class="sg-horizontal-axis-title">Students</div>
           </div>
           <svg height="200" width="350" style="overflow: inherit;">
             <line class="animated fadeIn" x1="20"  x2="20"  y1="5" y2="185" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
@@ -79,7 +79,7 @@
         </div>
         {{else}}
         <div class="cc-nothing animated fadeIn">
-          <div class="cc-nothing-message">No has seleccionado ningún curso.</div>
+          <div class="cc-nothing-message">No courses have been selected.</div>
           <div class="cc-nothing-add"></div>
         </div>
         {{/if}}
@@ -87,19 +87,19 @@
       <!-- Bottom Content -->
       <div class="card-content-bottom" style="margin-top: 26px;">
         <div class="card-content-control">
-          <div class="control-title">Calificaciones</div>
+          <div class="control-title">Grades</div>
           <div class="card-content-columns">
             <div class="card-content-column">
-              <paper-checkbox class="student-grades" checked>Este Estudiante</paper-checkbox>
-              <paper-checkbox class="regular-grades" checked>Aceptable</paper-checkbox>
+              <paper-checkbox class="student-grades" checked>This Student</paper-checkbox>
+              <paper-checkbox class="regular-grades" checked>Fair</paper-checkbox>
             </div>
             <div class="card-content-column">
-              <paper-checkbox class="good-grades" checked>Buenos</paper-checkbox>
-              <paper-checkbox class="lazy-grades" checked>Malos</paper-checkbox>
+              <paper-checkbox class="good-grades" checked>Good</paper-checkbox>
+              <paper-checkbox class="lazy-grades" checked>Bad</paper-checkbox>
             </div>
             <div class="card-content-column">
-              <paper-checkbox class="best-grades" checked>Muy Buenos</paper-checkbox>
-              <paper-checkbox class="bad-grades"  checked>Muy Malos</paper-checkbox>
+              <paper-checkbox class="best-grades" checked>Very Good</paper-checkbox>
+              <paper-checkbox class="bad-grades"  checked>Very Bad</paper-checkbox>
             </div>
           </div>
         </div>
@@ -107,11 +107,22 @@
     {{else}}
     <div class="card-content-middle">
       <div class="cc-nothing animated fadeIn" style="background: none; height: 400px;">
-        <div class="cc-nothing-message">Esta tarjeta está apagada.</div>
-        <paper-spinner active></paper-spinner>
+        <div class="cc-nothing-message">This card is turned off.</div>
       </div>
     </div>
     {{/if}}
+  </div>
+  <div class="help-info animated fadeIn">
+    <iron-icon class="close-info" icon="icons:clear"></iron-icon>
+    <!-- <div class="help-text ht-top">
+      Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
+    </div> -->
+    <div class="help-text ht-middle">
+      Shows a brief description of the card.
+    </div>
+    <!-- <div class="help-text ht-bottom">
+      Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
+    </div> -->
   </div>
 </paper-material>
 </template>

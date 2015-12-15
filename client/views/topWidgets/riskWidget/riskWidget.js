@@ -6,11 +6,11 @@ Template.riskwidget.helpers({
   riskText: function() {
     var risk = Session.get("riskValue");
     var text;
-    if (risk >= 0.0) text = "Muy Difícil";
-    if (risk >= 0.2) text = "Difícil";
+    if (risk >= 0.0) text = "Very Hard";
+    if (risk >= 0.2) text = "Hard";
     if (risk >= 0.4) text = "Regular";
-    if (risk >= 0.6) text = "Fácil";
-    if (risk >= 0.8) text = "Muy Fácil";
+    if (risk >= 0.6) text = "Easy";
+    if (risk >= 0.8) text = "Very Easy";
     return text;
   },
   riskColor: function() {
@@ -37,7 +37,23 @@ Template.riskwidget.events({
   },
   "click .help-info": function (event,template) {
     template.$(".help-info").fadeOut();
+  },
+  "click": function(event,template){
+    /*** Interaction Recorder ***/
+    var self = this;
+    var myEvent = event;
+    Recorder.insert({
+      "user": Meteor.connection._lastSessionId,
+      "template": template.view.name,
+      "target": $(event.target).first().attr('class'),
+      "screenX": event.screenX,
+      "screenY": event.screenY,
+      "offsetX": event.offsetX,
+      "offsetY": event.offsetY,
+      "timestamp": new Date()
+    });
   }
+
 });
 
 Template.riskwidget.rendered = function () {

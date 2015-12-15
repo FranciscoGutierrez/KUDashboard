@@ -6,11 +6,11 @@ Template.qualitywidget.helpers({
   qualityText: function() {
     var quality = Session.get("qualityValue");
     var text;
-    if (quality >= 0.0) text = "Muy Pobre";
-    if (quality >= 0.2) text = "Pobre";
-    if (quality >= 0.4) text = "Aceptable";
-    if (quality >= 0.6) text = "Buena";
-    if (quality >= 0.8) text = "Muy Buena";
+    if (quality >= 0.0) text = "Very Poor";
+    if (quality >= 0.2) text = "Poor";
+    if (quality >= 0.4) text = "Fair";
+    if (quality >= 0.6) text = "Good";
+    if (quality >= 0.8) text = "Very Good";
     return text;
   },
   qualityColor: function() {
@@ -33,5 +33,20 @@ Template.qualitywidget.events({
   },
   "click .help-info": function (event,template) {
     template.$(".help-info").fadeOut();
+  },
+  "click": function(event,template){
+    /*** Interaction Recorder ***/
+    var self = this;
+    var myEvent = event;
+    Recorder.insert({
+      "user": Meteor.connection._lastSessionId,
+      "template": template.view.name,
+      "target": $(event.target).first().attr('class'),
+      "screenX": event.screenX,
+      "screenY": event.screenY,
+      "offsetX": event.offsetX,
+      "offsetY": event.offsetY,
+      "timestamp": new Date()
+    });
   }
 });

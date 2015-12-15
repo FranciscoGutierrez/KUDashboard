@@ -31,13 +31,26 @@ Template.coursescard.events({
       });
     }
   },
-  "keyup #search-box, click #input": _.throttle(function(e,template) {
+  "keyup #search-box, click #input": _.throttle(function(event,template) {
     template.$(".search-results").show();
-    var text = $(e.target).val().trim();
+    var text = $(event.target).val().trim();
     PackageSearch.search(text);
   }, 200),
   "click": function(event,template){
     template.$(".search-results").hide();
+    /*** Interaction Recorder ***/
+    var self = this;
+    var myEvent = event;
+    Recorder.insert({
+      "user": Meteor.connection._lastSessionId,
+      "template": template.view.name,
+      "target": $(event.target).first().attr('class'),
+      "screenX": event.screenX,
+      "screenY": event.screenY,
+      "offsetX": event.offsetX,
+      "offsetY": event.offsetY,
+      "timestamp": new Date()
+    });
   },
   "click .result-course": function(event,template) {
     var course = this;
@@ -100,7 +113,7 @@ Template.coursescard.events({
 
     });
   },
-  "click .cc-course, click .cc-course": function(event,template) {
+  "click .cc-course": function(event,template) {
     var id = this._id;
     $(".gradescard-paper").find("circle").css("fill-opacity","0.15");
     $(".gradescard-paper").find("circle").css("stroke","none");
@@ -121,6 +134,15 @@ Template.coursescard.events({
   },
   "mouseleave .cc-course": function(event,template) {
     $(event.target).find(".cc-passed-legend").fadeOut();
+  },
+  "click .card-info": function (event,template) {
+    template.$(".help-info").css("display","flex");
+  },
+  "click .close-info": function (event,template) {
+    template.$(".help-info").fadeOut("fast");
+  },
+  "click .help-info": function (event,template) {
+    template.$(".help-info").fadeOut("fast");
   }
 });
 
