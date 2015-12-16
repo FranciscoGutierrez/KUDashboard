@@ -8,7 +8,7 @@ PackageSearch = new SearchSource('courses', fields, options);
 /*
 * Template life Cycle (Events)
 */
-Template.coursescard.events({
+Template.semesterplan.events({
   "click .clear-search": function(event,template){
     template.$("#search-box").find("#input").val('');
   },
@@ -41,9 +41,6 @@ Template.coursescard.events({
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
-    console.log(event);
-    console.log(template);
-    console.log(this);
     Recorder.insert({
       "user": Meteor.connection._lastSessionId,
       "template": template.view.name,
@@ -63,9 +60,17 @@ Template.coursescard.events({
       courses.push(course._id);
       Session.set("courses", courses);
 
-      var grades = {courses: courses, student: Session.get("student")};
-      Meteor.subscribe("this_courses", courses);
-      Meteor.subscribe("grades", grades);
+      Meteor.subscribe("this_student", Session.get("student"), function() {
+        Meteor.subscribe("this_courses", Session.get("courses"), function(){
+          Meteor.subscribe("studentgrades", Session.get("student"), function() {
+                  Meteor.subscribe('sufficientgrades',course._id, function(){});
+                  Meteor.subscribe('failuregrades',   course._id, function(){});
+                  Meteor.subscribe('goodgrades',      course._id, function(){});
+                  Meteor.subscribe('verygoodgrades',  course._id, function(){});
+                  Meteor.subscribe('excellentgrades', course._id, function(){});
+          });
+        });
+      });
 
       var str = "";
       if(courses) {
@@ -154,7 +159,7 @@ Template.coursescard.events({
 /*
 * Display data from helpers
 */
-Template.coursescard.helpers({
+Template.semesterplan.helpers({
   getCourses: function() {
     return PackageSearch.getData({
       transform: function(matchText, regExp) {

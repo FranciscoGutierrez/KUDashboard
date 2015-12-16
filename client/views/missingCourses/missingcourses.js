@@ -1,7 +1,7 @@
 /*
 * Template life Cycle (Events)
 */
-Template.missingcourses.events({
+Template.studentdata.events({
   "click .mc-all": function(event,template) {
     Session.set("studentdata","all");
   },
@@ -51,7 +51,6 @@ Template.missingcourses.events({
   }
 });
 
-
 Template.reactiveTable.onCreated(function () {
   Filter = new ReactiveTable.Filter('group', ['group']);
 });
@@ -59,23 +58,18 @@ Template.reactiveTable.onCreated(function () {
 /*
 * Display data from helpers
 */
-Template.missingcourses.helpers({
+Template.studentdata.helpers({
   selectedCourses: function() {
     var selected = Session.get("studentdata");
     var year     = Session.get("studentYear");
     var query = [];
-    // if(selected == "passed") query = Grades.find({"student": Session.get("student"), "status":"AP"}, {sort: {year: 1}}).fetch();
-    // if(selected == "failed") query = Grades.find({"student": Session.get("student"), "status":"RP"}, {sort: {year: 1}}).fetch();
-    // if(selected == "redo") query = Grades.find({"student": Session.get("student"), "status":"RP", "status":{$not: "AP"}}, {sort: {year: 1}}).fetch();
     if((selected != "redo") && (year != "all")) query = Grades.find({"student": Session.get("student"), "year": Session.get("studentYear")}, {sort: {year: 1}}).fetch();
     if((selected != "redo") && (year == "all")) query = Grades.find({"student": Session.get("student")}, {sort: {year: 1}}).fetch();
     /* Show me redo's Specific years */
     if((selected == "redo") && (year != "all")) query = Grades.find({"student": Session.get("student"), "year": Session.get("studentYear"), "status":"Failed", "status":{$not: "Passed"}}, {sort: {year: 1}}).fetch();
     /* Show me redo's All years */
     if((selected == "redo") && (year == "all")) query = Grades.find({"student": Session.get("student"), "status":"Failed"}).fetch();
-    /**
-    **
-    **/
+    /****/
     for (i = 0; i < query.length; i++) query[i].grade = parseFloat(query[i].grade);
     return query;
   },
@@ -106,6 +100,6 @@ Template.missingcourses.helpers({
   }
 });
 
-Template.missingcourses.rendered = function () {
+Template.studentdata.rendered = function () {
   Session.set("mc-toggle",false);
 };
