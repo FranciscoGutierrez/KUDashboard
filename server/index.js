@@ -28,7 +28,7 @@ Meteor.publish('sufficientgrades', function(who){
 });
 
 Meteor.publish('failuregrades', function(who){
-  return Grades.find({course: who, grade: { $gte : "1", $lte : "10" } }, {limit: 50});
+  return Grades.find({course: who, grade: { $gte : "1", $lt : "10" } }, {limit: 50});
 });
 
 /***/

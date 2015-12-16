@@ -63,11 +63,11 @@ Template.semesterplan.events({
       Meteor.subscribe("this_student", Session.get("student"), function() {
         Meteor.subscribe("this_courses", Session.get("courses"), function(){
           Meteor.subscribe("studentgrades", Session.get("student"), function() {
-                  Meteor.subscribe('sufficientgrades',course._id, function(){});
-                  Meteor.subscribe('failuregrades',   course._id, function(){});
-                  Meteor.subscribe('goodgrades',      course._id, function(){});
-                  Meteor.subscribe('verygoodgrades',  course._id, function(){});
-                  Meteor.subscribe('excellentgrades', course._id, function(){});
+            Meteor.subscribe('sufficientgrades',course._id, function(){});
+            Meteor.subscribe('failuregrades',   course._id, function(){});
+            Meteor.subscribe('goodgrades',      course._id, function(){});
+            Meteor.subscribe('verygoodgrades',  course._id, function(){});
+            Meteor.subscribe('excellentgrades', course._id, function(){});
           });
         });
       });
