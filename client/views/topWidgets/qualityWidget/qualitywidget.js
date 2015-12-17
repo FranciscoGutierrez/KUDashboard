@@ -38,15 +38,17 @@ Template.qualitywidget.events({
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
-    Recorder.insert({
-      "user": Meteor.connection._lastSessionId,
-      "template": template.view.name,
-      "target": $(event.target).first().attr('class'),
-      "screenX": event.screenX,
-      "screenY": event.screenY,
-      "offsetX": event.offsetX,
-      "offsetY": event.offsetY,
-      "timestamp": new Date()
-    });
+    if(Session.get("user-session")) {
+      Actions.insert({
+        "sessionId": Meteor.connection._lastSessionId,
+        "user": Session.get("user-name"),
+        "profile": Session.get("user-profile"),
+        "template": template.view.name,
+        "target": $(event.target).first().attr('class'),
+        "screenX": event.screenX,
+        "screenY": event.screenY,
+        "timestamp": new Date()
+      });
+    }
   }
 });
