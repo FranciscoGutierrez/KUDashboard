@@ -1,14 +1,43 @@
 <template name="topribbon">
   <div class="top-ribbon">
+    <div class="top-ribbon-hidden">
+      <div class="top-ribbon-flex">
+        <div class="top-ribbon-container">
+          <div class="top-ribbon-input">
+            <paper-input label="Welcome," type="search" placeholder="Please, type here your name..."></paper-input>
+            <paper-button class="top-ribbon-save"><iron-icon icon="save"></iron-icon>Save</paper-button>
+          </div>
+          <div class="top-ribbon-radio">
+            <div class="top-ribbon-subtitle">Choose your profile:</div>
+            <paper-radio-group selected="">
+              <paper-radio-button name="expert"   class="radio-pink">Expert</paper-radio-button>
+              <paper-radio-button name="student"  class="radio-pink">Student</paper-radio-button>
+              <paper-radio-button name="layman"   class="radio-pink">Layman</paper-radio-button>
+            </paper-radio-group>
+          </div>
+        </div>
+        <div class="top-ribbon-container">
+          <div class="top-ribbon-subtitle" style="padding-bottom: 10px;">Ready?</div>
+          <paper-button raised><iron-icon icon="av:play-arrow"></iron-icon>Start Session</paper-button>
+          <paper-button><iron-icon icon="av:stop"></iron-icon>End Session</paper-button>
+        </div>
+      </div>
+    </div>
     <div class="ribbon-title">
-    {{#if studentId}}
-    Student: <span>{{studentId}}</span>
-    {{else}}
-    Working without a
-    <span class="expand-ribbon">Student Profile</span>
-    {{/if}}
-    <iron-icon icon="icons:arrow-drop-down" class="expand-ribbon"></iron-icon>
-    <paper-ripple></paper-ripple>
+      <div class="ribbon-menu">
+        {{#if studentId}}
+        <div class="ribbon-menus">Student: <span>{{studentId}}</span></div>
+        {{else}}
+        <div class="ribbon-menus">Working without a <span class="expand-ribbon">Student Profile</span></div>
+        {{/if}}
+        <iron-icon icon="icons:arrow-drop-down" class="expand-ribbon ribbon-icon"></iron-icon>
+        {{#if userId}}
+        <div class="ribbon-menus" style="text-align: end; padding-right: 28px;">Advisor: <span>{{userId}}</span></div>
+        {{else}}
+        <div class="ribbon-menus" style="text-align: end; padding-right: 28px;">Advisor: <span class="expand-ribbon">Please click here to login...</span></div>
+        {{/if}}
+      </div>
+      <paper-ripple></paper-ripple>
     </div>
   </div>
 </template>

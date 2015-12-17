@@ -5,13 +5,15 @@ Template.topribbon.helpers({
 });
 
 Template.topribbon.events({
-  "click .top-ribbon": function (event,template) {
-    if (template.$("iron-icon").attr("icon") != "icons:arrow-drop-up") {
+  "click .ribbon-title": function (event,template) {
+    if (template.$(".ribbon-icon").attr("icon") != "icons:arrow-drop-up") {
       template.$(".top-ribbon").animate({height:"240px"}, 200, function() {});
-      template.$("iron-icon").attr("icon","icons:arrow-drop-up");
+      template.$(".ribbon-icon").attr("icon","icons:arrow-drop-up");
+      template.$(".top-ribbon-hidden").fadeIn();
     } else {
       template.$(".top-ribbon").animate({height:"24px"}, 200, function() {});
-      template.$("iron-icon").attr("icon","icons:arrow-drop-down");
+      template.$(".ribbon-icon").attr("icon","icons:arrow-drop-down");
+      template.$(".top-ribbon-hidden").fadeOut(100);
     }
   },
   "click": function(event,template){
@@ -28,5 +30,11 @@ Template.topribbon.events({
       "offsetY": event.offsetY,
       "timestamp": new Date()
     });
+  },
+  "click paper-input": function(event,template) {
+    template.$(".top-ribbon-save").attr("raised","true");
+  },
+  "click .top-ribbon-save": function(event,template) {
+    Session.set("user-name", template.$("paper-input").val());
   }
 });
