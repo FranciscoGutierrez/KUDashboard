@@ -7,7 +7,7 @@
           <div class="top-ribbon-subtitle" style="padding-bottom: 10px; width: 412px; height: 60px;">Welcome, <b>{{userName}}!</b></div>
           {{else}}
           <div class="top-ribbon-input">
-            <paper-input label="Welcome," type="search" placeholder="Please, type here your name..."></paper-input>
+            <paper-input label="Welcome," type="search" minlength="3" placeholder="Please, type here your name..."></paper-input>
             <paper-button class="top-ribbon-save"><iron-icon icon="save"></iron-icon>Save</paper-button>
           </div>
           {{/if}}

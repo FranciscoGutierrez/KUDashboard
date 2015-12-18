@@ -21,6 +21,7 @@ Router.route('/:_id', {
     Session.set("data-to","2012");
     Session.set("studentdata","redo");
     Session.set("studentYear","all");
+
     if(courses) {
       Session.set("selected-course", courses[0]);
     } else {
@@ -30,9 +31,9 @@ Router.route('/:_id', {
     * Handling suscriptions (Start)
     */
     Meteor.subscribe("this_student", student, function() {
-      Meteor.subscribe("this_courses", courses, function(){
+      Meteor.subscribe("historial", function() {
         Meteor.subscribe("studentgrades", Session.get("student"), function() {
-          Meteor.subscribe("historial", function() {
+          Meteor.subscribe("this_courses", courses, function(){
             for (i = 0; i<courses.length; i++){
               Meteor.subscribe('sufficientgrades',courses[i], function(){});
               Meteor.subscribe('failuregrades',   courses[i], function(){});
