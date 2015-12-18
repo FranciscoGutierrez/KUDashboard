@@ -59,10 +59,14 @@ Template.aspectswidget.events({
         "sessionId": Meteor.connection._lastSessionId,
         "user": Session.get("user-name"),
         "profile": Session.get("user-profile"),
+        "prediction": Session.get("riskValue"),
+        "uncertainty":Session.get("qualityValue"),
+        "courses":Session.get("courses"),
+        "load":Session.get("load"),
         "template": template.view.name,
         "target": $(event.target).first().attr('class'),
-        "screenX": event.screenX,
-        "screenY": event.screenY,
+        "x": (event.pageX - $('.coursescard-paper').offset().left) + $(".content").scrollLeft(),
+        "y": (event.pageY - $('.coursescard-paper').offset().top)  + $(".content").scrollTop(),
         "timestamp": new Date()
       });
     }
