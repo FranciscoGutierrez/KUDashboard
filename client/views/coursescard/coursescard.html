@@ -46,12 +46,11 @@
           <div class="control-title">Course Details</div>
           <div class="horizontal-section">
             <div class="selected-container animated fadeIn">
-              <div class="selected-course" checked>
+              <div class="selected-course" style="cursor: default;">
                 <div id="checkboxLabel" class="selected-course-meta">
                   <div class="course-name">{{selectedCourse.name}}</div>
                   <div class="course-id">{{selectedCourse._id}} - {{selectedCourse.credits}} Credits</div>
                 </div>
-                <paper-ripple></paper-ripple>
               </div>
             </div>
           </div>
@@ -59,12 +58,11 @@
           <div class="control-title">Course Details</div>
           <div class="horizontal-section">
             <div class="selected-container animated fadeIn">
-              <div class="selected-course" checked>
+              <div class="selected-course" style="cursor: default;">
                 <div id="checkboxLabel" class="selected-course-meta">
                   <div class="course-name">Select a course to see more details.</div>
                   <!-- <div class="course-id">{{selectedCourse._id}} - {{selectedCourse.credits}} Credits</div> -->
                 </div>
-                <paper-ripple></paper-ripple>
               </div>
             </div>
           </div>
@@ -148,7 +146,8 @@
         Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
       </div> -->
       <div class="help-text ht-middle">
-        Shows helpful information.
+        Shows the courses that the student wants to take the next semester.
+        Courses can be added or removed by pressing the settings button.
       </div>
       <!-- <div class="help-text ht-bottom">
         Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.

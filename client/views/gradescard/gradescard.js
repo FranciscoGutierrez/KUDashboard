@@ -52,7 +52,6 @@ Template.gradescard.events({
   "click .gc-toggle": function(event,template) {
     var grades = {courses: Session.get("courses"), student: Session.get("student")};
     template.$(".gc-progress").fadeIn();
-    template.$(".cc-nothing-message").text("Loading dataset...");
     Meteor.subscribe("grades", grades, function() {
       Session.set("gc-toggle",template.$(".gc-toggle").attr("checked"));
       template.$(".gc-progress").fadeOut();
