@@ -70,8 +70,20 @@ Template.coursefactors.events({
 Template.coursefactors.helpers({
   sessionCourses: function() {
     var courses = Session.get("courses");
-    var sc;
+    var sc = [];
     if(courses) sc = Courses.find({"_id": {$in: courses }}).fetch();
+    
+    $('.cf-checkbox').each(function() {
+      if($(this).attr("checked")) {
+        CoursesFactorsChart.datasets[0].points[0].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor1*100)/5);
+        CoursesFactorsChart.datasets[0].points[1].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor2*100)/5);
+        CoursesFactorsChart.datasets[0].points[2].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor3*100)/5);
+        CoursesFactorsChart.datasets[0].points[3].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor4*100)/5);
+        CoursesFactorsChart.datasets[0].points[4].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor5*100)/5);
+      }
+    });
+    CoursesFactorsChart.update();
+
     return sc;
   }
 });
@@ -79,7 +91,7 @@ Template.coursefactors.helpers({
 Template.coursefactors.rendered = function(){
   setTimeout(function() {
     var courses = Session.get("courses");
-    var sc;
+    var sc = [];
     if(courses) sc = Courses.find({"_id": {$in: courses }}).fetch();
     var obj = [0,0,0,0,0];
     for (i=0; i< sc.length; i++){

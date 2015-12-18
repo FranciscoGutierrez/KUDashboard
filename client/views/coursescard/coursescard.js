@@ -131,17 +131,29 @@ Template.semesterplan.events({
   },
   "click .cc-course": function(event,template) {
     var id = this._id;
-    $(".gradescard-paper").find("circle").css("fill-opacity","0.15");
+    $(".gradescard-paper").find("circle").css("fill","#eceff1");
+    $(".gradescard-paper").find("circle").css("fill-opacity","0.65");
     $(".gradescard-paper").find("circle").css("stroke","none");
 
-    $("."+ id).css("fill-opacity","1");
+    $("."+id+".sg-excellent").css("fill","#25a085");
+    $("."+id+".sg-good").css("fill","#27ae60");
+    $("."+id+".sg-regular").css("fill","#f0c30e");
+    $("."+id+".sg-lazy").css("fill","#e67d22");
+    // $("."+ id+".sg-bad").css("fill","#b25d7e");
+    $(".sg-this").css("fill","#b25d7e");
+
+    $("."+id+".sg-excellent").css("fill-opacity","1");
+    $("."+id+".sg-good").css("fill-opacity","1");
+    $("."+id+".sg-regular").css("fill-opacity","1");
+    $("."+id+".sg-lazy").css("fill-opacity","1");
+    // $("."+ id+".sg-bad").css("fill-opacity","1");
     $(".sg-this").css("fill-opacity","1");
     $("."+id).css("stroke","#ececec");
 
     /* background coloring */
     template.$(".cc-course").css("background","white");
-    $(event.target).parents(".cc-course").css("background","#eeeeee");
-    if($(event.target).hasClass('cc-course')) $(event.target).css("background","#eeeeee");
+    $(event.target).parents(".cc-course").css("background","#eceff1");
+    if($(event.target).hasClass('cc-course')) $(event.target).css("background","#eceff1");
     /* set my session for globals */
     Session.set("selected-course",id);
   },
