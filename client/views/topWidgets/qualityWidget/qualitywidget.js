@@ -21,6 +21,19 @@ Template.qualitywidget.helpers({
     if (quality >= 0.6) $(".quality-bubble > #svgCircle").css("stroke","#27ae60");
     if (quality >= 0.8) $(".quality-bubble > #svgCircle").css("stroke","#25a085");
     return quality;
+  },
+  casesNumber: function(){
+    return "45"
+  },
+  casesText: function () {
+    var quality = Session.get("qualityValue");
+    var text = "Not trustworthy";
+    if (quality >= 0.0) text = "Not Trustworthy";
+    if (quality >= 0.2) text = "Not Trustworthy";
+    if (quality >= 0.5) text = "Not Trustworthy";
+    if (quality >= 0.6) text = "Trustworthy";
+    if (quality >= 0.8) text = "Trustworthy";
+    return text;
   }
 });
 
