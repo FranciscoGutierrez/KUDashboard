@@ -14,6 +14,7 @@ function onClose(evt) {
 }
 function onMessage(evt) {
   var recieved = JSON.parse(evt.data);
+  console.log(recieved);
   Session.set("riskValue",recieved.risk);
   Session.set("qualityValue",recieved.quality);
 }

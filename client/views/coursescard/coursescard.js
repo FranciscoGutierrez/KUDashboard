@@ -15,7 +15,7 @@ Template.semesterplan.events({
   "click .settings-icon, click .cc-nothing-add": function (event,template) {
     if(!template.$(".card-settings-icon").hasClass("opened")) {
       template.$(".card-settings-icon").addClass("opened");
-      template.$(".card-content").animate({"min-width":"+=350px"},"slow", function(){
+      template.$(".card-content").animate({"min-width":"+=483px"},"fast", function(){
         template.$(".settings-content").css("display","flex");
         template.$(".card-settings-icon > iron-icon").fadeOut(200, function(){
           template.$(".card-settings-icon > iron-icon").attr("icon","icons:close").fadeIn(300);
@@ -24,7 +24,7 @@ Template.semesterplan.events({
     } else {
       template.$(".card-settings-icon").removeClass("opened");
       template.$(".settings-content").hide();
-      template.$(".card-content").animate({"min-width":"-=350px"},"slow ", function(){
+      template.$(".card-content").animate({"min-width":"-=483px"},"fast ", function(){
         template.$(".card-settings-icon > iron-icon").fadeOut(200, function(){
           template.$(".card-settings-icon > iron-icon").attr("icon","icons:settings").fadeIn(300);
         });
@@ -245,6 +245,7 @@ Template.semesterplan.helpers({
     var courses = Session.get("courses");
     var credits = 0;
     var bol = false;
+    var color = "#939396";
     if (courses) {
       sc = Courses.find({"_id": {$in: courses }}).fetch();
       for (i = 0; i < sc.length; i++) {
@@ -252,7 +253,10 @@ Template.semesterplan.helpers({
       }
     }
     Session.set("load",credits);
-    if (credits >= 30) bol = true;
-    return {credits:credits, warning: bol};
+    if (credits >= 30) {
+      bol = true;
+      color = "#e64c3c";
+    }
+    return {credits:credits, warning: bol, color: color};
   }
 });

@@ -57,10 +57,14 @@ Template.coursefactors.events({
         "sessionId": Meteor.connection._lastSessionId,
         "user": Session.get("user-name"),
         "profile": Session.get("user-profile"),
+        "prediction": Session.get("riskValue"),
+        "uncertainty":Session.get("qualityValue"),
+        "courses":Session.get("courses"),
+        "load":Session.get("load"),
         "template": template.view.name,
         "target": $(event.target).first().attr('class'),
-        "screenX": event.screenX,
-        "screenY": event.screenY,
+        "x": (event.pageX - $('.coursescard-paper').offset().left) + $(".content").scrollLeft(),
+        "y": (event.pageY - $('.coursescard-paper').offset().top)  + $(".content").scrollTop(),
         "timestamp": new Date()
       });
     }
@@ -72,7 +76,7 @@ Template.coursefactors.helpers({
     var courses = Session.get("courses");
     var sc = [];
     if(courses) sc = Courses.find({"_id": {$in: courses }}).fetch();
-    
+
     $('.cf-checkbox').each(function() {
       if($(this).attr("checked")) {
         CoursesFactorsChart.datasets[0].points[0].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor1*100)/5);
