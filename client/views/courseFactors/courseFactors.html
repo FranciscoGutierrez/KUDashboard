@@ -31,6 +31,18 @@
             {{#each sessionCourses}}
             <paper-checkbox value="{{code}}" class="cf-checkbox  animated fadeIn" checked>{{name}}</paper-checkbox>
             {{/each}}
+            {{#unless sessionCourses}}
+            <div class="horizontal-section">
+              <div class="selected-container animated fadeIn">
+                <div class="selected-course" checked>
+                  <div id="checkboxLabel" class="selected-course-meta">
+                    <div class="course-name">Select a course to see more details.</div>
+                  </div>
+                  <paper-ripple></paper-ripple>
+                </div>
+              </div>
+            </div>
+            {{/unless}}
           </div>
         </div>
       </div>
