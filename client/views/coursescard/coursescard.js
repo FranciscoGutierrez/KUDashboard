@@ -164,13 +164,13 @@ Template.semesterplan.events({
     $(event.target).find(".cc-passed-legend").fadeOut();
   },
   "click .card-info": function (event,template) {
-    template.$(".help-info").css("display","flex");
+    template.$(".help-info").fadeIn();
   },
   "click .close-info": function (event,template) {
-    template.$(".help-info").fadeOut("fast");
+    template.$(".help-info").fadeOut();
   },
   "click .help-info": function (event,template) {
-    template.$(".help-info").fadeOut("fast");
+    template.$(".help-info").fadeOut();
   }
 });
 

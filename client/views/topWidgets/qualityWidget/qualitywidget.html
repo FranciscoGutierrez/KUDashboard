@@ -6,19 +6,20 @@
           {{quality.text}}
           <div style="font-size: 12px; display:inline; color:#c6c6c6;"></div>
         </div>
-        <!-- <div class="progress-subtitle">{{qualityText}}</div> -->
       </progress-bubble>
     </div>
     <div class="widget-title">
       <div class="widget-title-text">Prediction Quality</div>
       <iron-icon class="widget-title-icon quality-info" icon="icons:info"></iron-icon>
     </div>
-    <!-- <div class="widget-subtitle">{{qualityText}}</div> -->
-    <div class="help-info animated fadeIn" style="border-radius: 5px;">
+    <paper-spinner style="position: absolute; bottom:30px; right: 20px;" class="hr-spinner" active></paper-spinner>
+    <div class="help-info" style="border-radius: 5px;">
       <iron-icon class="close-info" icon="icons:clear"></iron-icon>
-      <div class="help-text">
-        The prediction is based on <u>{{quality.cases}}</u> number of cases.
-        Thus, the prediction is considered <u>{{quality.casestext}}</u>
+      <div class="help-info-container">
+        <div class="help-text">
+          The prediction is based on <u>{{quality.cases}}</u> number of cases.
+          Thus, the prediction is considered <u>{{quality.casestext}}</u>
+        </div>
       </div>
     </div>
   </div>

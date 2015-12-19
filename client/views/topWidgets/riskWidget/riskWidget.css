@@ -100,6 +100,16 @@
   z-index: 1;
 }
 
+.help-info-container {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  height: 100%;
+  width:  100%;
+}
+
 .help-info iron-icon.iron-icon-0 {
   fill: white;
 }
@@ -121,4 +131,6 @@
   position: absolute;
   top:   1%;
   right: 1%;
+  cursor: pointer;
+  z-index: 100;
 }

@@ -6,27 +6,27 @@ Template.qualitywidget.helpers({
     if (quality >= 0.0){
       text = "Very Poor";
       casestext = "Untrustworthy";
-      $(".quality-bubble > #svgCircle").css("stroke","#e74c3c");
+      $(".quality-bubble #svgCircle").css("stroke","#e74c3c !important");
     }
     if (quality >= 0.2){
       text = "Poor";
       casestext = "Untrustworthy";
-      $(".quality-bubble > #svgCircle").css("stroke","#e67e22");
+      $(".quality-bubble #svgCircle").css("stroke","#e67e22 !important");
     }
     if (quality >= 0.4) {
       text = "Fair";
       casestext = "Untrustworthy";
-      $(".quality-bubble > #svgCircle").css("stroke","#f1c40f");
+      $(".quality-bubble > #svgCircle").css("stroke","#f1c40f !important");
     }
     if (quality >= 0.6) {
       text = "Good";
       casestext = "Trustworthy";
-      $(".quality-bubble > #svgCircle").css("stroke","#27ae60");
+      $(".quality-bubble #svgCircle").css("stroke","#27ae60 !important");
     }
     if (quality >= 0.8) {
       text = "Very Good";
       casestext = "Trustworthy";
-      $(".quality-bubble > #svgCircle").css("stroke","#25a085");
+      $(".quality-bubble #svgCircle").css("stroke","#25a085 !important");
     }
     return {
       "value": parseInt(Math.round(quality*100)),
@@ -39,7 +39,7 @@ Template.qualitywidget.helpers({
 
 Template.qualitywidget.events({
   "click .quality-info": function (event,template) {
-    template.$(".help-info").css("display","flex");
+    template.$(".help-info").fadeIn();
   },
   "click .close-info": function (event,template) {
     template.$(".help-info").fadeOut();

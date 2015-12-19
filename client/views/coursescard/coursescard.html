@@ -41,7 +41,7 @@
       </div>
       <!-- Bottom card content -->
       <div class="card-content-bottom cc-content-bottom">
-        <div class="card-content-control">
+        <div class="card-content-control" style="margin-top: 15px;">
           {{#if selectedCourse}}
           <div class="control-title">Course Details</div>
           <div class="horizontal-section">
@@ -68,7 +68,7 @@
           </div>
           {{/if}}
         </div>
-        <div class="card-content-control" style="position: relative;">
+        <div class="card-content-control" style="position: relative; margin-top: 10px;">
           <div class="control-title">
             Credits
             {{#if numberCredits.warning}}
@@ -139,19 +139,22 @@
         </div>
         {{/if}}
       </div>
+      <paper-spinner style="position: absolute; bottom:15px; right: 10px;" class="sw-spinner" active></paper-spinner>
     </div>
-    <div class="help-info animated fadeIn">
+    <div class="help-info">
       <iron-icon class="close-info" icon="icons:clear"></iron-icon>
-      <!-- <div class="help-text ht-top">
+      <div class="help-info-container">
+        <!-- <div class="help-text ht-top">
         Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
       </div> -->
       <div class="help-text ht-middle">
         Shows the courses that the student wants to take the next semester.
         Courses can be added or removed by pressing the settings button.
       </div>
-      <!-- <div class="help-text ht-bottom">
-        Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
-      </div> -->
+      <div class="ht-bottom" style="color: white; font-size: 13px;">
+        [click anywhere to close]
+      </div>
     </div>
-  </paper-material>
+  </div>
+</paper-material>
 </template>

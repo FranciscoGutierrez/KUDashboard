@@ -71,6 +71,7 @@
 }
 
 .cc-name {
+  padding-top: 3px;
   padding-left:3px;
   color: #424242;
   overflow: hidden;

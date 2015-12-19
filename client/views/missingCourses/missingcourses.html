@@ -22,9 +22,9 @@
           {{> reactiveTable collection=selectedCourses settings=settings}}
         </div>
       </div>
-      <!-- Middle Content -->
+      <!-- Bottom Content -->
       <div class="card-content-bottom mc-content-bottom">
-        <div class="card-content-control">
+        <div class="card-content-control" style="margin-top: 15px;">
           <div class="control-title">Show Courses</div>
           <div class="mc-selected-years" style="padding-top: 5px; padding-bottom: 5px;">
             <paper-radio-group selected="redo">
@@ -47,18 +47,20 @@
         </div>
       </div>
     </div>
-    <div class="help-info animated fadeIn">
+    <div class="help-info">
       <iron-icon class="close-info" icon="icons:clear"></iron-icon>
-      <!-- <div class="help-text ht-top">
-      Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
-    </div> -->
-    <div class="help-text ht-middle">
-      Shows a tabular representation of the student's academic history.
-      Scores can be filtered by result [passed, failed].
+      <div class="help-info-container">
+        <!-- <div class="help-text ht-top">
+        Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
+      </div> -->
+      <div class="help-text ht-middle">
+        Shows a tabular representation of the student's academic history.
+        Scores can be filtered by result [passed, failed].
+      </div>
+      <div class="ht-bottom" style="color: white; font-size: 13px;">
+        [click anywhere to close]
+      </div>
     </div>
-    <!-- <div class="help-text ht-bottom">
-    Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
-  </div> -->
-</div>
+  </div>
 </paper-material>
 </template>

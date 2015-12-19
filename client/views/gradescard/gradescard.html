@@ -22,7 +22,7 @@
       </div>
       {{#if isOn}}
       <!-- Middle Content -->
-      <div class="card-content-middle">
+      <div class="card-content-middle" style="margin-top: 30px;">
         {{#if isCourse}}
         <div class="sg-chart-container">
           <div class="sg-vertical-axis">
@@ -85,21 +85,21 @@
         {{/if}}
       </div>
       <!-- Bottom Content -->
-      <div class="card-content-bottom" style="margin-top: 26px;">
+      <div class="card-content-bottom" style="margin-top: 25px;">
         <div class="card-content-control">
           <div class="control-title">Grades</div>
           <div class="card-content-columns">
             <div class="card-content-column">
-              <paper-checkbox class="student-grades" style="margin-top: 5px;" checked>This Student</paper-checkbox>
-              <paper-checkbox class="regular-grades" style="margin-top: 5px;" checked>Good</paper-checkbox>
+              <paper-checkbox class="best-grades" style="margin-top: 10px;" checked>Excellent</paper-checkbox>
+              <paper-checkbox class="regular-grades" style="margin-top: 10px;" checked>Good</paper-checkbox>
             </div>
             <div class="card-content-column">
-              <paper-checkbox class="good-grades" style="margin-top: 5px;" checked>Very Good</paper-checkbox>
-              <paper-checkbox class="lazy-grades" style="margin-top: 5px;" checked>Sufficient</paper-checkbox>
+              <paper-checkbox class="good-grades" style="margin-top: 10px;" checked>Very Good</paper-checkbox>
+              <paper-checkbox class="lazy-grades" style="margin-top: 10px;" checked>Sufficient</paper-checkbox>
             </div>
             <div class="card-content-column">
-              <paper-checkbox class="best-grades" style="margin-top: 5px;" checked>Excellent</paper-checkbox>
-              <paper-checkbox class="bad-grades"  style="margin-top: 5px;" checked>Failure</paper-checkbox>
+              <paper-checkbox class="student-grades" style="margin-top: 10px;" checked>This Student</paper-checkbox>
+              <!-- <paper-checkbox class="bad-grades"  style="margin-top: 10px;" checked>Failure</paper-checkbox> -->
             </div>
           </div>
         </div>
@@ -112,11 +112,16 @@
       </div>
       {{/if}}
     </div>
-    <div class="help-info animated fadeIn">
+    <div class="help-info">
       <iron-icon class="close-info" icon="icons:clear"></iron-icon>
-    <div class="help-text ht-middle">
-      Shows the performance of the student in relation to others based on their academic history.
+      <div class="help-info-container">
+        <div class="help-text ht-middle">
+          Shows the performance of the student in relation to others based on their academic history.
+        </div>
+        <div class="ht-bottom" style="color: white; font-size: 13px;">
+          [click anywhere to close]
+        </div>
+      </div>
     </div>
-</div>
-</paper-material>
+  </paper-material>
 </template>

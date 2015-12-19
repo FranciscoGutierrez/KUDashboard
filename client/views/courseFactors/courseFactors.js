@@ -40,7 +40,7 @@ Template.coursefactors.events({
     }
   },
   "click .card-info": function (event,template) {
-    template.$(".help-info").css("display","flex");
+    template.$(".help-info").fadeIn();
   },
   "click .close-info": function (event,template) {
     template.$(".help-info").fadeOut();
@@ -86,8 +86,7 @@ Template.coursefactors.helpers({
         CoursesFactorsChart.datasets[0].points[4].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor5*100)/5);
       }
     });
-    CoursesFactorsChart.update();
-
+    if(CoursesFactorsChart) CoursesFactorsChart.update();
     return sc;
   }
 });

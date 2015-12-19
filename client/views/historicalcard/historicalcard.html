@@ -21,7 +21,7 @@
       </div>
       {{#if isOn}}
       <!-- Middle Content -->
-      <div class="card-content-middle">
+      <div class="card-content-middle" style="margin-top: 40px;">
         <div class="sg-chart-container">
           <div class="sg-vertical-axis" style="left: -7px;">
             <div class="sg-vertical-axis-title">Students</div>
@@ -48,7 +48,7 @@
         </div>
       </div>
       <!-- Bottom Content -->
-      <div class="card-content-bottom" style="margin-top: 40px;">
+      <div class="card-content-bottom" style="margin-top: 15px;">
         <div class="card-content-control">
           <div class="control-title">Prediction based on</div>
           <div class="horizontal-section">
@@ -71,17 +71,17 @@
       </div>
       {{/if}}
     </div>
-    <div class="help-info animated fadeIn">
+    <div class="help-info">
       <iron-icon class="close-info" icon="icons:clear"></iron-icon>
-      <!-- <div class="help-text ht-top">
-        Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
-      </div> -->
-      <div class="help-text ht-middle">
-        Shows the historical records that are being used to calculate the chance of success. You can adjust the time range of records used for the prediction.
+      <div class="help-info-container">
+        <div class="help-text ht-middle">
+          Shows the historical records that are being used to calculate the chance of success. You can adjust the time range of records used for the prediction.
+        </div>
+        <div class="ht-bottom" style="color: white; font-size: 13px;">
+          [click anywhere to close]
+        </div>
       </div>
-      <!-- <div class="help-text ht-bottom">
-        Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
-      </div> -->
     </div>
+    <paper-spinner style="position: absolute; bottom:20px; right: 20px;" class="hr-spinner" active></paper-spinner>
   </paper-material>
 </template>
