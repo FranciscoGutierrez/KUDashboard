@@ -90,12 +90,12 @@
           <div class="control-title">Grades</div>
           <div class="card-content-columns">
             <div class="card-content-column">
-              <paper-checkbox class="best-grades" style="margin-top: 10px;" checked>Excellent</paper-checkbox>
-              <paper-checkbox class="regular-grades" style="margin-top: 10px;" checked>Good</paper-checkbox>
-            </div>
-            <div class="card-content-column">
               <paper-checkbox class="good-grades" style="margin-top: 10px;" checked>Very Good</paper-checkbox>
               <paper-checkbox class="lazy-grades" style="margin-top: 10px;" checked>Sufficient</paper-checkbox>
+            </div>
+            <div class="card-content-column">
+              <paper-checkbox class="best-grades" style="margin-top: 10px;" checked>Excellent</paper-checkbox>
+              <paper-checkbox class="regular-grades" style="margin-top: 10px;" checked>Good</paper-checkbox>
             </div>
             <div class="card-content-column">
               <paper-checkbox class="student-grades" style="margin-top: 10px;" checked>This Student</paper-checkbox>
@@ -104,13 +104,10 @@
           </div>
         </div>
       </div>
-      {{else}}
-      <div class="card-content-middle">
-        <div class="cc-nothing animated fadeIn" style="background: none; height: 400px;">
-          <div class="cc-nothing-message">This card is turned off.</div>
-        </div>
-      </div>
       {{/if}}
+      <div class="cc-nothing animated fadeIn" style="background: none; height: 400px; display: none;">
+        <div class="cc-nothing-message">This card is turned off.</div>
+      </div>
     </div>
     <div class="help-info">
       <iron-icon class="close-info" icon="icons:clear"></iron-icon>

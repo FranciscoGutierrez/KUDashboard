@@ -47,9 +47,12 @@
           <div class="horizontal-section">
             <div class="selected-container animated fadeIn">
               <div class="selected-course" style="cursor: default;">
-                <div id="checkboxLabel" class="selected-course-meta">
+                <div id="checkboxLabel" class="selected-course-meta" style="width: 100%;">
                   <div class="course-name">{{selectedCourse.name}}</div>
-                  <div class="course-id">{{selectedCourse._id}} - {{selectedCourse.credits}} Credits</div>
+                  <div style="display: flex; justify-content: space-between;">
+                    <div class="course-id">{{selectedCourse.id}} - {{selectedCourse.credits}} Credits</div>
+                    <div class="course-id" style="align-self: flex-end;">Only {{selectedCourse.passed}} ({{selectedCourse.percent}}%) have passed.</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -61,7 +64,6 @@
               <div class="selected-course" style="cursor: default;">
                 <div id="checkboxLabel" class="selected-course-meta">
                   <div class="course-name">Select a course to see more details.</div>
-                  <!-- <div class="course-id">{{selectedCourse._id}} - {{selectedCourse.credits}} Credits</div> -->
                 </div>
               </div>
             </div>
@@ -149,6 +151,7 @@
       </div> -->
       <div class="help-text ht-middle">
         Shows the courses that the student wants to take the next semester.
+        Failed curses are shown by default.
         Courses can be added or removed by pressing the settings button.
       </div>
       <div class="ht-bottom" style="color: white; font-size: 13px;">

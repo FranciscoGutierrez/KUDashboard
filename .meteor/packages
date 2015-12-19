@@ -27,3 +27,4 @@ ejson                     # Needed for instant search
 natestrauser:animate-css  # Daneden's Animate CSS
 iron:router
 aslagle:reactive-table
+lookback:tooltips

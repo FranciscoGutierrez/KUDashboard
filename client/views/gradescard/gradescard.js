@@ -50,13 +50,25 @@ Template.gradescard.events({
     }
   },
   "click .gc-toggle": function(event,template) {
-    var grades = {courses: Session.get("courses"), student: Session.get("student")};
-    template.$(".gc-progress").fadeIn();
-    Meteor.subscribe("grades", grades, function() {
-      Session.set("gc-toggle",template.$(".gc-toggle").attr("checked"));
-      template.$(".gc-progress").fadeOut();
-      template.$(".cc-nothing-message").text("This Card is Turned Off");
-    });
+    // var grades = {courses: Session.get("courses"), student: Session.get("student")};
+    // template.$(".gc-progress").fadeIn();
+    // Meteor.subscribe("grades", grades, function() {
+    //   Session.set("gc-toggle",template.$(".gc-toggle").attr("checked"));
+    //   template.$(".gc-progress").fadeOut();
+    //   template.$(".cc-nothing-message").text("This Card is Turned Off");
+    // });
+    if(template.$(".gc-toggle").attr("checked")){
+      Session.set(".gc-toggle",true);
+      template.$(".card-content-middle").fadeIn();
+      template.$(".card-content-bottom").fadeIn();
+      template.$(".cc-nothing").fadeOut();
+    }
+    else {
+      Session.set(".gc-toggle",false);
+      template.$(".card-content-middle").fadeOut();
+      template.$(".card-content-bottom").fadeOut();
+      template.$(".cc-nothing").fadeIn();
+    }
   },
   "change .gc-paper-slider": function(event,template) {
     var n = template.$(".gc-paper-slider").attr("value");
@@ -112,7 +124,7 @@ Template.registerHelper('isCourse',function(input){
 */
 Template.gradescard.helpers({
   excellent: function () {
-    var sc   = Grades.find({grade: { $gte : "16", $lte : "20" }}).fetch();
+    var sc   = Grades.find({grade: { $gte : "18", $lte : "20" }}).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#25a085";
       sc[i].grade        = ((sc[i].grade-9) * 280)/9;
@@ -121,7 +133,7 @@ Template.gradescard.helpers({
     return sc;
   },
   good: function () {
-    var sc   = Grades.find({ grade: { $gte : "15", $lt : "16" } }).fetch();
+    var sc   = Grades.find({ grade: { $gte : "15", $lt : "18" } }).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#27ae60";
       sc[i].grade        = ((sc[i].grade-9) * 280)/9;
@@ -159,8 +171,8 @@ Template.gradescard.helpers({
   thisStudent: function() {
     var sc = Students.findOne({});
     if(sc) {
-      if(sc.gpa >= 10) sc.gpa = ((sc.gpa-10) * 320)/10;
-      if(sc.gpa <  10) sc.gpa = 0;
+      if(sc.gpa >= 10) sc.gpa = ((sc.gpa-9) * 280)/9;
+      if(sc.gpa <  10) sc.gpa = 15;
       sc.performance = 190 - (sc.performance * 190)/20;
     }
     return sc;

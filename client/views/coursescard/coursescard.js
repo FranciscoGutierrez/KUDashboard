@@ -132,7 +132,7 @@ Template.semesterplan.events({
   "click .cc-course": function(event,template) {
     var id = this._id;
     $(".gradescard-paper").find("circle").css("fill","#eceff1");
-    $(".gradescard-paper").find("circle").css("fill-opacity","0.65");
+    $(".gradescard-paper").find("circle").css("fill-opacity","0.2");
     $(".gradescard-paper").find("circle").css("stroke","none");
 
     $("."+id+".sg-excellent").css("fill","#25a085");
@@ -229,7 +229,18 @@ Template.semesterplan.helpers({
     return Session.get("cc-compliance");
   },
   selectedCourse: function() {
-    return Courses.findOne({ "_id" : Session.get("selected-course")});
+    var x = Courses.findOne({ "_id" : Session.get("selected-course")});
+    var y = false;
+    if(x) {
+      y = {
+        "name": x.name,
+        "id": x._id,
+        "credits": x.credits,
+        "passed": x.passed > 999 ? (x.passed/1000).toFixed(1) + 'k' : x.passed,
+        "percent": Math.round((x.passed*100)/x.students)
+      };
+    }
+    return y;
   },
   numberCourses: function() {
     var size = 0;

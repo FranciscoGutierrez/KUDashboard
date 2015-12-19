@@ -26,6 +26,24 @@ Router.route('/:_id', {
       Session.set("selected-course", courses[0]);
     } else {
       $(".loading-screen").remove();
+      var grades = Grades.find({
+        "student":Session.get("student"),
+        "status": "Failed"},
+        {$limit : 7}).fetch();
+
+      var failed = [];
+      for (j = 0; j< grades.length; j++) {
+        failed.push(grades[j].course);
+      }
+      Session.set("courses",failed);
+      courses = Session.get("courses");
+      for (i = 0; i<courses.length; i++){
+        Meteor.subscribe('sufficientgrades',courses[i], function(){});
+        Meteor.subscribe('failuregrades',   courses[i], function(){});
+        Meteor.subscribe('goodgrades',      courses[i], function(){});
+        Meteor.subscribe('verygoodgrades',  courses[i], function(){});
+        Meteor.subscribe('excellentgrades', courses[i], function(){});
+      }
     }
     /*
     * Handling suscriptions (Start)
