@@ -49,8 +49,8 @@ Template.studentdata.events({
         "load":Session.get("load"),
         "template": template.view.name,
         "target": $(event.target).first().attr('class'),
-        "x": (event.pageX - $('.coursescard-paper').offset().left) + $(".content").scrollLeft(),
-        "y": (event.pageY - $('.coursescard-paper').offset().top)  + $(".content").scrollTop(),
+        "x": (event.pageX - $('.missingcourses-paper').offset().left) + $(".content").scrollLeft(),
+        "y": (event.pageY - $('.missingcourses-paper').offset().top)  + $(".content").scrollTop(),
         "timestamp": new Date()
       });
     }
