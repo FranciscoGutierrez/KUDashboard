@@ -46,9 +46,9 @@ Meteor.publish("historial", function (who) {
   return Historial.find();
 });
 
-Meteor.publish("this_courses", function (who) {
+Meteor.publish("this_courses", function () {
   // return Courses.find({"_id": {$in: who }});
-  return Courses.find({});
+  return Courses.find();
 });
 
 SearchSource.defineSource('courses', function(searchText, options) {

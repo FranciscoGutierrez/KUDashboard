@@ -34,6 +34,7 @@ Template.semesterplan.events({
   "keyup #search-box, click #input": _.throttle(function(event,template) {
     template.$(".search-results").show();
     var text = $(event.target).val().trim();
+    console.log(text);
     PackageSearch.search(text);
   }, 200),
   "click": function(event,template){
@@ -64,8 +65,8 @@ Template.semesterplan.events({
     if(courses.length < 7) {
       courses = _.extend([], courses);
       courses.push(course._id);
-      Session.set("courses", courses);
-
+      Session.set("courses",courses);
+      Session.set("loading",true);
       Meteor.subscribe("this_student", Session.get("student"), function() {
         Meteor.subscribe("this_courses", Session.get("courses"), function(){
           Meteor.subscribe("studentgrades", Session.get("student"), function() {
@@ -77,23 +78,21 @@ Template.semesterplan.events({
           });
         });
       });
-
-      var str = "";
-      if(courses) {
-        for (var i=0; i<courses.length-1; i++) str += '{"id": "'+courses[i]+'", "compliance": 5},';
-        str+= '{"id": "'+courses[courses.length-1]+'", "compliance": 5}';
-        Websocket.send('{"requestId": "5645f7f7ef0bde57344c84de",'+
-        '"student": [{"id": '+Session.get("student")+',"gpa": 7.0793,'+
-        '"performance": 0.6,"compliance": 3}],'+
-        '"courses": ['+ str + '],'+
-        '"data": [{"from": 2009,"to": 2015,'+
-        '"program": true,'+
-        '"sylabus": true,'+
-        '"evaluation": false,'+
-        '"instructors": true,'+
-        '"compliance": 2}]}');
-      }
-
+      // var str = "";
+      // if(courses) {
+      //   for (var i=0; i<courses.length-1; i++) str += '{"id": "'+courses[i]+'", "compliance": 5},';
+      //   str+= '{"id": "'+courses[courses.length-1]+'", "compliance": 5}';
+      //   Websocket.send('{"requestId": "5645f7f7ef0bde57344c84de",'+
+      //   '"student": [{"id": '+Session.get("student")+',"gpa": 7.0793,'+
+      //   '"performance": 0.6,"compliance": 3}],'+
+      //   '"courses": ['+ str + '],'+
+      //   '"data": [{"from": 2009,"to": 2015,'+
+      //   '"program": true,'+
+      //   '"sylabus": true,'+
+      //   '"evaluation": false,'+
+      //   '"instructors": true,'+
+      //   '"compliance": 2}]}');
+      // }
     } else {
       $("#paperToast").attr("text","Can't add more courses.");
       document.querySelector('#paperToast').show();
@@ -101,6 +100,7 @@ Template.semesterplan.events({
   },
   "click .remove-selected-course": function(event,template) {
     var id = this._id;
+    Session.set("loading",true);
     $(event.target).parent().fadeOut('slow', function (){
       var courses = Session.get("courses");
       for(var i = courses.length; i--;) {

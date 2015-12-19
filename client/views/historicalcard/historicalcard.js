@@ -176,6 +176,7 @@ Template.historicalcard.rendered = function () {
       grid: true,
       grid_snap: true,
       onChange: function(data) {
+        Session.set("loading",true);
         Session.set("data-from",data.from);
         Session.set("data-to",data.to);
         var courses = Session.get('courses');
