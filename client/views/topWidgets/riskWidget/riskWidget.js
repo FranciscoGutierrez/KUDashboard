@@ -26,6 +26,9 @@ Template.riskwidget.helpers({
       number : parseInt(Math.round(risk*100)) || 0,
       text : text
     };
+  },
+  loading: function() {
+    return Session.get("loading");
   }
 });
 

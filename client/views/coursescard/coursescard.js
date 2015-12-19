@@ -269,5 +269,8 @@ Template.semesterplan.helpers({
       color = "#e64c3c";
     }
     return {credits:credits, warning: bol, color: color};
+  },
+  loading: function() {
+    return Session.get("loading");
   }
 });

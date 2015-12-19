@@ -162,6 +162,9 @@ Template.historicalcard.helpers({
   },
   to: function () {
     return Session.get("data-to");
+  },
+  loading: function(){
+    return Session.get("loading");
   }
 });
 

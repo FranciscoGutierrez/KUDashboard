@@ -1,8 +1,8 @@
-// Websocket = new WebSocket("ws://localhost:9000/test");
+Websocket = new WebSocket("ws://localhost:8000/test");
 // Websocket = new WebSocket("ws://10.43.48.75/test");
 StudentFactorsChart = 0;
 CoursesFactorsChart = 0;
-Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
+// Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
 Websocket.onopen    = function(evt) { onOpen(evt)    };
 Websocket.onclose   = function(evt) { onClose(evt)   };
 Websocket.onmessage = function(evt) { onMessage(evt) };
@@ -17,6 +17,7 @@ function onMessage(evt) {
   console.log(recieved);
   Session.set("riskValue",recieved.risk);
   Session.set("qualityValue",recieved.quality);
+  Session.set("loading",false);
 }
 
 function onError(evt) { console.log("ws:error: " + evt.data); }
@@ -55,7 +56,8 @@ $(document).ready(function() {
     } else if (Websocket.readyState == 3) {
       $("#paperToast").attr("text","Connection lost, reconnecting...");
       document.querySelector('#paperToast').show();
-      Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
+      Websocket = new WebSocket("ws://localhost:8000/test");
+      // Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
       Websocket.onopen    = function(evt) { onOpen(evt)   };
       Websocket.onclose   = function(evt) { onClose(evt)  };
       Websocket.onmessage = function(evt) { onMessage(evt)};

@@ -34,6 +34,9 @@ Template.qualitywidget.helpers({
       "casestext": casestext,
       "cases":"45"
     };
+  },
+  loading: function() {
+    return Session.get("loading");
   }
 });
 
