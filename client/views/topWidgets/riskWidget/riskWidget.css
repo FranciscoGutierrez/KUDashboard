@@ -134,3 +134,18 @@
   cursor: pointer;
   z-index: 100;
 }
+
+.risk-progress-bubble {
+  font-weight: bold;
+  font-size: 42px;
+  font-family: 'Roboto', Helvetica, Arial;
+  color: #424242;
+  position: absolute;
+  top: 20%;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

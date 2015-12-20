@@ -63,7 +63,7 @@
       </div>
       {{/if}}
     </div>
-    <div class="help-info">
+    <div class="help-info" style="z-index: 100;">
       <iron-icon class="close-info" icon="icons:clear"></iron-icon>
       <div class="help-info-container">
         <div class="help-text ht-middle">
@@ -75,7 +75,7 @@
       </div>
     </div>
     {{#if loading}}
-    <paper-spinner style="position: absolute; bottom:20px; right: 20px;" class="hr-spinner" active></paper-spinner>
+    <paper-spinner-lite style="position: absolute; bottom:20px; right: 20px;" class="hr-spinner pink" active></paper-spinner-lite>
     {{/if}}
   </paper-material>
 </template>

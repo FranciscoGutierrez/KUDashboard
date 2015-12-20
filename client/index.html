@@ -28,7 +28,7 @@
     padding:0px 4px;
   }
   progress-bubble {
-    --progress-bubble-stroke-color: #617d8a;
+    --progress-bubble-stroke-color: #eceff1;
   }
   paper-radio-button.radio-pink {
     --paper-radio-button-checked-color: #b25d7e;
@@ -51,6 +51,9 @@
   paper-progress.progress-color {
     --paper-progress-active-color:    #b25d7e;
     --paper-progress-secondary-color: #cfcecf;
+  }
+  paper-spinner-lite.pink {
+        --paper-spinner-color: #b25d7e;
   }
   paper-checkbox.gender {
     --paper-checkbox-unchecked-color: #0b4bba;
@@ -103,7 +106,7 @@
   <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
   <link rel="import" href="bower_components/paper-badge/paper-badge.html">
   <link rel="import" href="bower_components/paper-toast/paper-toast.html">
-  <link rel="import" href="bower_components/paper-spinner/paper-spinner.html">
+  <link rel="import" href="bower_components/paper-spinner/paper-spinner-lite.html">
   <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
   <link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
   <link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
@@ -115,7 +118,7 @@
 <body class="unresolved fullbleed layout vertical">
   <div class="loading-screen">
     <div style="display: flex; flex-direction: column; align-items: center;">
-      <paper-spinner alt="Loading Dashboard" active></paper-spinner>
+      <paper-spinner-lite class="pink" alt="Loading Dashboard" active></paper-spinner-lite>
       <h1 style="color:#7c7c7c; font-size: 16px;">Loading Dashboard</h1>
     </div>
   </div>

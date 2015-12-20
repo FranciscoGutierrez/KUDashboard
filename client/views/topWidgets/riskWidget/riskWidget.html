@@ -1,26 +1,31 @@
 <template name="riskwidget">
   <div class="risk-content">
     <div class="risk-content-viz">
-      <progress-bubble class="risk-bubble" value="{{risk.number}}">
-        <div class="progress-title">{{risk.number}}<div style="font-size: 15px; display:inline; color:#c6c6c6;">%</div></div>
-        <div class="progress-subtitle">{{risk.text}}</div>
+
+      <progress-bubble class="risk-bubble animated fadeIn" value="{{risk.number}}">
+        <div class="risk-progress-bubble">
+          <div class="progress-title">{{risk.number}}<div style="font-size: 15px; display:inline; color:#c6c6c6;">%</div></div>
+          <div class="progress-subtitle">{{risk.text}}</div>
+        </div>
       </progress-bubble>
+      {{#unless loading}}
+      {{/unless}}
     </div>
     <div class="widget-title">
       <div class="widget-title-text">Chance of Success</div>
       <iron-icon class="widget-title-icon risk-info" icon="icons:info"></iron-icon>
     </div>
-  {{#if loading}}
-  <paper-spinner style="position: absolute; bottom:30px; right: 20px;" class="sw-spinner" active></paper-spinner>
-  {{/if}}
-  <div class="help-info" style="border-radius: 5px;">
-    <iron-icon class="close-info" icon="icons:clear"></iron-icon>
-    <div class="help-info-container">
-      <div class="help-text">
-        Given the <u>course configuration</u> and <u>academic history</u>,
-        the system calculates that the chance of success is <u>{{risk.number}}%</u>.
+    {{#if loading}}
+    <paper-spinner-lite style="position: absolute; bottom:50%; right: 43%;" class="rw-spinner pink" active></paper-spinner-lite>
+    {{/if}}
+    <div class="help-info" style="border-radius: 5px;">
+      <iron-icon class="close-info" icon="icons:clear"></iron-icon>
+      <div class="help-info-container">
+        <div class="help-text">
+          Given the <u>course configuration</u> and <u>academic history</u>,
+          the system calculates that the chance of success is <u>{{risk.number}}%</u>.
+        </div>
       </div>
     </div>
   </div>
-</div>
 </template>

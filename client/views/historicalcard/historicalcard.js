@@ -32,6 +32,9 @@ Template.historicalcard.events({
           onChange: function(data) {
             Session.set("data-from",data.from);
             Session.set("data-to",data.to);
+            Session.set("loading",true);
+            $(".risk-content-viz").css("opacity",0.5);
+            $(".quality-content-viz").css("opacity",0.5);
           }
         });
 
@@ -180,6 +183,8 @@ Template.historicalcard.rendered = function () {
       grid_snap: true,
       onChange: function(data) {
         Session.set("loading",true);
+        $(".risk-content-viz").css("opacity",0.5);
+        $(".quality-content-viz").css("opacity",0.5);
         Session.set("data-from",data.from);
         Session.set("data-to",data.to);
         var courses = Session.get('courses');
@@ -199,6 +204,7 @@ Template.historicalcard.rendered = function () {
             '"evaluation": false,'+
             '"instructors": true,'+
             '"compliance": 2}]}');
+            Session.set("loading",true);
           }
         } else if (Websocket.readyState == 3) {
           // $("#paperToast").attr("text","Lost connection...");

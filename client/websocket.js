@@ -14,10 +14,12 @@ function onClose(evt) {
 }
 function onMessage(evt) {
   var recieved = JSON.parse(evt.data);
-  console.log(recieved);
+  // console.log(recieved);
   Session.set("riskValue",recieved.risk);
   Session.set("qualityValue",recieved.quality);
-  Session.set("loading",false);
+  Session.set("loading",false)
+  $(".risk-content-viz").css("opacity",1);
+  $(".quality-content-viz").css("opacity",1);
 }
 
 function onError(evt) { console.log("ws:error: " + evt.data); }
@@ -52,8 +54,12 @@ $(document).ready(function() {
         '"compliance": 2}]}';
         // Send the request through websocket
         Websocket.send(request);
+        Session.set("loading",true);
+        $(".risk-content-viz").css("opacity",0.5);
+        $(".quality-content-viz").css("opacity",0.5);
       }
-    } else if (Websocket.readyState == 3) {
+    }
+    if (Websocket.readyState == 3) {
       $("#paperToast").attr("text","Connection lost, reconnecting...");
       document.querySelector('#paperToast').show();
       Websocket = new WebSocket("ws://localhost:8000/test");
@@ -62,6 +68,25 @@ $(document).ready(function() {
       Websocket.onclose   = function(evt) { onClose(evt)  };
       Websocket.onmessage = function(evt) { onMessage(evt)};
       Websocket.onerror   = function(evt) { onError(evt)  };
+
+      if(courses) {
+        for (var i=0; i<courses.length-1; i++){ string += '{"id": "'+courses[i]+'", "compliance": 5},'; }
+        string += '{"id": "'+courses[courses.length-1]+'", "compliance": 5}';
+        request = '{"requestId": "'+ Meteor.connection._lastSessionId +'",'+
+        '"student": [{"id": '+ student +',"gpa": 7.0793,'+
+        '"performance": 0.6,"compliance": 3}],'+
+        '"courses": ['+ string + '],'+
+        '"data": [{"from": '+ dataFrom +',"to": '+ dataTo +','+
+        '"program": true,'+
+        '"sylabus": true,'+
+        '"evaluation": false,'+
+        '"instructors": true,'+
+        '"compliance": 2}]}';
+        Websocket.send(request);
+        Session.set("loading",true);
+        $(".risk-content-viz").css("opacity",0.5);
+        $(".quality-content-viz").css("opacity",0.5);
+      }
     }
-  }, 2000);
+  }, 7000);
 });

@@ -67,6 +67,8 @@ Template.semesterplan.events({
       courses.push(course._id);
       Session.set("courses",courses);
       Session.set("loading",true);
+      $(".risk-content-viz").css("opacity",0.5);
+      $(".quality-content-viz").css("opacity",0.5);
       Meteor.subscribe("this_student", Session.get("student"), function() {
         Meteor.subscribe("this_courses", Session.get("courses"), function(){
           Meteor.subscribe("studentgrades", Session.get("student"), function() {
@@ -101,6 +103,8 @@ Template.semesterplan.events({
   "click .remove-selected-course": function(event,template) {
     var id = this._id;
     Session.set("loading",true);
+    $(".risk-content-viz").css("opacity",0.5);
+    $(".quality-content-viz").css("opacity",0.5);
     $(event.target).parent().fadeOut('slow', function (){
       var courses = Session.get("courses");
       for(var i = courses.length; i--;) {

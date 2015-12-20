@@ -29,9 +29,7 @@
           <div class="control-title">Courses</div>
           <div class="horizontal-section">
             {{#each sessionCourses}}
-            <paper-checkbox  value="{{code}}" class="cf-checkbox" checked>
-              {{code}} - {{name}}
-            </paper-checkbox>
+            <paper-checkbox  value="{{code}}" class="cf-checkbox" checked>{{code}}</paper-checkbox>
             {{/each}}
             {{#unless sessionCourses}}
             <div class="horizontal-section">
