@@ -55,8 +55,8 @@ $(document).ready(function() {
         // Send the request through websocket
         Websocket.send(request);
         Session.set("loading",true);
-        $(".risk-content-viz").css("opacity",0.5);
-        $(".quality-content-viz").css("opacity",0.5);
+        $(".risk-content-viz").css("opacity",0.25);
+        $(".quality-content-viz").css("opacity",0.25);
       }
     }
     if (Websocket.readyState == 3) {
@@ -84,8 +84,8 @@ $(document).ready(function() {
         '"compliance": 2}]}';
         Websocket.send(request);
         Session.set("loading",true);
-        $(".risk-content-viz").css("opacity",0.5);
-        $(".quality-content-viz").css("opacity",0.5);
+        $(".risk-content-viz").css("opacity",0.25);
+        $(".quality-content-viz").css("opacity",0.25);
       }
     }
   }, 7000);

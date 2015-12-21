@@ -80,8 +80,8 @@ Template.semesterplan.events({
       courses = _.uniq(courses);
       Session.set("courses",courses);
       Session.set("loading",true);
-      $(".risk-content-viz").css("opacity",0.5);
-      $(".quality-content-viz").css("opacity",0.5);
+      $(".risk-content-viz").css("opacity",0.25);
+      $(".quality-content-viz").css("opacity",0.25);
 
       Meteor.subscribe("this_student", Session.get("student"), function() {
         Meteor.subscribe("this_courses", Session.get("courses"), function(){

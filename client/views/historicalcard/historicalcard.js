@@ -33,8 +33,8 @@ Template.historicalcard.events({
             Session.set("data-from",data.from);
             Session.set("data-to",data.to);
             Session.set("loading",true);
-            $(".risk-content-viz").css("opacity",0.5);
-            $(".quality-content-viz").css("opacity",0.5);
+            $(".risk-content-viz").css("opacity",0.25);
+            $(".quality-content-viz").css("opacity",0.25);
           }
         });
 
@@ -183,8 +183,8 @@ Template.historicalcard.rendered = function () {
       grid_snap: true,
       onChange: function(data) {
         Session.set("loading",true);
-        $(".risk-content-viz").css("opacity",0.5);
-        $(".quality-content-viz").css("opacity",0.5);
+        $(".risk-content-viz").css("opacity",0.25);
+        $(".quality-content-viz").css("opacity",0.25);
         Session.set("data-from",data.from);
         Session.set("data-to",data.to);
         var courses = Session.get('courses');
