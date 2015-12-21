@@ -26,7 +26,7 @@ Template.semesterplan.events({
       template.$(".settings-content").hide();
       template.$(".card-content").animate({"min-width":"-=350px"},"slow ", function(){
         template.$(".card-settings-icon > iron-icon").fadeOut(200, function(){
-          template.$(".card-settings-icon > iron-icon").attr("icon","icons:settings").fadeIn(300);
+          template.$(".card-settings-icon > iron-icon").attr("icon","icons:create").fadeIn(300);
         });
       });
     }
@@ -34,7 +34,7 @@ Template.semesterplan.events({
   "keyup #search-box, click #input": _.throttle(function(event,template) {
     template.$(".search-results").show();
     var text = $(event.target).val().trim();
-    console.log(text);
+    // var options = {courses: Session.get("courses")}
     PackageSearch.search(text);
   }, 200),
   "click": function(event,template){
@@ -59,16 +59,30 @@ Template.semesterplan.events({
       });
     }
   },
+  "mouseenter .result-course": function(event,template) {
+    template.$("#cc-"+this._id).addClass("animated pulse");
+    template.$("#cc-"+this._id).addClass("animated pulse");
+    template.$("#cc-"+this._id).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+      template.$("#cc-"+this._id).removeClass("animated pulse");
+      template.$("#cc-"+this._id).removeClass("animated pulse");
+    });
+  },
+  "mouseleave .result-course": function(event,template) {
+    template.$("#cc-"+this._id).removeClass("animated pulse");
+    template.$("#cc-"+this._id).removeClass("animated pulse");
+  },
   "click .result-course": function(event,template) {
     var course = this;
     var courses = _.uniq(Session.get('courses'));
     if(courses.length < 7) {
       courses = _.extend([], courses);
       courses.push(course._id);
+      courses = _.uniq(courses);
       Session.set("courses",courses);
       Session.set("loading",true);
       $(".risk-content-viz").css("opacity",0.5);
       $(".quality-content-viz").css("opacity",0.5);
+
       Meteor.subscribe("this_student", Session.get("student"), function() {
         Meteor.subscribe("this_courses", Session.get("courses"), function(){
           Meteor.subscribe("studentgrades", Session.get("student"), function() {
@@ -95,14 +109,15 @@ Template.semesterplan.events({
       //   '"instructors": true,'+
       //   '"compliance": 2}]}');
       // }
+      $(".settings-warning-message").fadeOut();
     } else {
-      $("#paperToast").attr("text","Can't add more courses.");
-      document.querySelector('#paperToast').show();
+      $(".settings-warning-message").fadeIn();
     }
   },
   "click .remove-selected-course": function(event,template) {
     var id = this._id;
     Session.set("loading",true);
+    $(".settings-warning-message").fadeOut();
     $(".risk-content-viz").css("opacity",0.5);
     $(".quality-content-viz").css("opacity",0.5);
     $(event.target).parent().fadeOut('slow', function (){

@@ -73,6 +73,13 @@
   flex-direction: column;
 }
 
+.top-ribbon-scenario {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .top-ribbon-input paper-input  {
   width: 350px;
 }

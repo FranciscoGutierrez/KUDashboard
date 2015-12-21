@@ -54,11 +54,11 @@ Template.riskwidget.rendered = function () {
   $(document).ready(function() {
     setInterval(function(){
       var risk = Session.get("riskValue");
-      if (risk >= 0.0) $("#svgCircle").css("stroke","#e74c3c");
-      if (risk >= 0.2) $("#svgCircle").css("stroke","#e67e22");
-      if (risk >= 0.5) $("#svgCircle").css("stroke","#f1c40f");
-      if (risk >= 0.7) $("#svgCircle").css("stroke","#27ae60");
-      if (risk >= 0.8) $("#svgCircle").css("stroke","#25a085");
+      if (risk >= 0.0) $(".risk-bubble #svgCircle").css("stroke","#e74c3c");
+      if (risk >= 0.2) $(".risk-bubble #svgCircle").css("stroke","#e67e22");
+      if (risk >= 0.5) $(".risk-bubble #svgCircle").css("stroke","#f1c40f");
+      if (risk >= 0.7) $(".risk-bubble #svgCircle").css("stroke","#27ae60");
+      if (risk >= 0.8) $(".risk-bubble #svgCircle").css("stroke","#25a085");
     }, 500);
   });
 };
