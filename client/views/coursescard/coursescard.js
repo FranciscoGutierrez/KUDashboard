@@ -150,7 +150,7 @@ Template.semesterplan.events({
   },
   "click .cc-course": function(event,template) {
     var id = this._id;
-    $(".gradescard-paper").find("circle").css("fill","#eceff1");
+    //$(".gradescard-paper").find("circle").css("fill","#eceff1");
     $(".gradescard-paper").find("circle").css("fill-opacity","0.2");
     $(".gradescard-paper").find("circle").css("stroke","none");
 

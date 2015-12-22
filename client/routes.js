@@ -17,8 +17,8 @@ Router.route('/:_id', {
     Session.set("cf-toggle", true);
     Session.set("sf-toggle", true);
     Session.set("sc-toggle", false);
-    Session.set("data-from","1999");
-    Session.set("data-to","2012");
+    Session.set("data-from","2010");
+    Session.set("data-to","2015");
     Session.set("studentdata","redo");
     Session.set("studentYear","all");
     Session.set("loading",true);
