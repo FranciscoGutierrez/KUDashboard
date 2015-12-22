@@ -33,13 +33,13 @@ Meteor.publish('failuregrades', function(who){
 });
 
 /***/
-
+// http://localhost:3000/261650
 Meteor.publish('studentgrades', function(who){
   return Grades.find({student: who});
 });
 
 Meteor.publish("this_student", function (who) {
-  return Students.find({ "_id": who+""});
+  return Students.find({ "_id": who});
 });
 
 Meteor.publish("historial", function (who) {

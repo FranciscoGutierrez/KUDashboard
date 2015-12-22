@@ -47,7 +47,9 @@ Router.route('/:_id', {
         Meteor.subscribe("historial", function() {
           Meteor.subscribe("this_student", student, function() {
             Meteor.subscribe("studentgrades", student, function() {
+              if($(".loading-screen")) $(".loading-screen").remove();
               var grades = Grades.find({"student": Session.get("student"), "status":"Failed"},{ $limit : 7 }).fetch();
+              // if(!gradoes) Grades.find({})
               var failed = [];
               for (j = 0; j< grades.length; j++) {
                 failed.push(grades[j].course);
@@ -59,7 +61,6 @@ Router.route('/:_id', {
                 Meteor.subscribe('goodgrades',      failed[i], function(){});
                 Meteor.subscribe('verygoodgrades',  failed[i], function(){});
                 Meteor.subscribe('excellentgrades', failed[i], function(){});
-                if($(".loading-screen")) $(".loading-screen").remove();
               }
             });
           });
