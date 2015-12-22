@@ -38,25 +38,23 @@ $(document).ready(function() {
     var student  = Session.get('student');
     if(Websocket.readyState == 1) {
       if(courses) {
-        // Append the courses
-        for (var i=0; i<courses.length-1; i++){ string += '{"id": "'+courses[i]+'", "compliance": 5},'; }
-        string += '{"id": "'+courses[courses.length-1]+'", "compliance": 5}';
-        // Elaborate the request
+        for (var i=0; i<courses.length-1; i++){ string += '{"id": "'+courses[i]+'"},'; }
+        string += '{"id": "'+courses[courses.length-1]+'"}';
         request = '{"requestId": "'+ Meteor.connection._lastSessionId +'",'+
+        '"source": "kuleuven",'+
         '"student": [{"id": '+ student +',"gpa": 7.0793,'+
-        '"performance": 0.6,"compliance": 3}],'+
+        '"performance": 0.6}],'+
         '"courses": ['+ string + '],'+
         '"data": [{"from": '+ dataFrom +',"to": '+ dataTo +','+
         '"program": true,'+
         '"sylabus": true,'+
         '"evaluation": false,'+
-        '"instructors": true,'+
-        '"compliance": 2}]}';
-        // Send the request through websocket
+        '"instructors": true}]}';
         Websocket.send(request);
         Session.set("loading",true);
         $(".risk-content-viz").css("opacity",0.25);
         $(".quality-content-viz").css("opacity",0.25);
+        console.log(request);
       }
     }
     if (Websocket.readyState == 3) {
@@ -70,22 +68,23 @@ $(document).ready(function() {
       Websocket.onerror   = function(evt) { onError(evt)  };
 
       if(courses) {
-        for (var i=0; i<courses.length-1; i++){ string += '{"id": "'+courses[i]+'", "compliance": 5},'; }
-        string += '{"id": "'+courses[courses.length-1]+'", "compliance": 5}';
+        for (var i=0; i<courses.length-1; i++){ string += '{"id": "'+courses[i]+'"},'; }
+        string += '{"id": "'+courses[courses.length-1]+'"}';
         request = '{"requestId": "'+ Meteor.connection._lastSessionId +'",'+
+        '"source": "kuleuven",'+
         '"student": [{"id": '+ student +',"gpa": 7.0793,'+
-        '"performance": 0.6,"compliance": 3}],'+
+        '"performance": 0.6}],'+
         '"courses": ['+ string + '],'+
         '"data": [{"from": '+ dataFrom +',"to": '+ dataTo +','+
         '"program": true,'+
         '"sylabus": true,'+
         '"evaluation": false,'+
-        '"instructors": true,'+
-        '"compliance": 2}]}';
+        '"instructors": true}]}';
         Websocket.send(request);
         Session.set("loading",true);
         $(".risk-content-viz").css("opacity",0.25);
         $(".quality-content-viz").css("opacity",0.25);
+        console.log(request);
       }
     }
   }, 7000);

@@ -192,19 +192,22 @@ Template.historicalcard.rendered = function () {
         if(Websocket.readyState == 1) {
           var str = "";
           if(courses) {
-            for (var i=0; i<courses.length-1; i++){ str += '{"id": "'+courses[i]+'", "compliance": 5},'; }
-            str+= '{"id": "'+courses[courses.length-1]+'", "compliance": 5}';
-            Websocket.send('{"requestId": "'+Meteor.connection._lastSessionId+'",'+
-            '"student": [{"id": '+student+',"gpa": 7.0793,'+
-            '"performance": 0.6,"compliance": 3}],'+
-            '"courses": ['+ str + '],'+
-            '"data": [{"from": '+data.from+',"to": '+data.to+','+
+            for (var i=0; i<courses.length-1; i++){ string += '{"id": "'+courses[i]+'"},'; }
+            string += '{"id": "'+courses[courses.length-1]+'"}';
+            request = '{"requestId": "'+ Meteor.connection._lastSessionId +'",'+
+            '"source": "kuleuven",'+
+            '"student": [{"id": '+ student +',"gpa": 7.0793,'+
+            '"performance": 0.6}],'+
+            '"courses": ['+ string + '],'+
+            '"data": [{"from": '+ dataFrom +',"to": '+ dataTo +','+
             '"program": true,'+
             '"sylabus": true,'+
             '"evaluation": false,'+
-            '"instructors": true,'+
-            '"compliance": 2}]}');
+            '"instructors": true,}]}';
+            Websocket.send(request);
             Session.set("loading",true);
+            $(".risk-content-viz").css("opacity",0.25);
+            $(".quality-content-viz").css("opacity",0.25);
           }
         } else if (Websocket.readyState == 3) {
           // $("#paperToast").attr("text","Lost connection...");
