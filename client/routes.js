@@ -48,7 +48,7 @@ Router.route('/:_id', {
           Meteor.subscribe("this_student", student, function() {
             Meteor.subscribe("studentgrades", student, function() {
               if($(".loading-screen")) $(".loading-screen").remove();
-              var grades = Grades.find({"student": Session.get("student"), "status":"Failed"},{ $limit : 7 }).fetch();
+              var grades = Grades.find({"student": Session.get("student"), "status":"Failed"},{$limit:7}).fetch();
               // if(!gradoes) Grades.find({})
               var failed = [];
               for (j = 0; j< grades.length; j++) {
