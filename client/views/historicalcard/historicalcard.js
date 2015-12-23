@@ -203,7 +203,7 @@ Template.historicalcard.rendered = function () {
             '"program": true,'+
             '"sylabus": true,'+
             '"evaluation": false,'+
-            '"instructors": true,}]}';
+            '"instructors": true}]}';
             Websocket.send(request);
             Session.set("loading",true);
             $(".risk-content-viz").css("opacity",0.25);

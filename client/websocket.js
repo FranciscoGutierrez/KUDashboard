@@ -1,10 +1,9 @@
-Websocket = new WebSocket("ws://localhost:8000/test");
-
-// {"requestId": "zFib6jhbQRwJ46hfm","source": "kuleuven","student": [{"id": 578974,"gpa": 7.0793,"performance": 0.6}],"courses": [{"id": "H01Z2A"},{"id": "H01B0A"},{"id": "H01A0B"},{"id": "H01B4A"},{"id": "H01B6B"},{"id": "H01A8A"}],"data": [{"from": 2010,"to": 2015,"program": true,"sylabus": true,"evaluation": false,"instructors": true}]}
+//Websocket = new WebSocket("ws://localhost:8000/test");
 // Websocket = new WebSocket("ws://10.43.48.75/test");
 StudentFactorsChart = 0;
 CoursesFactorsChart = 0;
 // Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
+Websocket = new WebSocket("ws://franciscogutierrez11-80.terminal.com/test");
 Websocket.onopen    = function(evt) { onOpen(evt)    };
 Websocket.onclose   = function(evt) { onClose(evt)   };
 Websocket.onmessage = function(evt) { onMessage(evt) };
@@ -62,8 +61,9 @@ $(document).ready(function() {
     if (Websocket.readyState == 3) {
       $("#paperToast").attr("text","Connection lost, reconnecting...");
       document.querySelector('#paperToast').show();
-      Websocket = new WebSocket("ws://localhost:8000/test");
+      //Websocket = new WebSocket("ws://localhost:8000/test");
       // Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
+      Websocket = new WebSocket("ws://franciscogutierrez11-80.terminal.com/test");
       Websocket.onopen    = function(evt) { onOpen(evt)   };
       Websocket.onclose   = function(evt) { onClose(evt)  };
       Websocket.onmessage = function(evt) { onMessage(evt)};
