@@ -71,7 +71,7 @@ Template.topribbon.events({
   "click .ribbon-stop":  function(event,template) {
     if(Session.get("user-session",true)){
       template.$(".top-ribbon-flex").fadeOut(100,function (){
-        template.$(".top-ribbon-confidence").css("display","flex");
+        template.$(".top-ribbon-experience").css("display","flex");
         template.$(".top-ribbon").css("background-color","rgba(255, 255, 255, 0.65)");
       });
     } else {
@@ -87,13 +87,13 @@ Template.topribbon.events({
   },
   "click .ribbon-send-confidence": function(event,template) {
     template.$(".top-ribbon-confidence").fadeOut(100,function (){
-      template.$(".top-ribbon-experience").css("display","flex");
+      template.$(".top-ribbon-scenario").css("display","flex");
       // template.$(".top-ribbon").css("background-color","rgba(255, 255, 255, 0.65)");
     });
   },
   "click .ribbon-send-experience": function(event,template) {
     template.$(".top-ribbon-experience").fadeOut(100,function (){
-      template.$(".top-ribbon-scenario").css("display","flex");
+      template.$(".top-ribbon-confidence").css("display","flex");
       // template.$(".top-ribbon").css("background-color","rgba(255, 255, 255, 0.65)");
     });
   },
