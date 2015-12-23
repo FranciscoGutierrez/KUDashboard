@@ -11,27 +11,6 @@ Template.topribbon.events({
       template.$(".top-ribbon-hidden").fadeOut(200);
     }
   },
-  "click": function(event,template){
-    /*** Interaction Recorder ***/
-    var self = this;
-    var myEvent = event;
-    if(Session.get("user-session")) {
-      Actions.insert({
-        "sessionId": Meteor.connection._lastSessionId,
-        "user": Session.get("user-name"),
-        "profile": Session.get("user-profile"),
-        "prediction": Session.get("riskValue"),
-        "uncertainty":Session.get("qualityValue"),
-        "courses":Session.get("courses"),
-        "load":Session.get("load"),
-        "template": template.view.name,
-        "target": $(event.target).first().attr('class'),
-        "x": (event.pageX - $('.coursescard-paper').offset().left) + $(".content").scrollLeft(),
-        "y": (event.pageY - $('.coursescard-paper').offset().top)  + $(".content").scrollTop(),
-        "timestamp": new Date()
-      });
-    }
-  },
   "click paper-input": function(event,template) {
     template.$(".top-ribbon-save").attr("raised","true");
   },
@@ -98,6 +77,7 @@ Template.topribbon.events({
     });
   },
   "click .ribbon-send-scenario": function(event,template) {
+    var now = new Date();
     Sessions.insert({
       "sessionId": Meteor.connection._lastSessionId,
       "user": Session.get("user-name"),
@@ -110,7 +90,10 @@ Template.topribbon.events({
       "experience": Session.get("user-experience"),
       "scenario": Session.get("user-scenario"),
       "timestampStart": Session.get("user-timestart"),
-      "timestampEnd": new Date()
+      "timestampStartMs": Session.get("user-timestart").getTime(),
+      "timestampEnd": new Date(),
+      "timestampEndMs": now.getTime(),
+      "timeSpent" : Session.get("user-timestart").getTime() - now.getTime()
     });
     location.reload();
   },

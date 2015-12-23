@@ -129,7 +129,8 @@ Template.historicalcard.events({
         "target": $(event.target).first().attr('class'),
         "x": (event.pageX - $('.historicalcard-paper').offset().left) + $(".content").scrollLeft(),
         "y": (event.pageY - $('.historicalcard-paper').offset().top)  + $(".content").scrollTop(),
-        "timestamp": new Date()
+        "timestamp": new Date(),
+        "timestampms": new Date().getTime()
       });
     }
   }

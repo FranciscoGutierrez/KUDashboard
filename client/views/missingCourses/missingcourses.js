@@ -51,7 +51,8 @@ Template.studentdata.events({
         "target": $(event.target).first().attr('class'),
         "x": (event.pageX - $('.missingcourses-paper').offset().left) + $(".content").scrollLeft(),
         "y": (event.pageY - $('.missingcourses-paper').offset().top)  + $(".content").scrollTop(),
-        "timestamp": new Date()
+        "timestamp": new Date(),
+        "timestampms": new Date().getTime()
       });
     }
   }

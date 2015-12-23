@@ -55,7 +55,8 @@ Template.semesterplan.events({
         "target": $(event.target).first().attr('class'),
         "x": (event.pageX - $('.coursescard-paper').offset().left) + $(".content").scrollLeft(),
         "y": (event.pageY - $('.coursescard-paper').offset().top)  + $(".content").scrollTop(),
-        "timestamp": new Date()
+        "timestamp": new Date(),
+        "timestampms": new Date().getTime()
       });
     }
   },
