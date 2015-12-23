@@ -52,9 +52,9 @@ $(document).ready(function() {
         '"evaluation": false,'+
         '"instructors": true}]}';
         Websocket.send(request);
-        Session.set("loading",true);
-        $(".risk-content-viz").css("opacity",0.25);
-        $(".quality-content-viz").css("opacity",0.25);
+        // Session.set("loading",true);
+        // $(".risk-content-viz").css("opacity",0.25);
+        // $(".quality-content-viz").css("opacity",0.25);
         console.log(request);
       }
     }
@@ -83,9 +83,9 @@ $(document).ready(function() {
         '"evaluation": false,'+
         '"instructors": true}]}';
         Websocket.send(request);
-        Session.set("loading",true);
-        $(".risk-content-viz").css("opacity",0.25);
-        $(".quality-content-viz").css("opacity",0.25);
+        // Session.set("loading",true);
+        // $(".risk-content-viz").css("opacity",0.25);
+        // $(".quality-content-viz").css("opacity",0.25);
         console.log(request);
       }
     }
