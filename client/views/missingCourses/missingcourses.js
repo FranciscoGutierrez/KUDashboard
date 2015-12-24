@@ -34,6 +34,9 @@ Template.studentdata.events({
   "click .help-info": function (event,template) {
     template.$(".help-info").fadeOut();
   },
+  "mouseenter .name": function (event, template) {
+    template.$(".name").attr("title", $(event.target).text());
+  },
   "click": function(event,template){
     /*** Interaction Recorder ***/
     var self = this;
