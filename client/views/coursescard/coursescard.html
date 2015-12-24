@@ -1,14 +1,14 @@
 <template name="semesterplan">
-  <paper-material class="card-content coursescard-paper">
-    <div class="chart-content">
+  <paper-material class="card-content coursescard-paper" track="semesterplan">
+    <div class="chart-content" track="semesterplan">
       <!-- Top card content -->
-      <div class="card-content-top">
-        <div class="card-content-top-text">
-          <div class="card-title">
-            <div class="card-title-text">
+      <div class="card-content-top" track="semesterplantop">
+        <div class="card-content-top-text" track="semesterplantoptext">
+          <div class="card-title" track="semesterplantitle">
+            <div class="card-title-text" track="semesterplantitletext">
               Semester Plan
             </div>
-            <iron-icon class="card-info" icon="icons:info"></iron-icon>
+            <iron-icon class="card-info" icon="icons:info" track="semesterplaninfo"></iron-icon>
           </div>
           <div class="card-subtitle">
             <!-- Strong influence in prediction -->
@@ -19,74 +19,74 @@
         <iron-icon class="settings-icon" icon="icons:create"></iron-icon>
       </div>
       <!-- Middle Content -->
-      <div class="card-content-middle cc-middle-content">
+      <div class="card-content-middle cc-middle-content" track="semesterplanmiddlecontent">
         {{#each hardCourses}}
-        <div id="cc-{{_id}}" class="cc-course">
-          <div class="cc-meter">
-            <div class="cc-topdata">{{{students}}}</div>
-            <div class="cc-bottom" style="height: {{both}}%;"></div>
-            <div class="cc-top"    style="height: {{toph}}%;">
-              <div class="cc-passed-legend">{{passed}} ({{toph}}%) Passed</div>
+        <div id="cc-{{_id}}" class="cc-course" track="coursebar-{{_id}}">
+          <div class="cc-meter" track="coursebar-{{_id}}">
+            <div class="cc-topdata" track="coursebar-{{_id}}">{{{students}}}</div>
+            <div class="cc-bottom" style="height: {{both}}%;" track="coursebar-{{_id}}"></div>
+            <div class="cc-top"    style="height: {{toph}}%;" track="coursebar-{{_id}}">
+              <div class="cc-passed-legend" track="coursebar-{{_id}}">{{passed}} ({{toph}}%) Passed</div>
             </div>
           </div>
-          <div class="cc-metadata">
-            <div class="cc-name">{{{name}}}</div>
-            <div class="cc-id">{{{_id}}}</div>
+          <div class="cc-metadata" track="coursebar-{{_id}}" title="{{name}}">
+            <div class="cc-name"   track="coursebar-{{_id}}">{{{name}}}</div>
+            <div class="cc-id"     track="coursebar-{{_id}}">{{{_id}}}</div>
           </div>
           <paper-ripple></paper-ripple>
         </div>
         {{else}}
-        <div class="cc-nothing-add">Add some courses</div>
+        <div class="cc-nothing-add" track="nocoursestoshow">Add some courses</div>
         {{/each}}
       </div>
       <!-- Bottom card content -->
-      <div class="card-content-bottom cc-content-bottom">
+      <div class="card-content-bottom cc-content-bottom" track="coursescardbottom">
         <div class="card-content-control" style="margin-top: 15px;">
           {{#if selectedCourse}}
-          <div class="control-title">Course Details</div>
-          <div class="horizontal-section">
-            <div class="selected-container animated fadeIn">
+          <div class="control-title" track="coursedetails">Course Details</div>
+          <div class="horizontal-section" track="coursedetails">
+            <div class="selected-container animated fadeIn" track="coursedetails">
               <div class="selected-course" style="cursor: default;">
                 <div id="checkboxLabel" class="selected-course-meta" style="width: 100%;">
-                  <div class="course-name">{{selectedCourse.name}}</div>
-                  <div style="display: flex; justify-content: space-between;">
-                    <div class="course-id">{{selectedCourse.id}} - {{selectedCourse.credits}} Credits</div>
-                    <div class="course-id" style="align-self: flex-end;">{{selectedCourse.passed}} ({{selectedCourse.percent}}%) have passed.</div>
+                  <div class="course-name" track="{{selectedCourse.id}}">{{selectedCourse.name}}</div>
+                  <div style="display: flex; justify-content: space-between;" track="{{selectedCourse.id}}">
+                    <div class="course-id" track="{{selectedCourse.id}}">{{selectedCourse.id}} - {{selectedCourse.credits}} Credits</div>
+                    <div class="course-id" track="{{selectedCourse.id}}" style="align-self: flex-end;">{{selectedCourse.passed}} ({{selectedCourse.percent}}%) have passed.</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           {{else}}
-          <div class="control-title">Course Details</div>
-          <div class="horizontal-section">
-            <div class="selected-container animated fadeIn">
-              <div class="selected-course" style="cursor: default;">
-                <div id="checkboxLabel" class="selected-course-meta">
-                  <div class="course-name">Select a course to see more details.</div>
+          <div class="control-title" track="coursedetails-noselected">Course Details</div>
+          <div class="horizontal-section" track="coursedetails-noselected">
+            <div class="selected-container animated fadeIn" track="coursedetails-noselected">
+              <div class="selected-course" style="cursor: default;" track="coursedetails-noselected">
+                <div id="checkboxLabel" class="selected-course-meta" track="coursedetails-noselected">
+                  <div class="course-name" track="coursedetails-noselected">Select a course to see more details.</div>
                 </div>
               </div>
             </div>
           </div>
           {{/if}}
         </div>
-        <div class="card-content-control" style="position: relative; margin-top: 10px;">
-          <div class="control-title">
+        <div class="card-content-control" style="position: relative; margin-top: 10px;" track="suggestedload">
+          <div class="control-title" track="suggestedload">
             Credits
             {{#if numberCredits.warning}}
-            <iron-icon icon="icons:warning" class="cc-icon-warning"></iron-icon>
+            <iron-icon icon="icons:warning" class="cc-icon-warning" track="suggestedload"></iron-icon>
             {{/if}}
           </div>
-          <div class="horizontal-section" style="margin-top: 8px;">
-            <div class="cc-progress-hzbar">
-              <iron-icon icon="icons:arrow-drop-down"></iron-icon>
-              <div class="cc-hzbar-title" style="color: {{numberCredits.color}}">Suggested max load (30 Credits)</div>
+          <div class="horizontal-section" style="margin-top: 8px;" track="suggestedload">
+            <div class="cc-progress-hzbar" track="suggestedload">
+              <iron-icon icon="icons:arrow-drop-down" track="suggestedload"></iron-icon>
+              <div class="cc-hzbar-title" style="color: {{numberCredits.color}}" track="suggestedload">Suggested max load (30 Credits)</div>
             </div>
-            <paper-progress class="cc-progress-load progress-color" max="60" secondary-progress="30" value="{{numberCredits.credits}}"></paper-progress>
-            <div class="cc-number progress-bar-number">
-              <div class="cc-value">{{numberCourses.number}}</div>
+            <paper-progress class="cc-progress-load progress-color" max="60" secondary-progress="30" value="{{numberCredits.credits}}" track="suggestedload"></paper-progress>
+            <div class="cc-number progress-bar-number" track="suggestedload">
+              <div class="cc-value" track="suggestedload">{{numberCourses.number}}</div>
               &nbsp;{{numberCourses.text}},&nbsp;
-              <div class="cc-value">{{numberCredits.credits}}</div>&nbsp;Credits
+              <div class="cc-value" track="suggestedload">{{numberCredits.credits}}</div>&nbsp;Credits
             </div>
           </div>
         </div>
@@ -110,9 +110,9 @@
             {{#if getCourses}}
             <div class="search-results">
               {{#each getCourses}}
-              <div class="result-course" style="position: relative">
-                <div class="result-name">{{{name}}}</div>
-                <div class="result-desc">{{{_id}}} - {{credits}} Credits</div>
+              <div class="result-course" style="position: relative" track="resultcourse{{_id}}">
+                <div class="result-name" track="resultcourse{{_id}}">{{{name}}}</div>
+                <div class="result-desc" track="resultcourse{{_id}}">{{{_id}}} - {{credits}} Credits</div>
                 <paper-ripple></paper-ripple>
               </div>
               {{/each}}
@@ -124,24 +124,24 @@
       <!-- <div class="card-content-middle"></div> -->
       <div class="card-content-bottom">
         {{#if sessionCourses}}
-        <div class="control-title" style="padding-top: 0px;">Selected Courses</div>
-        <div class="selected-courses">
+        <div class="control-title" style="padding-top: 0px;" track="settingsselectedcourses">Selected Courses</div>
+        <div class="selected-courses" track="settingsselectedcourses">
           {{#each sessionCourses}}
-          <div class="selected-container animated fadeIn">
-            <div class="selected-course" checked>
-              <div id="checkboxLabel" class="selected-course-meta">
-                <div class="course-name">{{name}}</div>
-                <div class="course-id">{{_id}} - {{credits}} Credits</div>
+          <div class="selected-container animated fadeIn" track="selectedcourse {{_id}}">
+            <div class="selected-course" checked track="selectedcourse {{_id}}">
+              <div id="checkboxLabel" class="selected-course-meta" track="selectedcourse {{_id}}">
+                <div class="course-name" track="selectedcourse {{_id}}">{{name}}</div>
+                <div class="course-id" track="selectedcourse {{_id}}">{{_id}} - {{credits}} Credits</div>
               </div>
             </div>
-            <iron-icon class="remove-selected-course" icon="icons:close"></iron-icon>
+            <iron-icon class="remove-selected-course" icon="icons:close" track="selectedcourse {{_id}}"></iron-icon>
             <paper-ripple></paper-ripple>
           </div>
           {{/each}}
         </div>
         {{/if}}
       </div>
-      <div class="settings-warning-message" style="display:none; color: #e64c3c; font-size: 13px; margin-top: 5px;">Can't add more courses.</div>
+      <div class="settings-warning-message" style="display:none; color: #e64c3c; font-size: 13px; margin-top: 5px;" track="cantaddmore">Can't add more courses.</div>
       <!-- {{#if loading}}
       <paper-spinner-lite style="position: absolute; bottom:5px; right: 8px;" class="sw-spinner pink" active></paper-spinner-lite>
       {{/if}} -->

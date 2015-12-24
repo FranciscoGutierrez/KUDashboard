@@ -69,6 +69,8 @@ Template.studentfactors.events({
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
+    var className = $(event.target).attr('class').split(' ')[0];
+    var trackName = $(event.target).attr('track');
     if(Session.get("user-session")) {
       Actions.insert({
         "sessionId": Meteor.connection._lastSessionId,
@@ -79,7 +81,8 @@ Template.studentfactors.events({
         "courses":Session.get("courses"),
         "load":Session.get("load"),
         "template": template.view.name,
-        "target": $(event.target).first().attr('class'),
+        "target": className+" "+trackName,
+        "values": JSON.stringify(Session.keys),
         "x": (event.pageX - $('.studentskills-paper').offset().left) + $(".content").scrollLeft(),
         "y": (event.pageY - $('.studentskills-paper').offset().top)  + $(".content").scrollTop(),
         "timestamp": new Date(),

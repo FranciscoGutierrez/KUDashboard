@@ -116,6 +116,8 @@ Template.historicalcard.events({
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
+    var className = $(event.target).attr('class').split(' ')[0];
+    var trackName = $(event.target).attr('track');
     if(Session.get("user-session")) {
       Actions.insert({
         "sessionId": Meteor.connection._lastSessionId,
@@ -126,7 +128,8 @@ Template.historicalcard.events({
         "courses":Session.get("courses"),
         "load":Session.get("load"),
         "template": template.view.name,
-        "target": $(event.target).first().attr('class'),
+        "target": className+" "+trackName,
+        "values": JSON.stringify(Session.keys),
         "x": (event.pageX - $('.historicalcard-paper').offset().left) + $(".content").scrollLeft(),
         "y": (event.pageY - $('.historicalcard-paper').offset().top)  + $(".content").scrollTop(),
         "timestamp": new Date(),

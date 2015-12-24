@@ -1,12 +1,12 @@
 <template name="studentdata">
-  <paper-material class="card-content missingcourses-paper">
+  <paper-material class="card-content missingcourses-paper" track="studentdatacard">
     <div class="chart-content mc-card-content animated fadeIn">
       <!-- Top Content -->
       <div class="card-content-top">
         <div class="card-content-top-text">
           <div class="card-title">
-            <div class="card-title-text">Student Data</div>
-            <iron-icon class="card-info" icon="icons:info"></iron-icon>
+            <div class="card-title-text" track="cardtitle">Student Data</div>
+            <iron-icon class="card-info" track="iconinfo" icon="icons:info"></iron-icon>
           </div>
           <div class="card-subtitle">
             <!-- No influence in prediction. -->
@@ -18,28 +18,28 @@
       </div>
       <!-- Middle Content -->
       <div class="card-content-middle mc-content-middle">
-        <div class="mc-dataTable">
+        <div class="mc-dataTable" track="datatable">
           {{> reactiveTable collection=selectedCourses settings=settings}}
         </div>
       </div>
       <!-- Bottom Content -->
       <div class="card-content-bottom mc-content-bottom">
         <div class="card-content-control" style="margin-top: 15px;">
-          <div class="control-title">Show Courses</div>
-          <div class="mc-selected-years" style="padding-top: 5px; padding-bottom: 5px;">
+          <div class="control-title" track="showcourses">Show Courses</div>
+          <div class="mc-selected-years" style="padding-top: 5px; padding-bottom: 5px;" track="radiofilteringshowcourses">
             <paper-radio-group selected="redo">
-              <paper-radio-button name="all"  class="mc-all  radio-pink">All</paper-radio-button>
-              <paper-radio-button name="redo" class="mc-redo radio-pink">Failed</paper-radio-button>
+              <paper-radio-button name="all"  track="all" class="mc-all  radio-pink">All</paper-radio-button>
+              <paper-radio-button name="redo" track="failed" class="mc-redo radio-pink" style="margin-left: 15px;">Failed</paper-radio-button>
             </paper-radio-group>
           </div>
         </div>
         <div class="card-content-control">
-          <div class="control-title">Academic Year</div>
-          <div class="mc-selected-years">
+          <div class="control-title" track="academicyear">Academic Year</div>
+          <div class="mc-selected-years" track="radiofilteringacademicyear">
             <paper-radio-group selected="0">
-              <paper-radio-button name="0" class="mc-radio-all radio-pink">All</paper-radio-button>
+              <paper-radio-button name="0" track="all" class="mc-radio-all radio-pink">All</paper-radio-button>
               {{#each academicYears}}
-              <paper-radio-button name="1" class="mc-radio-{{number}} mc-radio-level radio-pink">{{year}}</paper-radio-button>
+              <paper-radio-button name="1" track="{{year}}" class="mc-radio-{{number}} mc-radio-level radio-pink" style="margin-left: 15px;">{{year}}</paper-radio-button>
               {{else}}
               {{/each}}
             </paper-radio-group>
@@ -48,16 +48,16 @@
       </div>
     </div>
     <div class="help-info">
-      <iron-icon class="close-info" icon="icons:clear"></iron-icon>
+      <iron-icon class="close-info" icon="icons:clear" track="informationicon"></iron-icon>
       <div class="help-info-container">
         <!-- <div class="help-text ht-top">
         Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
       </div> -->
-      <div class="help-text ht-middle">
+      <div class="help-text ht-middle" track="infocontent">
         Shows a tabular representation of the student's academic history.
         Scores can be filtered by result [passed, failed].
       </div>
-      <div class="ht-bottom" style="color: white; font-size: 13px;">
+      <div class="ht-bottom" style="color: white; font-size: 13px;" track="infocontent">
         [click anywhere to close]
       </div>
     </div>

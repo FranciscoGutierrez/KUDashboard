@@ -55,7 +55,7 @@ $(document).ready(function() {
         // Session.set("loading",true);
         // $(".risk-content-viz").css("opacity",0.25);
         // $(".quality-content-viz").css("opacity",0.25);
-        console.log(request);
+        // console.log(request);
       }
     }
     if (Websocket.readyState == 3) {
@@ -86,7 +86,7 @@ $(document).ready(function() {
         // Session.set("loading",true);
         // $(".risk-content-viz").css("opacity",0.25);
         // $(".quality-content-viz").css("opacity",0.25);
-        console.log(request);
+        // console.log(request);
       }
     }
   }, 7000);
