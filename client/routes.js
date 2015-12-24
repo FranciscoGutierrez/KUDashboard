@@ -18,7 +18,7 @@ Router.route('/:_id', {
     Session.set("sf-toggle", true);
     Session.set("sc-toggle", false);
     Session.set("data-from","2010");
-    Session.set("data-to","2015");
+    Session.set("data-to",  "2015");
     Session.set("studentdata","redo");
     Session.set("studentYear","all");
     Session.set("loading",true);
@@ -49,11 +49,8 @@ Router.route('/:_id', {
             Meteor.subscribe("studentgrades", student, function() {
               if($(".loading-screen")) $(".loading-screen").remove();
               var grades = Grades.find({"student": Session.get("student"), "status":"Failed"},{limit:7}).fetch();
-              // if(!gradoes) Grades.find({})
               var failed = [];
-              for (j = 0; j< grades.length; j++) {
-                failed.push(grades[j].course);
-              }
+              for (j = 0; j< grades.length; j++) failed.push(grades[j].course);
               Session.set("courses",failed);
               for (i = 0; i<failed.length; i++){
                 Meteor.subscribe('sufficientgrades',failed[i], function(){});
