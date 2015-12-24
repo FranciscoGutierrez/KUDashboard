@@ -85,37 +85,37 @@
         {{/if}}
       </div>
       <!-- Bottom Content -->
-      <div class="card-content-bottom" style="margin-top: 25px;">
-        <div class="card-content-control">
-          <div class="control-title">Grades</div>
-          <div class="card-content-columns">
-            <div class="card-content-column">
-              <paper-checkbox class="good-grades" style="margin-top: 10px;" checked>Very Good</paper-checkbox>
-              <paper-checkbox class="lazy-grades" style="margin-top: 10px;" checked>Sufficient</paper-checkbox>
+      <div class="card-content-bottom" style="margin-top: 25px;" track="gradescheckboxes">
+        <div class="card-content-control" track="gradescheckboxes">
+          <div class="control-title" track="gradescheckboxes">Grades</div>
+          <div class="card-content-columns" track="gradescheckboxes">
+            <div class="card-content-column" track="gradescheckboxes">
+              <paper-checkbox class="good-grades" style="margin-top: 10px;" checked track="gradescheckbox">Very Good</paper-checkbox>
+              <paper-checkbox class="lazy-grades" style="margin-top: 10px;" checked track="gradescheckbox">Sufficient</paper-checkbox>
             </div>
             <div class="card-content-column">
-              <paper-checkbox class="best-grades" style="margin-top: 10px;" checked>Excellent</paper-checkbox>
-              <paper-checkbox class="regular-grades" style="margin-top: 10px;" checked>Good</paper-checkbox>
+              <paper-checkbox class="best-grades" style="margin-top: 10px;" checked track="gradescheckbox">Excellent</paper-checkbox>
+              <paper-checkbox class="regular-grades" style="margin-top: 10px;" checked track="gradescheckbox">Good</paper-checkbox>
             </div>
             <div class="card-content-column">
-              <paper-checkbox class="student-grades" style="margin-top: 10px;" checked>This Student</paper-checkbox>
+              <paper-checkbox class="student-grades" style="margin-top: 10px;" checked track="gradescheckbox">This Student</paper-checkbox>
               <!-- <paper-checkbox class="bad-grades"  style="margin-top: 10px;" checked>Failure</paper-checkbox> -->
             </div>
           </div>
         </div>
       </div>
       {{/if}}
-      <div class="cc-nothing animated fadeIn" style="background: none; height: 400px; display: none;">
-        <div class="cc-nothing-message">This card is turned off.</div>
+      <div class="cc-nothing animated fadeIn" style="background: none; height: 400px; display: none;" track="gradesnothing">
+        <div class="cc-nothing-message" track="gradesnothing">This card is turned off.</div>
       </div>
     </div>
-    <div class="help-info">
-      <iron-icon class="close-info" icon="icons:clear"></iron-icon>
-      <div class="help-info-container">
-        <div class="help-text ht-middle">
+    <div class="help-info" track="gradeshelp">
+      <iron-icon class="close-info" icon="icons:clear" track="gradeshelp"></iron-icon>
+      <div class="help-info-container" track="gradeshelp">
+        <div class="help-text ht-middle" track="gradeshelp">
           Shows the performance of the student in relation to others based on their academic history.
         </div>
-        <div class="ht-bottom" style="color: white; font-size: 13px;">
+        <div class="ht-bottom" style="color: white; font-size: 13px;" track="gradeshelp">
           [click anywhere to close]
         </div>
       </div>
