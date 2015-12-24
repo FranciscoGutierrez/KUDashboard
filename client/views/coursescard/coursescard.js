@@ -44,7 +44,7 @@ Template.semesterplan.events({
     var myEvent = event;
     var className = $(event.target).attr('class').split(' ')[0];
     var trackName = $(event.target).attr('track');
-    console.log(className+" "+trackName);
+    var edit = template.$(".card-settings-icon > iron-icon").attr("icon");
     if(Session.get("user-session")) {
       Actions.insert({
         "sessionId": Meteor.connection._lastSessionId,
@@ -55,7 +55,7 @@ Template.semesterplan.events({
         "courses":Session.get("courses"),
         "load":Session.get("load"),
         "template": template.view.name,
-        "target": className+" "+trackName,
+        "target": className+" "+trackName + " " + edit,
         "values": JSON.stringify(Session.keys),
         "x": (event.pageX - $('.coursescard-paper').offset().left) + $(".content").scrollLeft(),
         "y": (event.pageY - $('.coursescard-paper').offset().top)  + $(".content").scrollTop(),
