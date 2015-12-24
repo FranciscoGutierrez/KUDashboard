@@ -95,6 +95,7 @@ Template.gradescard.events({
     var myEvent = event;
     var className = $(event.target).attr('class').split(' ')[0];
     var trackName = $(event.target).attr('track');
+    console.log(className+" "+trackName);
     if(Session.get("user-session")) {
       Actions.insert({
         "sessionId": Meteor.connection._lastSessionId,
