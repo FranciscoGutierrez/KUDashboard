@@ -1,46 +1,46 @@
 <template name="studentfactors">
-  <paper-material class="card-content studentskills-paper">
-    <div class="chart-content">
-      <div class="card-content-top">
-        <div class="card-content-top-text">
-          <div class="card-title">
-            <div class="card-title-text">
+  <paper-material class="card-content studentskills-paper" track="studentskills">
+    <div class="chart-content" track="studentskills">
+      <div class="card-content-top" track="studentskills">
+        <div class="card-content-top-text" track="studentskills">
+          <div class="card-title" track="studentskills">
+            <div class="card-title-text" track="studentskills">
               Student Skills
             </div>
-            <iron-icon class="card-info" icon="icons:info"></iron-icon>
+            <iron-icon class="card-info" icon="icons:info" track="studentskillsicon"></iron-icon>
           </div>
-          <div class="card-subtitle">
+          <div class="card-subtitle" track="studentsub">
             <!-- No Influence in Prediction -->
           </div>
         </div>
       </div>
       <div class="card-settings-icon">
         <!-- <iron-icon class="settings-icon" icon="icons:settings"></iron-icon> -->
-        <paper-toggle-button class="sf-toggle" checked></paper-toggle-button>
+        <paper-toggle-button class="sf-toggle" checked track="studentskillstoggle"></paper-toggle-button>
       </div>
       <!-- Middle Content -->
-      <div class="card-content-middle">
-        <canvas id="sf-chart" width="350" height="300"></canvas>
+      <div class="card-content-middle" track="studentskills">
+        <canvas class="studentskillschart" id="sf-chart" width="350" height="300" track="studentskillscanvas"></canvas>
       </div>
-      <div class="cf-nothing">This card is turned off</div>
+      <div class="cf-nothing" track="studentskillsnothing">This card is turned off</div>
       <!-- Bottom Content -->
-      <div class="card-content-bottom">
-        <div class="card-content-control">
-          <div class="control-title">Students</div>
-          <div class="horizontal-section" style="padding-top: 5px; padding-bottom: 5px;">
-            <paper-checkbox class="sf-student animated fadeIn" checked>This Student</paper-checkbox>
-            <paper-checkbox class="sf-similar animated fadeIn" checked>Similar Students</paper-checkbox>
+      <div class="card-content-bottom" track="studentskillsbottom">
+        <div class="card-content-control" track="studentskillsbottom">
+          <div class="control-title" track="studentskillsbottom">Students</div>
+          <div class="horizontal-section" style="padding-top: 5px; padding-bottom: 5px;" track="studentskillsbottom">
+            <paper-checkbox class="sf-student animated fadeIn" checked track="thisstudent">This Student</paper-checkbox>
+            <paper-checkbox class="sf-similar animated fadeIn" checked track="similarstudents">Similar Students</paper-checkbox>
           </div>
         </div>
       </div>
     </div>
-    <div class="help-info">
-      <iron-icon class="close-info" icon="icons:clear"></iron-icon>
-      <div class="help-info-container">
-        <div class="help-text ht-middle">
+    <div class="help-info" track="studentskillshelp">
+      <iron-icon class="close-info" icon="icons:clear" track="studentskillshelpicon"></iron-icon>
+      <div class="help-info-container" track="studentskillshelp">
+        <div class="help-text ht-middle" track="studentskillshelp">
           Shows students’ skills given their academic history in comparison to similar students.
         </div>
-        <div class="ht-bottom" style="color: white; font-size: 13px;">
+        <div class="ht-bottom" style="color: white; font-size: 13px;" track="studentskillshelp">
           [click anywhere to close]
         </div>
       </div>
