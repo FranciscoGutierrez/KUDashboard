@@ -21,17 +21,17 @@
       <!-- Middle Content -->
       <div class="card-content-middle cc-middle-content" track="semesterplanmiddlecontent">
         {{#each hardCourses}}
-        <div id="cc-{{_id}}" class="cc-course" track="coursebar-{{_id}}">
-          <div class="cc-meter" track="coursebar-{{_id}}">
-            <div class="cc-topdata" track="coursebar-{{_id}}">{{{students}}}</div>
-            <div class="cc-bottom" style="height: {{both}}%;" track="coursebar-{{_id}}"></div>
-            <div class="cc-top"    style="height: {{toph}}%;" track="coursebar-{{_id}}">
-              <div class="cc-passed-legend" track="coursebar-{{_id}}">{{passed}} ({{toph}}%) Passed</div>
+        <div id="cc-{{_id}}" class="cc-course" track="coursebar {{_id}}">
+          <div class="cc-meter" track="coursebar {{_id}}">
+            <div class="cc-topdata" track="coursebar {{_id}}">{{{students}}}</div>
+            <div class="cc-bottom" style="height: {{both}}%;" track="coursebar {{_id}}"></div>
+            <div class="cc-top"    style="height: {{toph}}%;" track="coursebar {{_id}}">
+              <div class="cc-passed-legend" track="coursebar {{_id}}">{{passed}} ({{toph}}%) Passed</div>
             </div>
           </div>
-          <div class="cc-metadata" track="coursebar-{{_id}}" title="{{name}}">
-            <div class="cc-name"   track="coursebar-{{_id}}">{{{name}}}</div>
-            <div class="cc-id"     track="coursebar-{{_id}}">{{{_id}}}</div>
+          <div class="cc-metadata" track="coursebar {{_id}}" title="{{name}}">
+            <div class="cc-name"   track="coursebar {{_id}}">{{{name}}}</div>
+            <div class="cc-id"     track="coursebar {{_id}}">{{{_id}}}</div>
           </div>
           <paper-ripple></paper-ripple>
         </div>
@@ -43,13 +43,13 @@
       <div class="card-content-bottom cc-content-bottom" track="coursescardbottom">
         <div class="card-content-control" style="margin-top: 15px;">
           {{#if selectedCourse}}
-          <div class="control-title" track="coursedetails">Course Details</div>
-          <div class="horizontal-section" track="coursedetails">
+          <div class="control-title" track="coursedetails {{selectedCourse.id}}">Course Details</div>
+          <div class="horizontal-section" track="{{selectedCourse.id}}">
             <div class="selected-container animated fadeIn" track="coursedetails">
-              <div class="selected-course" style="cursor: default;">
-                <div id="checkboxLabel" class="selected-course-meta" style="width: 100%;">
+              <div class="selected-course" style="cursor: default;" track="{{selectedCourse.id}}">
+                <div id="checkboxLabel" class="selected-course-meta" style="width: 100%;" track="{{selectedCourse.id}}">
                   <div class="course-name" track="{{selectedCourse.id}}">{{selectedCourse.name}}</div>
-                  <div style="display: flex; justify-content: space-between;" track="{{selectedCourse.id}}">
+                  <div class="course-id" style="display: flex; justify-content: space-between;" track="{{selectedCourse.id}}">
                     <div class="course-id" track="{{selectedCourse.id}}">{{selectedCourse.id}} - {{selectedCourse.credits}} Credits</div>
                     <div class="course-id" track="{{selectedCourse.id}}" style="align-self: flex-end;">{{selectedCourse.passed}} ({{selectedCourse.percent}}%) have passed.</div>
                   </div>
