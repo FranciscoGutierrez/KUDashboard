@@ -93,7 +93,7 @@ Template.topribbon.events({
       "timestampStartMs": Session.get("user-timestart").getTime(),
       "timestampEnd": new Date(),
       "timestampEndMs": now.getTime(),
-      "timeSpent" : Session.get("user-timestart").getTime() - now.getTime()
+      "timeSpent" : now.getTime() - Session.get("user-timestart").getTime()
     });
     location.reload();
   },
