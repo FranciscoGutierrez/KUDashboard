@@ -1,60 +1,53 @@
 <template name="coursefactors">
-  <paper-material class="card-content courseskill-paper" track="courseskill">
-    <div class="chart-content" track="courseskill">
-      <div class="card-content-top" track="courseskill">
-        <div class="card-content-top-text" track="courseskill">
-          <div class="card-title" track="courseskill">
-            <div class="card-title-text" track="courseskill">
+  <paper-material class="card-content courseskill-paper" track="courseskill.maincontainer">
+    <div class="chart-content" track="courseskill.maincontainer">
+      <div class="card-content-top" track="courseskill.topcontent">
+        <div class="card-content-top-text" track="courseskill.topcontent.title">
+          <div class="card-title" track="courseskill.topcontent.title">
+            <div class="card-title-text" track="courseskill.topcontent.title">
               Course Skills
             </div>
-            <iron-icon class="card-info" icon="icons:info" track="courseskill"></iron-icon>
+            <iron-icon class="card-info" icon="icons:info" track="courseskill.topcontent.infoicon"></iron-icon>
           </div>
-          <div class="card-subtitle" track="courseskill">
+          <div class="card-subtitle" track="courseskill.topcontent.subtitle">
             <!-- No influence in prediction -->
           </div>
         </div>
       </div>
-      <div class="card-settings-icon" track="courseskill">
-        <!-- <iron-icon class="settings-icon" icon="icons:settings"></iron-icon> -->
-        <paper-toggle-button class="cf-toggle" checked track="courseskill"></paper-toggle-button>
+      <div class="card-settings-icon" track="courseskill.topcontent.togglebutton">
+        <paper-toggle-button class="cf-toggle" checked track="courseskill.topcontent.togglebutton"></paper-toggle-button>
       </div>
       <!-- Middle Content -->
-      <div class="card-content-middle" track="courseskill">
-        <canvas class="canvaschartcourseskills" id="cf-chart" width="350" height="300" track="courseskill"></canvas>
+      <div class="card-content-middle" track="courseskill.middlecontent">
+        <canvas class="canvaschartcourseskills" id="cf-chart" width="350" height="300" track="courseskill.middlecontent.canvas"></canvas>
       </div>
-      <div class="cf-nothing" track="courseskill">This card is turned off</div>
+      <div class="cf-nothing" track="courseskill.middlecontent.cardisoff">This card is turned off</div>
       <!-- Bottom Content -->
-      <div class="card-content-bottom" track="courseskill">
-        <div class="card-content-control" track="courseskill">
-          <div class="control-title" track="courseskill">Courses</div>
-          <div class="horizontal-section" track="courseskill">
+      <div class="card-content-bottom" track="courseskill.bottomcontent">
+        <div class="card-content-control" track="courseskill.bottomcontent">
+          <div class="control-title" track="courseskill.bottomcontent.title">Courses</div>
+          <div class="horizontal-section" track="courseskill.bottomcontent">
             {{#each sessionCourses}}
-            <paper-checkbox title="{{name}}"  track="{{name}}" value="{{code}}" class="cf-checkbox" checked style="padding-bottom: 2px;">
-              <div id="checkboxLabel">{{name}}</div>
+            <paper-checkbox title="{{name}}"  track="courseskill.bottomcontent.checkbox.{{name}}" value="{{code}}" class="cf-checkbox" checked style="padding-bottom: 2px;">
+              <div id="checkboxLabel" track="courseskill.bottomcontent.checkbox.{{name}}">{{name}}</div>
             </paper-checkbox>
             {{/each}}
             {{#unless sessionCourses}}
-            <div class="horizontal-section" track="courseskill">
-              <div class="selected-container animated fadeIn" track="courseskill">
-                <div class="selected-course" style="cursor: default;" track="courseskill">
-                  <div id="checkboxLabel" class="selected-course-meta" track="courseskill">
-                    <div class="course-name" track="courseskill">Add some courses to see more details.</div>
-                  </div>
-                </div>
-              </div>
+            <div class="horizontal-section" track="courseskill.bottomcontent.nocourses">
+              <div class="course-name" track="courseskill.bottomcontent.nocourses">Add some courses to see more details.</div>
             </div>
             {{/unless}}
           </div>
         </div>
       </div>
     </div>
-    <div class="help-info" track="courseskill">
-      <iron-icon class="close-info" icon="icons:clear" track="courseskill"></iron-icon>
-      <div class="help-info-container">
-        <div class="help-text ht-middle">
+    <div class="help-info" track="courseskill.maincontainer.help">
+      <iron-icon class="close-info" icon="icons:clear" track="courseskill.maincontainer.help"></iron-icon>
+      <div class="help-info-container" track="courseskill.maincontainer.help">
+        <div class="help-text ht-middle" track="courseskill.maincontainer.help">
           Shows the categorical skills needed for the selected courses in the semester plan.
         </div>
-        <div class="ht-bottom" style="color: white; font-size: 13px;" track="courseskill">
+        <div class="ht-bottom" style="color: white; font-size: 13px;" track="courseskill.maincontainer.help">
           [click anywhere to close]
         </div>
       </div>
