@@ -69,9 +69,11 @@ Template.studentfactors.events({
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
-    var className = $(event.target).attr('class').split(' ')[0];
     var trackName = $(event.target).attr('track');
-    console.log(className+" "+trackName);
+    if($(event.target).attr("id") === "checkboxContainer") trackName = "studentskills.bottomcontent.checkbox." + $(event.target).next().text();
+    if($(event.target).hasClass("toggle-container")) trackName = "studentskills.topcontent.togglebutton";
+    if($(event.target).attr("id") === "toggleButton") trackName = "studentskills.topcontent.togglebutton";
+    console.log(trackName);
     if(Session.get("user-session")) {
       Actions.insert({
         "sessionId": Meteor.connection._lastSessionId,
@@ -82,8 +84,9 @@ Template.studentfactors.events({
         "courses":Session.get("courses"),
         "load":Session.get("load"),
         "template": template.view.name,
-        "target": className+" "+trackName,
-        "values": JSON.stringify(Session.keys),
+        "target": trackName,
+        "extended": false,
+        "toggle": Session.get("sf-toggle"),
         "x": (event.pageX - $('.studentskills-paper').offset().left) + $(".content").scrollLeft(),
         "y": (event.pageY - $('.studentskills-paper').offset().top)  + $(".content").scrollTop(),
         "timestamp": new Date(),

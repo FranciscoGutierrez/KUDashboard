@@ -42,22 +42,20 @@ paper-checkbox #checkboxLabel.paper-checkbox{ padding-left: 2px !important;}
   color: #424242;
   max-width: 140px;
   min-width: 140px;
-  font-size: 12px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  margin-right: 5px;
   display: inline-block;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .cf-checkbox #checkboxLabel {
   padding-left: 4px;
   white-space: nowrap;
   text-overflow: ellipsis;
-  /*max-width: 130px;
-  min-width: 130px;*/
+  max-width: 130px;
   display: inline-block;
   overflow: hidden;
-  text-align: left;
 }
 
 .cf-nothing {

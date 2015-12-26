@@ -72,3 +72,27 @@
 .irs-line-right {
   display: none !important;
 }
+
+.hc-horizontal-section {
+  background: #eceff1;
+  border-radius:  5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hc-students {
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+}
+
+.hc-fromto {
+  font-size: 13px;
+  color: #9F9F9F;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

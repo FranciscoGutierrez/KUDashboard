@@ -53,6 +53,9 @@ Template.coursefactors.events({
     var self = this;
     var myEvent = event;
     var trackName = $(event.target).attr('track');
+    if($(event.target).attr("id") === "checkboxContainer") trackName = "courseskill.bottomcontent.checkbox." + $(event.target).next().text();
+    if($(event.target).hasClass("toggle-container"))  trackName = "courseskill.topcontent.togglebutton";
+    if($(event.target).attr("id") === "toggleButton") trackName = "courseskill.topcontent.togglebutton";
     console.log(trackName);
     if(Session.get("user-session")) {
       Actions.insert({
@@ -65,7 +68,8 @@ Template.coursefactors.events({
         "load":Session.get("load"),
         "template": template.view.name,
         "target": trackName,
-        "values": JSON.stringify(Session.keys),
+        "extended": false,
+        "toggle": Session.get("cf-toggle"),
         "x": (event.pageX - $('.courseskill-paper').offset().left) + $(".content").scrollLeft(),
         "y": (event.pageY - $('.courseskill-paper').offset().top)  + $(".content").scrollTop(),
         "timestamp": new Date(),

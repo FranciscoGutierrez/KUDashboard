@@ -1,81 +1,69 @@
 <template name="historicalcard">
-  <paper-material class="card-content historicalcard-paper" track="historicalcard">
-    <div class="chart-content hc-card-content" track="historicalcard">
+  <paper-material class="card-content historicalcard-paper" track="historicalrecords.maincontainer">
+    <div class="chart-content hc-card-content" track="historicalrecords.maincontainer">
       <!-- Top Content -->
-      <div class="card-content-top" track="historicalcardtop">
-        <div class="card-content-top-text" track="historicalcardtop">
-          <div class="card-title" track="historicalcardtop">
-            <div class="card-title-text" track="historicalcardtoptext">Historical Records</div>
-            <iron-icon class="card-info" icon="icons:info" track="historicalcardicon"></iron-icon>
+      <div class="card-content-top" track="historicalrecords.topcontent">
+        <div class="card-content-top-text" track="historicalrecords.topcontent">
+          <div class="card-title" track="historicalrecords.topcontent.title">
+            <div class="card-title-text" track="historicalrecords.topcontent.title">Historical Records</div>
+            <iron-icon class="card-info" icon="icons:info" track="historicalrecords.topcontent.infoicon"></iron-icon>
           </div>
           {{#if isOn}}
-          <div class="card-subtitle" track="historicalcardsub">
-            <!-- Strong influence in prediction -->
-          </div>
+          <div class="card-subtitle" track="historicalrecords.topcontent.subtitle"></div>
           {{/if}}
         </div>
       </div>
-      <div class="card-settings-icon" track="historicalcardicon">
-        <!-- <iron-icon class="settings-icon" icon="icons:settings"></iron-icon> -->
-        <paper-toggle-button class="hc-toggle" checked track="historicalcardtoggle"></paper-toggle-button>
+      <div class="card-settings-icon" track="historicalrecords.topcontent.togglebutton">
+        <paper-toggle-button class="hc-toggle" checked track="historicalrecords.topcontent.togglebutton"></paper-toggle-button>
       </div>
       {{#if isOn}}
       <!-- Middle Content -->
-      <div class="card-content-middle" style="margin-top: 40px;" track="historicalcardmiddle">
-        <div class="sg-chart-container" track="historicalcardmiddle">
-          <div class="sg-vertical-axis" style="left: -7px;" track="historicalcardmiddle">
-            <div class="sg-vertical-axis-title" track="historicalcardmiddle">Students</div>
+      <div class="card-content-middle" style="margin-top: 40px;" track="historicalrecords.middlecontent">
+        <div class="sg-chart-container" track="historicalrecords.middlecontent">
+          <div class="sg-vertical-axis" style="left: -7px;" track="historicalrecords.middlecontent.verticalbar">
+            <div class="sg-vertical-axis-title" track="historicalrecords.middlecontent.verticalbar">Students</div>
           </div>
-          <div class="hc-svg-container" track="historicalcardmiddle">
-            <svg id="area" class="svghistorical">
-              <line class="animated fadeIn" x1="0"   x2="0"   y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3" track="linehistorical"/>
-              <line class="animated fadeIn" x1="69"  x2="69"  y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3" track="linehistorical"/>
-              <line class="animated fadeIn" x1="135" x2="135" y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3" track="linehistorical"/>
-              <line class="animated fadeIn" x1="200" x2="200" y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3" track="linehistorical"/>
-              <line class="animated fadeIn" x1="268" x2="268" y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3" track="linehistorical"/>
-              <line class="animated fadeIn" x1="335" x2="335" y1="5" y2="173" stroke="#eeeeee" stroke-width="1" stroke-dasharray="1,3" track="linehistorical"/>
+          <div class="hc-svg-container" track="historicalrecords.middlecontent.chart">
+            <svg id="area" class="svghistorical" track="historicalrecords.middlecontent.chart">
+              <line class="animated fadeIn" x1="0"   x2="0"   y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3" track="historicalrecords.middlecontent.line"/>
+              <line class="animated fadeIn" x1="69"  x2="69"  y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3" track="historicalrecords.middlecontent.line"/>
+              <line class="animated fadeIn" x1="135" x2="135" y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3" track="historicalrecords.middlecontent.line"/>
+              <line class="animated fadeIn" x1="200" x2="200" y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3" track="historicalrecords.middlecontent.line"/>
+              <line class="animated fadeIn" x1="268" x2="268" y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3" track="historicalrecords.middlecontent.line"/>
+              <line class="animated fadeIn" x1="335" x2="335" y1="5" y2="173" stroke="#eeeeee" stroke-width="1" stroke-dasharray="1,3" track="historicalrecords.middlecontent.line"/>
             </svg>
           </div>
-          <input class="historicalcardinput" type="text" id="selector" name="example_name" value="" style="display: none;"/>
+          <input class="historicalcardinput" type="text" id="selector" name="example_name" value="" style="display: none;" track="historicalrecords.middlecontent.chart"/>
         </div>
       </div>
       <!-- Bottom Content -->
-      <div class="card-content-bottom" style="margin-top: 15px;" track="historicalcardbottom">
-        <div class="card-content-control" track="historicalcardbottom">
-          <div class="control-title" track="historicalcardbottom">Prediction based on</div>
-          <div class="horizontal-section" track="historicalcardbottom">
-            <div class="selected-container animated fadeIn" track="historicalcardbottom">
-              <div class="selected-course" style="cursor: default;" track="historicalcardbottom">
-                <div id="checkboxLabel" class="selected-course-meta" track="historicalcardbottom">
-                  <div class="course-name" track="historicalcardbottom">{{students}} Students in {{courses}} Courses</div>
-                  <div class="course-id" track="historicalcardbottom">From {{from}} to {{to}}</div>
-                </div>
-              </div>
-            </div>
+      <div class="card-content-bottom" style="margin-top: 15px;" track="historicalrecords.bottomcontent">
+        <div class="card-content-control" track="historicalrecords.bottomcontent">
+          <div class="control-title" track="historicalrecords.bottomcontent.title">Prediction based on</div>
+          <div class="hc-horizontal-section" track="historicalrecords.bottomcontent.results">
+            <div class="hc-students" track="historicalrecords.bottomcontent.students">{{students}} Students in {{courses}} Courses</div>
+            <div class="hc-fromto"   track="historicalrecords.bottomcontent.fromto">From {{from}} to {{to}}</div>
           </div>
         </div>
       </div>
       {{else}}
-      <div class="card-content-middle" track="historicalcardnothing">
-        <div class="cc-nothing animated fadeIn" style="background: none; height: 400px;" track="historicalcardnothing">
-          <div class="cc-nothing-message" track="historicalcardnothing">This card is turned off</div>
+      <div class="card-content-middle" track="historicalrecords.middlecontent.cardisoff">
+        <div class="cc-nothing animated fadeIn" style="background: none; height: 400px;" track="historicalrecords.middlecontent.cardisoff">
+          <div class="cc-nothing-message" track="historicalrecords.middlecontent.cardisoff">This card is turned off</div>
         </div>
       </div>
       {{/if}}
     </div>
-    <div class="help-info" style="z-index: 100;" track="historicalcardhelp">
-      <iron-icon class="close-info" icon="icons:clear" track="historicalcardhelp"></iron-icon>
-      <div class="help-info-container" track="historicalcardhelp">
-        <div class="help-text ht-middle" track="historicalcardhelp">
+    <div class="help-info" style="z-index: 100;" track="historicalrecords.maincontainer.help">
+      <iron-icon class="close-info" icon="icons:clear" track="historicalrecords.maincontainer.help"></iron-icon>
+      <div class="help-info-container" track="historicalrecords.maincontainer.help">
+        <div class="help-text ht-middle" track="historicalrecords.maincontainer.help">
           Shows the historical records that are being used to calculate the chance of success. You can adjust the time range of records used for the prediction.
         </div>
-        <div class="ht-bottom" style="color: white; font-size: 13px;" track="historicalcardhelp">
+        <div class="ht-bottom" style="color: white; font-size: 13px;" track="historicalrecords.maincontainer.help">
           [click anywhere to close]
         </div>
       </div>
     </div>
-    <!-- {{#if loading}}
-    <paper-spinner-lite style="position: absolute; bottom:20px; right: 20px;" class="hr-spinner pink" active></paper-spinner-lite>
-    {{/if}} -->
   </paper-material>
 </template>

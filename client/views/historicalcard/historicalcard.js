@@ -116,8 +116,20 @@ Template.historicalcard.events({
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
-    var className = $(event.target).attr('class').split(' ')[0];
-    var trackName = $(event.target).attr('track');
+    var trackName = "";
+    if($(event.target).attr("track")) trackName = $(event.target).attr('track');
+    if($(event.target).hasClass("irs")) trackName = "historicalrecords.middlecontent.slider";
+    if($(event.target).hasClass("area")) trackName = "historicalrecords.middlecontent.chart";
+    if($(event.target).hasClass("irs-grid-pol")) trackName = "historicalrecords.middlecontent.slider";
+    if($(event.target).hasClass("irs-grid-text")) trackName = "historicalrecords.middlecontent.slider";
+    if($(event.target).hasClass("irs-with-grid")) trackName = "historicalrecords.middlecontent.slider";
+    if($(event.target).hasClass("irs-bar")) trackName = "historicalrecords.middlecontent.slider";
+    if($(event.target).hasClass("irs-line-mid")) trackName = "historicalrecords.middlecontent.slider";
+    if($(event.target).hasClass("from")) trackName = "historicalrecords.middlecontent.sliderfrom";
+    if($(event.target).hasClass("to"))   trackName = "historicalrecords.middlecontent.sliderto";
+    if($(event.target).hasClass("toggle-container")) trackName = "historicalrecords.topcontent.togglebutton";
+    if($(event.target).attr("id") === "toggleButton") trackName = "historicalrecords.topcontent.togglebutton";
+    console.log(trackName);
     if(Session.get("user-session")) {
       Actions.insert({
         "sessionId": Meteor.connection._lastSessionId,
@@ -128,8 +140,9 @@ Template.historicalcard.events({
         "courses":Session.get("courses"),
         "load":Session.get("load"),
         "template": template.view.name,
-        "target": className+" "+trackName,
-        "values": JSON.stringify(Session.keys),
+        "target": trackName,
+        "extended": false,
+        "toggle": Session.get("hc-toggle"),
         "x": (event.pageX - $('.historicalcard-paper').offset().left) + $(".content").scrollLeft(),
         "y": (event.pageY - $('.historicalcard-paper').offset().top)  + $(".content").scrollTop(),
         "timestamp": new Date(),
@@ -194,7 +207,7 @@ Template.historicalcard.rendered = function () {
         var courses = Session.get('courses');
         var student = Session.get('student');
         if(Websocket.readyState == 1) {
-          var str = "";
+          var string = "";
           if(courses) {
             for (var i=0; i<courses.length-1; i++){ string += '{"id": "'+courses[i]+'"},'; }
             string += '{"id": "'+courses[courses.length-1]+'"}';
@@ -203,7 +216,7 @@ Template.historicalcard.rendered = function () {
             '"student": [{"id": '+ student +',"gpa": 7.0793,'+
             '"performance": 0.6}],'+
             '"courses": ['+ string + '],'+
-            '"data": [{"from": '+ dataFrom +',"to": '+ dataTo +','+
+            '"data": [{"from": '+ Session.get("data-from") +',"to": '+ Session.get("data-to") +','+
             '"program": true,'+
             '"sylabus": true,'+
             '"evaluation": false,'+
@@ -260,12 +273,14 @@ Template.historicalcard.rendered = function () {
     .attr("height",height)
     .insert("g")
     .attr("transform", "translate(0,0)")
-    .attr("class", "animated flipInX");
+    .attr("class", "animated flipInX")
+    .attr("track", "historicalrecords.middlecontent.chart");
 
     svg.append("path")
     .datum(data)
     .attr("class", "area")
-    .attr("d", area);
+    .attr("d", area)
+    .attr("track", "historicalrecords.middlecontent.chart");
 
   },250);
 };

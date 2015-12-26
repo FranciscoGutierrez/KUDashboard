@@ -58,13 +58,13 @@ Template.gradescard.events({
     //   template.$(".cc-nothing-message").text("This Card is Turned Off");
     // });
     if(template.$(".gc-toggle").attr("checked")){
-      Session.set(".gc-toggle",true);
+      Session.set("gc-toggle",true);
       template.$(".card-content-middle").fadeIn();
       template.$(".card-content-bottom").fadeIn();
       template.$(".cc-nothing").fadeOut();
     }
     else {
-      Session.set(".gc-toggle",false);
+      Session.set("gc-toggle",false);
       template.$(".card-content-middle").fadeOut();
       template.$(".card-content-bottom").fadeOut();
       template.$(".cc-nothing").fadeIn();
@@ -93,8 +93,12 @@ Template.gradescard.events({
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
-    var className = $(event.target).attr('class').split(' ')[0];
-    var trackName = $(event.target).attr('track');
+    var trackName = "";
+    if($(event.target).attr("track")) trackName = $(event.target).attr('track');
+    if($(event.target).attr("id") === "checkboxContainer") trackName = "grades.bottomcontent.checkbox." + $(event.target).next().text();
+    if($(event.target).hasClass("toggle-container")) trackName = "grades.topcontent.togglebutton";
+    if($(event.target).attr("id") === "toggleButton") trackName = "grades.topcontent.togglebutton";
+    console.log(trackName);
     if(Session.get("user-session")) {
       Actions.insert({
         "sessionId": Meteor.connection._lastSessionId,
@@ -105,8 +109,9 @@ Template.gradescard.events({
         "courses":Session.get("courses"),
         "load":Session.get("load"),
         "template": template.view.name,
-        "target": className+" "+trackName,
-        "values": JSON.stringify(Session.keys),
+        "target": trackName,
+        "extended": false,
+        "toggle": Session.get("gc-toggle"),
         "x": (event.pageX - $('.gradescard-paper').offset().left) + $(".content").scrollLeft(),
         "y": (event.pageY - $('.gradescard-paper').offset().top)  + $(".content").scrollTop(),
         "timestamp": new Date(),
