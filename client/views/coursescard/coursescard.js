@@ -42,9 +42,18 @@ Template.semesterplan.events({
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
-    var className = $(event.target).attr('class').split(' ')[0];
     var trackName = $(event.target).attr('track');
-    var edit = template.$(".card-settings-icon > iron-icon").attr("icon");
+    var edit = false;
+    if(template.$(".card-settings-icon > iron-icon").attr("icon") === "icons:create") edit = false;
+    if(template.$(".card-settings-icon > iron-icon").attr("icon") === "icons:close")  edit = true;
+    if($(event.target).attr("id") === "primaryProgress") trackName = "semesterplan.bottomcontent.suggestedload";
+    if($(event.target).attr("id") === "secondaryProgress") trackName = "semesterplan.bottomcontent.suggestedload";
+    if($(event.target).attr("id") === "progressContainer") trackName = "semesterplan.bottomcontent.suggestedload";
+    if($(event.target).attr("id") === "input") trackName = "semesterplan.settings.searchbox";
+    if($(event.target).hasClass("paper-input"))trackName = "semesterplan.settings.searchbox";
+    if($(event.target).hasClass("paper-input-container"))trackName = "semesterplan.settings.searchbox";
+    console.log(trackName);
+    console.log("toggle: " + edit);
     if(Session.get("user-session")) {
       Actions.insert({
         "sessionId": Meteor.connection._lastSessionId,
@@ -55,8 +64,9 @@ Template.semesterplan.events({
         "courses":Session.get("courses"),
         "load":Session.get("load"),
         "template": template.view.name,
-        "target": className+" "+trackName + " " + edit,
-        "values": JSON.stringify(Session.keys),
+        "target": trackName,
+        "extended": edit,
+        "toggle": false,
         "x": (event.pageX - $('.coursescard-paper').offset().left) + $(".content").scrollLeft(),
         "y": (event.pageY - $('.coursescard-paper').offset().top)  + $(".content").scrollTop(),
         "timestamp": new Date(),

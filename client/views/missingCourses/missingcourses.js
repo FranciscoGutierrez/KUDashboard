@@ -41,8 +41,17 @@ Template.studentdata.events({
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
-    var className = $(event.target).attr('class').split(' ')[0];
     var trackName = $(event.target).attr('track');
+    if($(event.target).attr("id") === "offRadio") trackName = $(event.target).parent().parent().attr("track");
+    if($(event.target).attr("id") === "onRadio")  trackName = $(event.target).parent().parent().attr("track");
+    if($(event.target).attr("id") === "radioContainer") trackName = $(event.target).parent().attr("track");
+    if($(event.target).hasClass("course")) trackName = "studentdata.middlecontent.row." + $(event.target).parent().find(".course").text();
+    if($(event.target).hasClass("name"))  trackName = "studentdata.middlecontent.row." + $(event.target).parent().find(".course").text();
+    if($(event.target).hasClass("grade")) trackName = "studentdata.middlecontent.row." + $(event.target).parent().find(".course").text();
+    if($(event.target).hasClass("year"))  trackName = "studentdata.middlecontent.row." + $(event.target).parent().find(".course").text();
+    if($(event.target).hasClass("status")) trackName = "studentdata.middlecontent.row." + $(event.target).parent().find(".course").text();
+    if($(event.target).hasClass("sortable")) trackName = "studentdata.middlecontent.sort." + $(event.target).attr('class').replace('sortable','').replace(/\s/g, '');
+    console.log(trackName);
     if(Session.get("user-session")) {
       Actions.insert({
         "sessionId": Meteor.connection._lastSessionId,
@@ -53,8 +62,9 @@ Template.studentdata.events({
         "courses":Session.get("courses"),
         "load":Session.get("load"),
         "template": template.view.name,
-        "target": className+" "+trackName,
-        "values": JSON.stringify(Session.keys),
+        "target": trackName,
+        "extended": false,
+        "toggle": false,
         "x": (event.pageX - $('.missingcourses-paper').offset().left) + $(".content").scrollLeft(),
         "y": (event.pageY - $('.missingcourses-paper').offset().top)  + $(".content").scrollTop(),
         "timestamp": new Date(),
