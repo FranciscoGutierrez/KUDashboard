@@ -51,6 +51,11 @@ Template.studentdata.events({
     if($(event.target).hasClass("year"))  trackName = "studentdata.middlecontent.row." + $(event.target).parent().find(".course").text();
     if($(event.target).hasClass("status")) trackName = "studentdata.middlecontent.row." + $(event.target).parent().find(".course").text();
     if($(event.target).hasClass("sortable")) trackName = "studentdata.middlecontent.sort." + $(event.target).attr('class').replace('sortable','').replace(/\s/g, '');
+    if($(event.target).is("span")) trackName = "studentdata.middlecontent.tablenavigation";
+    if($(event.target).hasClass("reactive-table-navigation")) trackName = "studentdata.middlecontent.tablenavigation";
+    if($(event.target).hasClass("next-page")) trackName = "studentdata.middlecontent.tablenavigation.next";
+    if($(event.target).hasClass("previous-page")) trackName = "studentdata.middlecontent.tablenavigation.previous";
+    if($(event.target).hasClass("form-control")) trackName = "studentdata.middlecontent.tablenavigation.input";
     console.log(trackName);
     if(Session.get("user-session")) {
       Actions.insert({
