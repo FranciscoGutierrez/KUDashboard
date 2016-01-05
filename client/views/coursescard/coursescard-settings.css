@@ -25,6 +25,8 @@
   width: 80%;
   display:none;
   z-index: 1;
+  height: 350px;
+  overflow: scroll;
 }
 
 .search-results .result-course {
