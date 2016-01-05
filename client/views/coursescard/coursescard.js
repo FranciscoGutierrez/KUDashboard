@@ -31,7 +31,7 @@ Template.semesterplan.events({
       });
     }
   },
-  "keyup #search-box, click #input": _.throttle(function(event,template) {
+  "keyup #search-box, click #input, click paper-input-container": _.throttle(function(event,template) {
     template.$(".search-results").show();
     var text = $(event.target).val().trim();
     // var options = {courses: Session.get("courses")}
