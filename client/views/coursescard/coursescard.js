@@ -267,6 +267,9 @@ Template.semesterplan.helpers({
         } else if(sc[i].difficulty > 0.60) {
           sc[i].difficulty  = {color:"#27ae60", text:"Easy", display:"flex"};
         }
+        if (sc[i].semester == 3) {
+          sc[i].semester = "1 & 2";
+        }
       }
     }
     return sc;
