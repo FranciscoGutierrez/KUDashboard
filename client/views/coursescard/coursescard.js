@@ -211,13 +211,27 @@ Template.semesterplan.events({
 */
 Template.semesterplan.helpers({
   getCourses: function() {
-    return PackageSearch.getData({
+    var a = PackageSearch.getData({
       transform: function(matchText, regExp) {
         // return matchText.replace(regExp, "<b>$&</b>")
         return matchText.toLowerCase();
       },
       sort: {isoScore: -1}
     });
+    for (i = 0; i < a.length; i++) {
+      if(a[i].fase == 0) {
+        a[i].display = "none";
+      } else {
+        a[i].display = "block";
+      }
+      if(Session.get("courses").indexOf(a[i]._id) > -1) {
+        a[i].display = "none";
+      }
+      if (a[i].semester == 3) {
+        a[i].semester = "1 & 2";
+      }
+    }
+    return a;
   },
   isLoading: function() {
     return PackageSearch.getStatus().loading;

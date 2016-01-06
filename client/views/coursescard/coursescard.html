@@ -50,7 +50,7 @@
                 <div id="checkboxLabel" class="selected-course-meta" style="width: 100%;" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">
                   <div class="course-name" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">{{selectedCourse.name}}</div>
                   <div class="course-id" style="display: flex; justify-content: space-between;" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">
-                    <div class="course-id" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">{{selectedCourse.id}} - {{selectedCourse.credits}} Credits</div>
+                    <div class="course-id" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">{{selectedCourse.id}} {{selectedCourse.credits}} Credits</div>
                     <div class="course-id" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}" style="align-self: flex-end;">{{selectedCourse.passed}} ({{selectedCourse.percent}}%) have passed.</div>
                   </div>
                 </div>
@@ -109,9 +109,11 @@
             {{#if getCourses}}
             <div class="search-results" track="semesterplan.settings.searchresults">
               {{#each getCourses}}
-              <div class="result-course" style="position: relative" track="semesterplan.settings.searchresult.{{_id}}">
+              <div class="result-course" style="position: relative; display: {{display}}; " track="semesterplan.settings.searchresult.{{_id}}">
                 <div class="result-name" track="semesterplan.settings.searchresult.{{_id}}">{{{name}}}</div>
-                <div class="result-desc" track="semesterplan.settings.searchresult.{{_id}}">{{{_id}}} - {{credits}} Credits</div>
+                <div class="result-desc" track="semesterplan.settings.searchresult.{{_id}}">{{{_id}}} - {{credits}} Credits
+                  <div style="display: inline; float: right;">{{fase}} Fase - {{semester}} Sem.</div>
+                </div>
                 <paper-ripple></paper-ripple>
               </div>
               {{/each}}
@@ -130,7 +132,9 @@
             <div class="selected-course" checked track="semesterplan.settings.listcourse.{{_id}}">
               <div id="checkboxLabel" class="selected-course-meta" track="semesterplan.settings.listcourse.{{_id}}">
                 <div class="course-name" track="semesterplan.settings.listcourse.{{_id}}">{{name}}</div>
-                <div class="course-id" track="semesterplan.settings.listcourse.{{_id}}">{{_id}} - {{credits}} Credits</div>
+                <div class="course-id" style="width: 270px;" track="semesterplan.settings.listcourse.{{_id}}">{{_id}} - {{credits}} Credits
+                  <div style="display: inline; float: right;">{{fase}} Fase - {{semester}} Sem.</div>
+                </div>
               </div>
             </div>
             <iron-icon class="remove-selected-course" icon="icons:close" track="semesterplan.settings.removecourse.{{_id}}"></iron-icon>
