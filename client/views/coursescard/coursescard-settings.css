@@ -46,13 +46,17 @@
   color: white !important;
   cursor: pointer;
 }
+.search-results .result-course:hover b {
+  color: white;
+}
 
 .search-results .result-name { font-size: 14px; text-transform: capitalize; padding-bottom: 3px;}
 .search-results .result-desc { font-size: 13px; opacity: 0.6;}
-.search-results .result-desc b {color: #202020;}
+.search-results .result-desc b {color: #b25d7e;}
 .search-results .result-name:hover { cursor: pointer; }
 .search-results .result-desc:hover { cursor: pointer; }
-.search-results .result-desc b:hover { cursor: pointer; }
+.course-id b { color: #b25d7e; }
+
 
 /****** ****************  ******/
 /****** Selected Courses ******/

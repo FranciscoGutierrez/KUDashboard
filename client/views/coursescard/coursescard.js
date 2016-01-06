@@ -228,7 +228,13 @@ Template.semesterplan.helpers({
         a[i].display = "none";
       }
       if (a[i].semester == 3) {
-        a[i].semester = "1 & 2";
+        a[i].semester = "1st & 2nd";
+      }
+      if (a[i].semester == 2) {
+        a[i].semester = "2nd";
+      }
+      if (a[i].semester == 1) {
+        a[i].semester = "1st";
       }
     }
     return a;
@@ -268,7 +274,13 @@ Template.semesterplan.helpers({
           sc[i].difficulty  = {color:"#27ae60", text:"Easy", display:"flex"};
         }
         if (sc[i].semester == 3) {
-          sc[i].semester = "1 & 2";
+          sc[i].semester = "1st & 2nd";
+        }
+        if (sc[i].semester == 2) {
+          sc[i].semester = "2nd";
+        }
+        if (sc[i].semester == 1) {
+          sc[i].semester = "1st";
         }
       }
     }
