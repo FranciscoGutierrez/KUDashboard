@@ -115,6 +115,7 @@ Template.semesterplan.events({
         str+= '{"id": "'+courses[courses.length-1]+'"}';
         Websocket.send('{"requestId": "5645f7f7ef0bde57344c84de",'+
         '"student": [{"id": '+Session.get("student")+',"gpa": 7.0793,'+
+        '"source": "kuleuven",'+
         '"performance": 0.6}],'+
         '"courses": ['+ str + '],'+
         '"data": [{"from": 2010,"to": 2015,'+
@@ -150,6 +151,7 @@ Template.semesterplan.events({
         str+= '{"id": "'+courses[courses.length-1]+'"}';
         Websocket.send('{"requestId": "5645f7f7ef0bde57344c84de",'+
         '"student": [{"id": '+Session.get("student")+',"gpa": 7.0793,'+
+        '"source": "kuleuven",'+
         '"performance": 0.6}],'+
         '"courses": ['+ str + '],'+
         '"data": [{"from": 2010,"to": 2015,'+
