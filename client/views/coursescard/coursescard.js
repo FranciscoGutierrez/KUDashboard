@@ -55,7 +55,7 @@ Template.semesterplan.events({
     if($(event.target).hasClass("paper-input"))trackName = "semesterplan.settings.searchbox";
     if($(event.target).hasClass("paper-input-container"))trackName = "semesterplan.settings.searchbox";
     console.log(trackName);
-    console.log("toggle: " + edit);
+    // console.log("toggle: " + edit);
     if(Session.get("user-session")) {
       Actions.insert({
         "sessionId": Meteor.connection._lastSessionId,
@@ -171,25 +171,6 @@ Template.semesterplan.events({
     $(".gradescard-paper").find("circle").css("fill-opacity","0.2");
     $(".gradescard-paper").find("."+id).css("fill-opacity","1");
     $(".sg-this").css("fill-opacity","1");
-    //$(".gradescard-paper").find("circle").css("fill","#eceff1");
-    // $(".gradescard-paper").find("circle").css("fill-opacity","0.2");
-    // $(".gradescard-paper").find("circle").css("stroke","none");
-    //
-    // $("."+id+".sg-excellent").css("fill","#25a085");
-    // $("."+id+".sg-good").css("fill","#27ae60");
-    // $("."+id+".sg-regular").css("fill","#f0c30e");
-    // $("."+id+".sg-lazy").css("fill","#e67d22");
-    // // $("."+ id+".sg-bad").css("fill","#b25d7e");
-    // $(".sg-this").css("fill","#b25d7e");
-    //
-    // $("."+id+".sg-excellent").css("fill-opacity","1");
-    // $("."+id+".sg-good").css("fill-opacity","1");
-    // $("."+id+".sg-regular").css("fill-opacity","1");
-    // $("."+id+".sg-lazy").css("fill-opacity","1");
-    // // $("."+ id+".sg-bad").css("fill-opacity","1");
-
-    // $("."+id).css("stroke","#ececec");
-
     /* background coloring */
     template.$(".cc-course").css("background","white");
     $(event.target).parents(".cc-course").css("background","#eceff1");
@@ -216,6 +197,33 @@ Template.semesterplan.events({
     if (event.keyCode == 27) {
         template.$(".search-results").hide();
     }
+  },
+  "click .chk-fase1": function (event,template) {
+    if(template.$(".chk-fase1").attr("checked")){
+      template.$(".fase1").show();
+    } else {
+      template.$(".fase1").hide();
+    }
+    var a = Session.get("courses");
+    for (var i = 0; i < a.length; i++) template.$(".c"+a[i]).hide();
+  },
+  "click .chk-fase2": function (event,template) {
+    if(template.$(".chk-fase2").attr("checked")){
+      template.$(".fase2").show();
+    } else {
+      template.$(".fase2").hide();
+    }
+    var a = Session.get("courses");
+    for (var i = 0; i < a.length; i++) template.$(".c"+a[i]).hide();
+  },
+  "click .chk-fase3": function (event,template) {
+    if(template.$(".chk-fase3").attr("checked")){
+      template.$(".fase3").show();
+    } else {
+      template.$(".fase3").hide();
+    }
+    var a = Session.get("courses");
+    for (var i = 0; i < a.length; i++) template.$(".c"+a[i]).hide();
   }
 });
 
