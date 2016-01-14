@@ -54,6 +54,7 @@ Template.semesterplan.events({
     if($(event.target).attr("id") === "input") trackName = "semesterplan.settings.searchbox";
     if($(event.target).hasClass("paper-input"))trackName = "semesterplan.settings.searchbox";
     if($(event.target).hasClass("paper-input-container"))trackName = "semesterplan.settings.searchbox";
+    if($(event.target).attr("id") === "checkboxContainer") trackName = "semesterplan.settings.filtersearch." + $(event.target).parent().attr("track");
     console.log(trackName);
     // console.log("toggle: " + edit);
     if(Session.get("user-session")) {
