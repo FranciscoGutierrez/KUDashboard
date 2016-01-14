@@ -31,14 +31,16 @@ Template.semesterplan.events({
       });
     }
   },
-  "keyup #search-box, click #input, click paper-input-container": _.throttle(function(event,template) {
+  "keypress #search-box, click #input, click paper-input-container": _.throttle(function(event,template) {
     template.$(".search-results").show();
     var text = $(event.target).val().trim();
     // var options = {courses: Session.get("courses")}
     PackageSearch.search(text);
   }, 200),
   "click": function(event,template){
-    template.$(".search-results").hide();
+    if(!$(event.target).hasClass("paper-checkbox")) {
+      template.$(".search-results").hide();
+    }
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
@@ -89,6 +91,7 @@ Template.semesterplan.events({
   "click .result-course": function(event,template) {
     var course = this;
     var courses = _.uniq(Session.get('courses'));
+    template.$(".search-results").hide();
     if(courses.length < 7) {
       courses = _.extend([], courses);
       courses.push(course._id);
@@ -208,6 +211,11 @@ Template.semesterplan.events({
   },
   "click .help-info": function (event,template) {
     template.$(".help-info").fadeOut();
+  },
+  "keydown": function(event,template) {
+    if (event.keyCode == 27) {
+        template.$(".search-results").hide();
+    }
   }
 });
 
