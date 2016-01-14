@@ -52,7 +52,7 @@ Meteor.publish("this_courses", function () {
 });
 
 SearchSource.defineSource('courses', function(searchText, options) {
-  var options = {sort: {isoScore: -1}, limit: 125};
+  var options = {sort: {fase: 1}, limit: 125};
   if(searchText) {
     var regExp = buildRegExp(searchText+" ");
     var selector = {$or: [{name: regExp},{code: regExp}]};
