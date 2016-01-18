@@ -130,7 +130,7 @@
       <!-- <div class="card-content-middle"></div> -->
       <div class="card-content-bottom" track="semesterplan.settings.listcourses">
         {{#if sessionCourses}}
-        <div class="control-title" style="padding-top: 0px;" track="semesterplan.settings.listcourses">Selected Courses</div>
+        <div class="control-title" style="padding-top: 0px;" track="semesterplan.settings.listcourses">Selected Courses <div style="color: grey; font-size: 12px;">&nbsp;{{numberCourses.number}}/10</div></div>
         <div class="selected-courses" track="semesterplan.settings.listcourses">
           {{#each sessionCourses}}
           <div class="selected-container animated fadeIn" track="semesterplan.settings.listcourse.{{_id}}">
