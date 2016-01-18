@@ -93,7 +93,7 @@ Template.semesterplan.events({
     var course = this;
     var courses = _.uniq(Session.get('courses'));
     template.$(".search-results").hide();
-    if(courses.length < 7) {
+    if(courses.length < 10) {
       courses = _.extend([], courses);
       courses.push(course._id);
       courses = _.uniq(courses);
@@ -196,7 +196,7 @@ Template.semesterplan.events({
   },
   "keydown": function(event,template) {
     if (event.keyCode == 27) {
-        template.$(".search-results").hide();
+      template.$(".search-results").hide();
     }
   },
   "click .chk-fase1": function (event,template) {

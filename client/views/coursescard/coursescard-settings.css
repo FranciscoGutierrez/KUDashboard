@@ -85,6 +85,8 @@
   flex-flow: column;
   align-items: center;
   position: relative;
+  overflow-y: scroll;
+  height: 320px;
 }
 
 .selected-course:hover {
