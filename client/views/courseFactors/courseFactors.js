@@ -114,7 +114,7 @@ Template.coursefactors.rendered = function(){
     }
     var ctx = document.getElementById("cf-chart").getContext("2d");
     var data = {
-      labels: ["CS Funamentals", "Advanced CS Topics", "Programming", "Humanities", "Math"],
+      labels: ["CS Fundamentals", "Advanced CS Topics", "Programming", "Humanities", "Math"],
       datasets: [
         {
           label: "This Student",

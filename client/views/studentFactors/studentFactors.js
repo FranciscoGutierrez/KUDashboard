@@ -103,7 +103,7 @@ Template.studentfactors.rendered = function () {
   setTimeout(function() {
     var ctx = document.getElementById("sf-chart").getContext("2d");
     var data = {
-      labels: ["CS Funamentals", "Advanced CS Topics", "Programming", "Humanities", "Math"],
+      labels: ["CS Fundamentals", "Advanced CS Topics", "Programming", "Humanities", "Math"],
       datasets: [{
         label: "Similar Students",
         fillColor:  "rgba(207, 207, 207,0.5)",
