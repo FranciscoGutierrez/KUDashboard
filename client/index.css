@@ -60,7 +60,7 @@ paper-header-panel {
   align-content: flex-start;
 }
 
-paper-material {
+/*paper-material {
   margin: 7px;
   height:    450px;
   min-width: 350px;
@@ -74,7 +74,7 @@ paper-material {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-}
+}*/
 
 paper-toolbar {
   min-height: 240px;
