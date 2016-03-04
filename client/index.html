@@ -86,6 +86,11 @@
   iron-icon.cc-icon-warning {
     --iron-icon-fill-color: #e64c3c;
   }
+  iron-icon.icon-add {
+    --iron-icon-width: 32px;
+    --iron-icon-height: 32px;
+    --iron-icon-fill-color: #757575;
+  }
   </style>
   <script src="bower_components/Chart.js/Chart.js"></script>
   <script src="bower_components/ion.rangeslider/js/ion.rangeSlider.min.js"></script>
@@ -99,6 +104,9 @@
   <link rel="import" href="bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="bower_components/paper-input/paper-input.html">
   <link rel="import" href="bower_components/paper-slider/paper-slider.html">
+  <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+  <link rel="import" href="bower_components/paper-menu/paper-menu.html">
+  <link rel="import" href="bower_components/paper-item/paper-item.html">
   <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
   <link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
   <link rel="import" href="bower_components/paper-drawer-panel/paper-drawer-panel.html">
@@ -127,26 +135,18 @@
     <div class="toast-reconnect">Reconnecting...</div>
   </paper-toast>
   <paper-header-panel mode="seamed">
-    <paper-toolbar class="tall">
+    <!-- <paper-toolbar class="tall">
       <div class="top">
         {{> topribbon}}
         {{> topwidgets}}
       </div>
       <div class="middle">
       </div>
-    </paper-toolbar>
+    </paper-toolbar> -->
     <div class="content">
+      {{> studentprofile}}
       {{> programexplorer}}
-      <!-- {{> studentdata}}
-      {{> semesterplan}} -->
-      <!-- {{> gradescard}} -->
-      <!-- {{> historicalcard}} -->
-      <!-- {{> coursefactors}}
-      {{> studentfactors}} -->
-      <!-- {{> socialfactors}} -->
-      <!-- cheat the layout -->
-      <paper-material class="card-content coursescard-paper" style="visibility: hidden; height: 2px"></paper-material>
-      <paper-material class="card-content coursescard-paper" style="visibility: hidden; height: 2px"></paper-material>
+      {{> predictionarea}}
     </div>
   </paper-header-panel>
 </body>

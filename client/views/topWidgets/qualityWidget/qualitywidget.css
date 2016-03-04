@@ -10,13 +10,22 @@
   align-items: center;
   align-content: center;
   color: #424242;
-  width: 200px;
+  width: 150px;
+  height:150px;
   position: relative;
+  height: 150px;
 }
 
 .quality-content-viz {
   height: 140px;
   width:  140px;
+  transform: scale(0.75);
+}
+
+.widget-title-text {
+  color: #424242;
+  font-size: 14px;
+  align-self: flex-end;
 }
 
 .quality-progress-title {

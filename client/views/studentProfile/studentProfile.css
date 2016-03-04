@@ -1,0 +1,49 @@
+.studentprofile-paper {
+  background: white;
+  padding: 15px;
+  margin:  7px;
+  height: 878px;
+  width: 350px;
+}
+
+.profile-title {
+  padding: 0;
+  margin: 0;
+  color: #424242;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.profile-subtitle {
+  padding: 0;
+  margin: 0;
+  margin-top: 8px;
+  color: #424242;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1.4;
+  opacity: 0.5;
+}
+
+.profile-middle {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.profile-middle .student-options {
+  width: 100%;
+}
+
+.profile-middle .student-data-chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-data-chart paper-radio-group {
+  display: flex;
+  flex-direction: row;
+}

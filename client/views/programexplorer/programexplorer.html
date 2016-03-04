@@ -1,29 +1,92 @@
 <template name="programexplorer">
-  <paper-material class="explorer-content">
-    <h1 class="explorer-title">Student Program</h1>
+  <paper-material class="explorer-content" elevation="1">
+    <div class="card-title" track="studentskills.topcontent.title">
+      <h1 class="explorer-title">Student Program</h1>
+      <h2 class="explorer-subtitle">Shows the students profile</h2>
+      <iron-icon class="card-info" icon="icons:info" track="studentskills.topcontent.infoicon"></iron-icon>
+    </div>
     <div class="explorer-top"><!-- Program Filtering --></div>
     <div class="explorer-mid">
       <div class="fase">
-        <div class="fase-title">Fase 1 (2014-2015)</div>
+        <div class="fase-title">Year 1<span> (2014-2015)</span></div>
         <div class="fase-content">
           <div class="eerste semester">
             <div class="eerste-title">S1</div>
             <div class="metadata">30 <span>credits</span></div>
-            <div class="course"></div>
-            <div class="course"></div>
-            <div class="course"></div>
-            <div class="course"></div>
+            {{#each fase1}}
+            <div class="course">
+              <div class="course-title">{{name}}</div>
+              <div class="course-score"><span>{{grade}}</span> score</div>
+              <paper-ripple></paper-ripple>
+            </div>
+            {{/each}}
           </div>
           <div class="tweede semester">
             <div class="tweede-title">S2</div>
             <div class="metadata">30 <span>credits</span></div>
-            <div class="course"></div>
-            <div class="course"></div>
-            <div class="course"></div>
-            <div class="course"></div>
-            <div class="course"></div>
-            <div class="course"></div>
-            <div class="course"></div>
+            {{#each fase2}}
+            <div class="course">
+              <div class="course-title">{{name}}</div>
+              <div class="course-score"><span>{{grade}}</span> score</div>
+              <paper-ripple></paper-ripple>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+
+      <div class="fase">
+        <div class="fase-title">Year 2 <span> (current)</span></div>
+        <div class="fase-content">
+          <div class="eerste semester">
+            <div class="eerste-title">S1</div>
+            <div class="metadata">30 <span>credits</span></div>
+            {{#each fase1}}
+            <div class="course">
+              <div class="course-title">{{name}}</div>
+              <div class="course-score"><span>{{grade}}</span> score</div>
+              <paper-ripple></paper-ripple>
+            </div>
+            {{/each}}
+          </div>
+          <div class="tweede semester">
+            <div class="tweede-title current">S2</div>
+            <div class="metadata">30 <span>credits</span></div>
+            <div class="course course-add">
+              <div class="course-add-border">
+              <iron-icon icon="icons:add" class="icon-add"></iron-icon>
+              <div class="text-add">Add More</div>
+              <paper-ripple></paper-ripple>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- This is the navigation/selection area -->
+      <div class="courses">
+        <div class="courses-title">Courses</div>
+        <div class="available">
+          <div class="available-title">Available For You</div>
+          <div class="available-courses">
+            {{#each courses}}
+            <div class="course">
+              <div class="course-title">{{name}}</div>
+              <div class="course-credits"><span>{{credits}}</span> credits</div>
+              <paper-ripple></paper-ripple>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+        <div class="unavailable">
+          <div class="unavailable-title">Unavailable For You</div>
+          <div class="unavailable-courses">
+            {{#each courses}}
+            <div class="course" style="opacity: 0.6;">
+              <div class="course-title">{{name}}</div>
+              <div class="course-credits"><span>{{credits}}</span> credits</div>
+              <paper-ripple></paper-ripple>
+            </div>
+            {{/each}}
           </div>
         </div>
       </div>

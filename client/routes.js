@@ -22,8 +22,8 @@ Router.route('/:_id', {
     Session.set("studentdata","redo");
     Session.set("studentYear","all");
     Session.set("loading",true);
-    $(".risk-content-viz").css("opacity",0.5);
-    $(".quality-content-viz").css("opacity",0.5);
+    // $(".risk-content-viz").css("opacity",0.5);
+    // $(".quality-content-viz").css("opacity",0.5);
     if(courses) {
       Session.set("selected-course", courses[0]);
       Meteor.subscribe("this_student", student, function() {

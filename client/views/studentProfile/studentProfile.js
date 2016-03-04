@@ -1,7 +1,7 @@
 /*
 * Event Handling:
 */
-Template.studentfactors.events({
+Template.studentprofile.events({
   "click .sf-student": function(event,template){
     if(template.$(".sf-student").attr("checked")){
       StudentFactorsChart.datasets[1].points[0].value = Students.findOne({_id:Session.get("student")}).factor1*100;
@@ -96,14 +96,14 @@ Template.studentfactors.events({
   }
 });
 
-Template.studentfactors.helpers({
+Template.studentprofile.helpers({
 });
 
-Template.studentfactors.rendered = function () {
+Template.studentprofile.rendered = function () {
   setTimeout(function() {
     var ctx = document.getElementById("sf-chart").getContext("2d");
     var data = {
-      labels: ["CS Fundamentals", "Advanced CS Topics", "Programming", "Humanities", "Math"],
+      labels: ["Materie en energie", "Wiskunde", "Informatie", "P&O", "Algemeen vormende"],
       datasets: [{
         label: "Similar Students",
         fillColor:  "rgba(207, 207, 207,0.5)",

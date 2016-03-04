@@ -5,7 +5,8 @@
   align-items: center;
   align-content: center;
   color: #424242;
-  width: 200px;
+  width: 150px;
+  height:150px;
   position: relative;
 }
 
@@ -14,6 +15,7 @@
   width:  140px;
   display: flex;
   position: relative;
+  transform: scale(0.75);
 }
 
 .risk-content-viz .progress-meter text{

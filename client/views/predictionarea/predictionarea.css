@@ -1,0 +1,11 @@
+.prediction-content {
+  background: white;
+  padding: 15px;
+  margin:  7px;
+  height: 878px;
+}
+
+.prediction-middle {
+  display: flex;
+  justify-content: space-between;
+}
