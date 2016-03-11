@@ -47,3 +47,17 @@
   display: flex;
   flex-direction: row;
 }
+
+.academic-dropdown paper-dropdown-menu {
+  width: 300px;
+  margin-top: 20px;
+  font-size: 14px !important;
+}
+
+.academic-dropdown input {
+  font-size: 14px !important;
+}
+
+.academic-dropdown paper-item {
+  font-size: 14px;
+}

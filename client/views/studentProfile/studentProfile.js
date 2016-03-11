@@ -19,23 +19,6 @@ Template.studentprofile.events({
       StudentFactorsChart.update();
     }
   },
-  "click .sf-similar": function(event,template){
-    if(template.$(".sf-similar").attr("checked")){
-      StudentFactorsChart.datasets[0].points[0].value = _.random(40, 70);
-      StudentFactorsChart.datasets[0].points[1].value = _.random(30, 70);
-      StudentFactorsChart.datasets[0].points[2].value = _.random(40, 80);
-      StudentFactorsChart.datasets[0].points[3].value = _.random(20, 80);
-      StudentFactorsChart.datasets[0].points[4].value = _.random(10, 70);
-      StudentFactorsChart.update();
-    } else {
-      StudentFactorsChart.datasets[0].points[0].value = 0;
-      StudentFactorsChart.datasets[0].points[1].value = 0;
-      StudentFactorsChart.datasets[0].points[2].value = 0;
-      StudentFactorsChart.datasets[0].points[3].value = 0;
-      StudentFactorsChart.datasets[0].points[4].value = 0;
-      StudentFactorsChart.update();
-    }
-  },
   "click .sf-toggle": function(event,template) {
     if(template.$(".sf-toggle").attr("checked")){
       Session.set("sf-toggle",true);
@@ -103,7 +86,7 @@ Template.studentprofile.rendered = function () {
   setTimeout(function() {
     var ctx = document.getElementById("sf-chart").getContext("2d");
     var data = {
-      labels: ["Materie en energie", "Wiskunde", "Informatie", "P&O", "Algemeen vormende"],
+      labels: ["Algemeen vormende", "Informatie", "Wiskunde", "Materie en energie", "P&O"],
       datasets: [{
         label: "Similar Students",
         fillColor:  "rgba(207, 207, 207,0.5)",

@@ -115,7 +115,7 @@
 }
 
 .courses {
-  width: 175px;
+  width: 190px;
   /*background: #fafafa;*/
 }
 
@@ -240,14 +240,14 @@
 }
 
 
-/*.courses:hover ::-webkit-scrollbar {
+/*.courses ::-webkit-scrollbar {
 -webkit-appearance: none;
 width: 7px;
 position: absolute;
 right: 0;
 top: 0;
 }
-.courses:hover ::-webkit-scrollbar-thumb {
+.courses ::-webkit-scrollbar-thumb {
 border-radius: 4px;
 background-color: #c1c1c1;
 -webkit-box-shadow: 0 0 1px #fafafa;

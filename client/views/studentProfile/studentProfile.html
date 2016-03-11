@@ -5,7 +5,7 @@
         <div class="card-content-top-text" track="studentskills.topcontent">
           <div class="card-title" track="studentskills.topcontent.title">
             <h1 class="profile-title">Student Profile</h1>
-            <h2 class="profile-subtitle">Shows the student profile</h2>
+            <h2 class="profile-subtitle">Shows information related to the student</h2>
             <iron-icon class="card-info" icon="icons:info" track="studentskills.topcontent.infoicon"></iron-icon>
           </div>
           <div class="card-subtitle" track="studentskills.topcontent.subtitle">
@@ -15,36 +15,47 @@
       </div>
       <!-- Middle Content -->
       <div class="profile-middle" track="studentskills.middlecontent">
-        <paper-dropdown-menu label="Bachelor in de Ingenieurswetenschappen">
-          <paper-menu class="dropdown-content">
-            <paper-item>Croissant</paper-item>
-            <paper-item>Donut</paper-item>
-            <paper-item>Financier</paper-item>
-            <paper-item>Madeleine</paper-item>
-          </paper-menu>
-        </paper-dropdown-menu>
-        <paper-dropdown-menu label="Hoofdricht Computerwetenschappen">
-          <paper-menu class="dropdown-content">
-            <paper-item>Croissant</paper-item>
-            <paper-item>Donut</paper-item>
-            <paper-item>Financier</paper-item>
-            <paper-item>Madeleine</paper-item>
-          </paper-menu>
-        </paper-dropdown-menu>
-        <paper-dropdown-menu label="Nevenrichting Elektrotechniek">
-          <paper-menu class="dropdown-content">
-            <paper-item>Croissant</paper-item>
-            <paper-item>Donut</paper-item>
-            <paper-item>Financier</paper-item>
-            <paper-item>Madeleine</paper-item>
-          </paper-menu>
-        </paper-dropdown-menu>
-        <div class="student-options">
-          <div>Commitment:<span class="caption"></span></div>
+        <div class="basic-info">
+          <div>student id</div>
+          <div>student name</div>
+          <div>email</div>
+        </div>
+        <paper-tabs selected="0">
+          <paper-tab>Academic</paper-tab>
+          <paper-tab>Personal</paper-tab>
+        </paper-tabs>
+        <div class="academic-dropdown">
+          <paper-dropdown-menu label="Main Program">
+            <paper-menu class="dropdown-content" selected="0">
+              <paper-item>Bachelor in de Ingenieurswetenschappen</paper-item>
+              <paper-item>Bachelor in de Fonut</paper-item>
+              <paper-item>Bachelor in de Financier</paper-item>
+              <paper-item>Bachelor in de Madeleine</paper-item>
+            </paper-menu>
+          </paper-dropdown-menu>
+          <paper-dropdown-menu label="First Option">
+            <paper-menu class="dropdown-content" selected="0">
+              <paper-item>Hoofdricht Computerwetenschappen</paper-item>
+              <paper-item>Hoofdricht Donut</paper-item>
+              <paper-item>Hoofdricht Financier</paper-item>
+              <paper-item>Hoofdricht Madeleine</paper-item>
+            </paper-menu>
+          </paper-dropdown-menu>
+          <paper-dropdown-menu label="Second Option">
+            <paper-menu class="dropdown-content" selected="0">
+              <paper-item>Nevenrichting Elektrotechniek</paper-item>
+              <paper-item>Nevenrichting Donut</paper-item>
+              <paper-item>Nevenrichting Financier</paper-item>
+              <paper-item>Nevenrichting Madeleine</paper-item>
+            </paper-menu>
+          </paper-dropdown-menu>
+        </div>
+        <div class="personal-data" style="display: none;">
+          <div>Available time for studies:<span class="caption"></span></div>
           <paper-slider id="commitment" pin snaps max="5" max-markers="5" step="1" value="5"></paper-slider>
         </div>
         <div class="student-data">
-          <div>Score Overall:</div>
+          <h3>Scores</h3>
           <div class="student-data-chart">
             <canvas class="studentskillschart" id="sf-chart" width="350" height="300" track="studentskills.middlecontent.canvas"></canvas>
             <paper-radio-group selected="small" allow-empty-selection>
