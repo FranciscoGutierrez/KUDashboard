@@ -48,6 +48,22 @@ Template.studentprofile.events({
   "click .help-info": function (event,template) {
     template.$(".help-info").fadeOut();
   },
+  "click .tab-a": function (event,template) {
+    if(Session.get("stab")=="p") {
+      template.$(".personal-content").fadeOut(300, function(){
+          template.$(".academic-content").fadeIn();
+      });
+      Session.set("stab","a");
+    }
+  },
+  "click .tab-p": function (event,template) {
+    if(Session.get("stab")=="a") {
+      template.$(".academic-content").fadeOut(300, function(){
+          template.$(".personal-content").fadeIn();
+      });
+      Session.set("stab","p");
+    }
+  },
   "click": function(event,template){
     /*** Interaction Recorder ***/
     var self = this;
@@ -56,7 +72,6 @@ Template.studentprofile.events({
     if($(event.target).attr("id") === "checkboxContainer") trackName = "studentskills.bottomcontent.checkbox." + $(event.target).next().text();
     if($(event.target).hasClass("toggle-container")) trackName = "studentskills.topcontent.togglebutton";
     if($(event.target).attr("id") === "toggleButton") trackName = "studentskills.topcontent.togglebutton";
-    console.log(trackName);
     if(Session.get("user-session")) {
       Actions.insert({
         "sessionId": Meteor.connection._lastSessionId,
@@ -80,6 +95,9 @@ Template.studentprofile.events({
 });
 
 Template.studentprofile.helpers({
+  "studentid" : function() {
+    return Session.get("student");
+  }
 });
 
 Template.studentprofile.rendered = function () {

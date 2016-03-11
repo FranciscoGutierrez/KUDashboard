@@ -22,6 +22,7 @@ Router.route('/:_id', {
     Session.set("studentdata","redo");
     Session.set("studentYear","all");
     Session.set("loading",true);
+    Session.set("stab","a");
     // $(".risk-content-viz").css("opacity",0.5);
     // $(".quality-content-viz").css("opacity",0.5);
     if(courses) {

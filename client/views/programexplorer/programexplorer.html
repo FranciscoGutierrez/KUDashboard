@@ -51,7 +51,7 @@
           <div class="tweede semester">
             <div class="tweede-title current">S2</div>
             <div class="metadata">30 <span>credits</span></div>
-            <div class="course course-add">
+            <div id="currentList" class="course course-add">
               <div class="course-add-border">
               <iron-icon icon="icons:add" class="icon-add"></iron-icon>
               <div class="text-add">Add More</div>
@@ -66,7 +66,7 @@
         <div class="courses-title">Courses</div>
         <div class="available">
           <div class="available-title">Available For You</div>
-          <div class="available-courses">
+          <div id="availableList" class="available-courses">
             {{#each courses}}
             <div class="course">
               <div class="course-title">{{name}}</div>

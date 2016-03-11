@@ -16,52 +16,87 @@
       <!-- Middle Content -->
       <div class="profile-middle" track="studentskills.middlecontent">
         <div class="basic-info">
-          <div>student id</div>
-          <div>student name</div>
-          <div>email</div>
+          <div class="student-name">Francisco Gutiérrez <span>({{studentid}})</span></div>
+          <a class="student-mail" href="">francisco.gutierrez@student.kuleuven.be</a>
         </div>
         <paper-tabs selected="0">
-          <paper-tab>Academic</paper-tab>
-          <paper-tab>Personal</paper-tab>
+          <paper-tab class="tab-a">Academic</paper-tab>
+          <paper-tab class="tab-p">Personal</paper-tab>
         </paper-tabs>
-        <div class="academic-dropdown">
-          <paper-dropdown-menu label="Main Program">
-            <paper-menu class="dropdown-content" selected="0">
-              <paper-item>Bachelor in de Ingenieurswetenschappen</paper-item>
-              <paper-item>Bachelor in de Fonut</paper-item>
-              <paper-item>Bachelor in de Financier</paper-item>
-              <paper-item>Bachelor in de Madeleine</paper-item>
-            </paper-menu>
-          </paper-dropdown-menu>
-          <paper-dropdown-menu label="First Option">
-            <paper-menu class="dropdown-content" selected="0">
-              <paper-item>Hoofdricht Computerwetenschappen</paper-item>
-              <paper-item>Hoofdricht Donut</paper-item>
-              <paper-item>Hoofdricht Financier</paper-item>
-              <paper-item>Hoofdricht Madeleine</paper-item>
-            </paper-menu>
-          </paper-dropdown-menu>
-          <paper-dropdown-menu label="Second Option">
-            <paper-menu class="dropdown-content" selected="0">
-              <paper-item>Nevenrichting Elektrotechniek</paper-item>
-              <paper-item>Nevenrichting Donut</paper-item>
-              <paper-item>Nevenrichting Financier</paper-item>
-              <paper-item>Nevenrichting Madeleine</paper-item>
-            </paper-menu>
-          </paper-dropdown-menu>
+        <div class="academic-content">
+          <div class="academic-dropdown">
+            <paper-dropdown-menu label="Main Program">
+              <paper-menu class="dropdown-content" selected="0">
+                <paper-item>Bachelor in de Ingenieurswetenschappen</paper-item>
+                <paper-item>Bachelor in Donut</paper-item>
+                <paper-item>Bachelor in Apple</paper-item>
+                <paper-item>Bachelor in Cheese</paper-item>
+              </paper-menu>
+            </paper-dropdown-menu>
+            <paper-dropdown-menu label="First Option">
+              <paper-menu class="dropdown-content" selected="0">
+                <paper-item>Hoofdricht Computerwetenschappen</paper-item>
+                <paper-item>Hoofdricht Donut</paper-item>
+                <paper-item>Hoofdricht Apple</paper-item>
+                <paper-item>Hoofdricht Cheese</paper-item>
+              </paper-menu>
+            </paper-dropdown-menu>
+            <paper-dropdown-menu label="Second Option">
+              <paper-menu class="dropdown-content" selected="0">
+                <paper-item>Nevenrichting Elektrotechniek</paper-item>
+                <paper-item>Nevenrichting Donut</paper-item>
+                <paper-item>Nevenrichting Apple</paper-item>
+                <paper-item>Nevenrichting Cheese</paper-item>
+              </paper-menu>
+            </paper-dropdown-menu>
+          </div>
+          <div class="student-data">
+            <h1 class="profile-title">Scores</h1>
+            <h2 class="profile-subtitle">An overview of student performance in different areas of knowledge.</h2>
+            <div class="student-data-chart">
+              <canvas class="studentskillschart" id="sf-chart" width="350" height="300" track="studentskills.middlecontent.canvas"></canvas>
+              <paper-radio-group selected="small">
+                <paper-radio-button class="radio-pink" checked>Common Base</paper-radio-button>
+                <paper-radio-button class="radio-pink" disabled>Specialization</paper-radio-button>
+              </paper-radio-group>
+            </div>
+          </div>
         </div>
-        <div class="personal-data" style="display: none;">
-          <div>Available time for studies:<span class="caption"></span></div>
-          <paper-slider id="commitment" pin snaps max="5" max-markers="5" step="1" value="5"></paper-slider>
-        </div>
-        <div class="student-data">
-          <h3>Scores</h3>
-          <div class="student-data-chart">
-            <canvas class="studentskillschart" id="sf-chart" width="350" height="300" track="studentskills.middlecontent.canvas"></canvas>
-            <paper-radio-group selected="small" allow-empty-selection>
-              <paper-radio-button class="radio-pink" checked>Common Base</paper-radio-button>
-              <paper-radio-button class="radio-pink" disabled>Specialization</paper-radio-button>
+        <div class="personal-content" style="display: none;">
+          <div class="pc-element">
+            <h1 class="profile-title">Time for studies</h1>
+            <h2 class="profile-subtitle">An overview of student performance in different areas of knowledge.</h2>
+            <paper-radio-group selected="small">
+              <paper-radio-button class="radio-pink">Half time</paper-radio-button>
+              <paper-radio-button class="radio-pink" checked>Full time</paper-radio-button>
             </paper-radio-group>
+          </div>
+          <div class="pc-element">
+            <h1 class="profile-title">Marital status</h1>
+            <h2 class="profile-subtitle">An overview of student performance in different areas of knowledge.</h2>
+            <paper-radio-group selected="small">
+              <paper-radio-button class="radio-pink">Single</paper-radio-button>
+              <paper-radio-button class="radio-pink" checked>Married</paper-radio-button>
+            </paper-radio-group>
+          </div>
+          <div class="pc-element">
+            <h1 class="profile-title">Number of children</h1>
+            <h2 class="profile-subtitle">An overview of student performance in different areas of knowledge.</h2>
+            <paper-slider pin snaps value="0" max="5" max-markers="5" step="1"></paper-slider>
+          </div>
+          <div class="pc-element">
+            <h1 class="profile-title">Distance from university</h1>
+            <h2 class="profile-subtitle">An overview of student performance in different areas of knowledge.</h2>
+            <paper-radio-group selected="small">
+              <paper-radio-button class="radio-pink">Close</paper-radio-button>
+              <paper-radio-button class="radio-pink" checked>Far</paper-radio-button>
+              <paper-radio-button class="radio-pink" checked>Very far</paper-radio-button>
+            </paper-radio-group>
+          </div>
+          <div class="pc-element">
+            <h1 class="profile-title">Time for other activities</h1>
+            <h2 class="profile-subtitle">An overview of student performance in different areas of knowledge.</h2>
+            <paper-slider pin snaps value="8" max="16" max-markers="16" step="1"></paper-slider>
           </div>
         </div>
       </div>

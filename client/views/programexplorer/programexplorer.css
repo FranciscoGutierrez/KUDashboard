@@ -42,7 +42,9 @@
 .explorer-content .course-add {
   background: none !important;
   align-items: center;
-  /*margin: 3px;*/
+  /*****************/
+  display: flex;
+  justify-content: flex-start;
 }
 
 .explorer-content .course-add-border {
@@ -115,7 +117,7 @@
 }
 
 .courses {
-  width: 190px;
+  width: 200px;
   /*background: #fafafa;*/
 }
 

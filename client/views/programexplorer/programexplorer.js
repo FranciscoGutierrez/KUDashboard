@@ -25,3 +25,24 @@ Template.programexplorer.helpers({
   },
 
 });
+
+Template.programexplorer.rendered = function () {
+  setTimeout(function() {
+    Sortable.create(availableList, {
+      group: {
+        name: "available",
+        put: ["added"]
+      },
+      animation: 100
+    });
+
+    Sortable.create(currentList, {
+      group: {
+        name: "added",
+        put: ["available"]
+      },
+      animation: 100
+    });
+
+  },3500);
+};
