@@ -55,8 +55,9 @@
   align-items: center;
   position: relative;
   width: 100%;
-  height: 80px;
+  min-height: 80px;
   border: 1px dashed #A1A1A1;
+  align-self: flex-end;
 }
 
 .eerste-title {
@@ -257,3 +258,7 @@ position: absolute;
 right: 0;
 top: 0;
 }*/
+
+.sortable-ghost {
+  opacity: 0.25;
+}

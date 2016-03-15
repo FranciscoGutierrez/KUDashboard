@@ -5,22 +5,34 @@ Template.programexplorer.helpers({
   courses: function() {
     return Courses.find().fetch();
   },
-  fase1: function() {
-    return Grades.find({"student": Session.get("student"), "status":"Failed"}).fetch()
+  sem1: function() {
+    var sc = Grades.find({"student": Session.get("student")}).fetch();
+    for (i = 0; i < sc.length; i++) {
+      if(sc[i].grade >= 10) sc[i].color = "#27ae60";
+      if(sc[i].grade <  10) sc[i].color = "#f39c12";
+      if(sc[i].grade <   8) sc[i].color = "#e74c3c";
+    }
+    return sc;
   },
-  fase2: function() {
-    return Grades.find({"student": Session.get("student"), "status":"Failed"}).fetch()
+  sem2: function() {
+    var sc = Grades.find({"student": Session.get("student")}).fetch();
+    for (i = 0; i < sc.length; i++) {
+      if(sc[i].grade >= 10) sc[i].color = "#27ae60";
+      if(sc[i].grade <  10) sc[i].color = "#f39c12";
+      if(sc[i].grade <   8) sc[i].color = "#e74c3c";
+    }
+    return sc;
   },
-  fase3: function() {
+  sem3: function() {
 
   },
-  fase4: function() {
+  sem4: function() {
 
   },
-  fase5: function() {
+  sem5: function() {
 
   },
-  fase6: function() {
+  sem6: function() {
 
   },
 
@@ -37,6 +49,7 @@ Template.programexplorer.rendered = function () {
     });
 
     Sortable.create(currentList, {
+      filter: ".last",
       group: {
         name: "added",
         put: ["available"]

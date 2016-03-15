@@ -100,3 +100,7 @@
 .pc-element {
   margin-top: 10px;
 }
+
+paper-tabs {
+  border-top: 1px solid #bababa;
+}

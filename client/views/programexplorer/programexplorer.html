@@ -16,7 +16,7 @@
             {{#each fase1}}
             <div class="course">
               <div class="course-title">{{name}}</div>
-              <div class="course-score"><span>{{grade}}</span> score</div>
+              <div class="course-score"><span style="border-bottom: 2px solid {{color}}">{{grade}}</span> score</div>
               <paper-ripple></paper-ripple>
             </div>
             {{/each}}
@@ -27,7 +27,7 @@
             {{#each fase2}}
             <div class="course">
               <div class="course-title">{{name}}</div>
-              <div class="course-score"><span>{{grade}}</span> score</div>
+              <div class="course-score"><span style="border-bottom: 2px solid {{color}}">{{grade}}</span> score</div>
               <paper-ripple></paper-ripple>
             </div>
             {{/each}}
@@ -43,7 +43,7 @@
             {{#each fase1}}
             <div class="course">
               <div class="course-title">{{name}}</div>
-              <div class="course-score"><span>{{grade}}</span> score</div>
+              <div class="course-score"><span style="border-bottom: 2px solid {{color}}">{{grade}}</span> score</div>
               <paper-ripple></paper-ripple>
             </div>
             {{/each}}
@@ -52,9 +52,8 @@
             <div class="tweede-title current">S2</div>
             <div class="metadata">30 <span>credits</span></div>
             <div id="currentList" class="course course-add">
-              <div class="course-add-border">
-              <iron-icon icon="icons:add" class="icon-add"></iron-icon>
-              <div class="text-add">Add More</div>
+              <div class="course-add-border last">
+              <div class="text-add">drop courses here</div>
               <paper-ripple></paper-ripple>
               </div>
             </div>
