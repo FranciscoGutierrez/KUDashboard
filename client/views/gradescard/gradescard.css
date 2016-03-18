@@ -13,6 +13,15 @@
 .regular-grades > #checkboxContainer > #checkbox { border-color: #F0C30E; }
 .regular-grades /deep/ .checked { background: #F0C30E !important; }
 
+.gradescard-paper {
+  background: white;
+  padding: 15px;
+  margin:  7px;
+  height: 417px;
+  min-width: 350px;
+  max-width: 350px;  
+}
+
 /*chart*/
 .sg-chart-container {
   font: 10px sans-serif;
@@ -20,6 +29,7 @@
   position: relative;
   max-width: 350px;
   height: 200px;
+  background: white;
 }
 
 .sg-chart-container > svg {

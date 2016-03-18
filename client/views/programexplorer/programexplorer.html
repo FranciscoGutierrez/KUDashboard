@@ -1,33 +1,39 @@
 <template name="programexplorer">
   <paper-material class="explorer-content" elevation="1">
     <div class="card-title" track="studentskills.topcontent.title">
-      <h1 class="explorer-title">Student Program</h1>
+      <div class="title-container">
+        <h1 class="explorer-title">Student Program</h1>
+        <iron-icon class="card-info" icon="icons:info" track="studentskills.topcontent.infoicon"></iron-icon>
+      </div>
       <h2 class="explorer-subtitle">Shows an overview of the student's program</h2>
-      <iron-icon class="card-info" icon="icons:info" track="studentskills.topcontent.infoicon"></iron-icon>
     </div>
     <div class="explorer-top"><!-- Program Filtering --></div>
     <div class="explorer-mid">
       <div class="fase">
-        <div class="fase-title">Year 1<span> (2014-2015)</span></div>
+        <div class="fase-title">
+          <iron-icon icon="icons:chevron-left"></iron-icon>
+          Year 1<span> (2014-2015)</span>
+          <iron-icon icon="icons:chevron-right"></iron-icon>
+        </div>
         <div class="fase-content">
           <div class="eerste semester">
             <div class="eerste-title">S1</div>
-            <div class="metadata">30 <span>credits</span></div>
-            {{#each fase1}}
+            <div class="metadata">9.5 <span>score</span><iron-icon icon="icons:swap-horiz"></iron-icon></div>
+            {{#each sem1}}
             <div class="course">
-              <div class="course-title">{{name}}</div>
-              <div class="course-score"><span style="border-bottom: 2px solid {{color}}">{{grade}}</span> score</div>
+              <div class="course-title">{{opleidingsonderdeel}}</div>
+              <div class="course-score"><span style="border-bottom: 2px solid {{color}}">{{score}}</span> score</div>
               <paper-ripple></paper-ripple>
             </div>
             {{/each}}
           </div>
           <div class="tweede semester">
             <div class="tweede-title">S2</div>
-            <div class="metadata">30 <span>credits</span></div>
-            {{#each fase2}}
+            <div class="metadata">9.5 <span>score</span><iron-icon icon="icons:swap-horiz"></iron-icon></div>
+            {{#each sem2}}
             <div class="course">
-              <div class="course-title">{{name}}</div>
-              <div class="course-score"><span style="border-bottom: 2px solid {{color}}">{{grade}}</span> score</div>
+              <div class="course-title">{{opleidingsonderdeel}}</div>
+              <div class="course-score"><span style="border-bottom: 2px solid {{color}}">{{score}}</span> score</div>
               <paper-ripple></paper-ripple>
             </div>
             {{/each}}
@@ -35,26 +41,30 @@
         </div>
       </div>
       <div class="fase">
-        <div class="fase-title">Year 2 <span> (current)</span></div>
+        <div class="fase-title">
+          <iron-icon icon=""></iron-icon>
+          Year 2<span> (current)</span>
+          <iron-icon icon=""></iron-icon>
+        </div>
         <div class="fase-content">
           <div class="eerste semester">
             <div class="eerste-title">S1</div>
-            <div class="metadata">30 <span>credits</span></div>
-            {{#each fase1}}
+            <div class="metadata">9.5 <span>score</span><iron-icon icon="icons:swap-horiz"></iron-icon></div>
+            {{#each sem3}}
             <div class="course">
-              <div class="course-title">{{name}}</div>
-              <div class="course-score"><span style="border-bottom: 2px solid {{color}}">{{grade}}</span> score</div>
+              <div class="course-title">{{opleidingsonderdeel}}</div>
+              <div class="course-score"><span style="border-bottom: 2px solid {{color}}">{{score}}</span> score</div>
               <paper-ripple></paper-ripple>
             </div>
             {{/each}}
           </div>
           <div class="tweede semester">
             <div class="tweede-title current">S2</div>
-            <div class="metadata">30 <span>credits</span></div>
+            <div class="metadata">30 <span>credits</span><iron-icon icon="icons:swap-horiz"></iron-icon></div>
             <div id="currentList" class="course course-add">
               <div class="course-add-border last">
-              <div class="text-add">drop courses here</div>
-              <paper-ripple></paper-ripple>
+                <div class="text-add">drop course here</div>
+                <paper-ripple></paper-ripple>
               </div>
             </div>
           </div>

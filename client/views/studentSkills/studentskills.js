@@ -2,7 +2,7 @@
 * Event Handling:
 * Y = 14.65x + 3.86 x(0.1-1.0)
 */
-Template.studentprofile.events({
+Template.studentskills.events({
   "click .sf-student": function(event,template){
     if(template.$(".sf-student").attr("checked")){
       StudentFactorsChart.datasets[1].points[0].value = Students.findOne({_id:Session.get("student")}).factor1*100;
@@ -115,13 +115,13 @@ Template.studentprofile.events({
   }
 });
 
-Template.studentprofile.helpers({
+Template.studentskills.helpers({
   "studentid" : function() {
     return Session.get("student");
   }
 });
 
-Template.studentprofile.rendered = function () {
+Template.studentskills.rendered = function () {
   setTimeout(function() {
     var ctx = document.getElementById("sf-chart").getContext("2d");
     var data = {

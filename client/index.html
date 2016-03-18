@@ -147,9 +147,15 @@
       </div>
     </paper-toolbar> -->
     <div class="content">
+      <div style="display: flex; flex-direction:column;">
       {{> studentprofile}}
+      {{> studentskills}}
+      </div>
       {{> programexplorer}}
+      <div style="display: flex; flex-direction:column;">
       {{> predictionarea}}
+      {{> gradescard}}
+      </div>
     </div>
   </paper-header-panel>
 </body>

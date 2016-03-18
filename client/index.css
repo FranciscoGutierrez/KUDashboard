@@ -152,12 +152,6 @@ paper-toast {
   margin-bottom: 20px;
 }
 
-.card-title .card-info {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
 .card-subtitle-tool {
   display: flex;
   width: 100%;

@@ -1,0 +1,45 @@
+<template name="studentskills">
+  <paper-material class="studentprofile-paper" track="studentskills.maincontainer" elevation="1">
+    <div class="" track="studentskills.maincontainer">
+      <div class="card-content-top" track="studentskills">
+        <div class="card-content-top-text" track="studentskills.topcontent">
+          <div class="card-title" track="studentskills.topcontent.title">
+            <div class="title-container">
+              <h1 class="profile-title">Student Skills</h1>
+              <iron-icon class="card-info" icon="icons:info" track="studentskills.topcontent.infoicon"></iron-icon>
+            </div>
+            <h2 class="profile-subtitle">An overview of student performance in different areas of knowledge.</h2>
+          </div>
+          <div class="card-subtitle" track="studentskills.topcontent.subtitle">
+            <!-- No Influence in Prediction -->
+          </div>
+        </div>
+      </div>
+      <!-- Middle Content -->
+      <div class="profile-middle" track="studentskills.middlecontent">
+        <div class="student-data">
+          <div class="student-data-chart">
+            <canvas class="studentskillschart" id="sf-chart" width="350" height="300" track="studentskills.middlecontent.canvas"></canvas>
+            <!-- <paper-radio-group selected="small">
+            <paper-radio-button class="radio-pink" checked>Common Base</paper-radio-button>
+            <paper-radio-button class="radio-pink" disabled>Specialization</paper-radio-button>
+          </paper-radio-group> -->
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Content -->
+    <div class="card-content-bottom" track="studentskills.bottomcontent"></div>
+  </div>
+  <div class="help-info" track="studentskills.maincontainer.help">
+    <iron-icon class="close-info" icon="icons:clear" track="studentskills.maincontainer.help"></iron-icon>
+    <div class="help-info-container" track="studentskills.maincontainer.help">
+      <div class="help-text ht-middle" track="studentskills.maincontainer.help">
+        Shows students’ skills given their academic history in comparison to similar students.
+      </div>
+      <div class="ht-bottom" style="color: white; font-size: 13px;" track="studentskills.maincontainer.help">
+        [click anywhere to close]
+      </div>
+    </div>
+  </div>
+</paper-material>
+</template>
