@@ -25,7 +25,6 @@ Router.route('/:_id', {
     Session.set("stab","a");
     Session.set("riskValue",0.92);
     Session.set("qualityValue",0.90);
-
     // $(".risk-content-viz").css("opacity",0.5);
     // $(".quality-content-viz").css("opacity",0.5);
     if(courses) {

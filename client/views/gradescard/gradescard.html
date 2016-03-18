@@ -1,21 +1,12 @@
 <template name="gradescard">
   <paper-material class="card-content gradescard-paper" track="grades.maincontainer">
     <div class="chart-content gc-card-content animated fadeIn" track="grades.maincontainer">
-      <div class="card-content-top" track="grades.topcontent">
-        <div class="card-content-top-text" track="grades.topcontent">
-          <div class="card-title" track="studentskills.topcontent.title">
-            <h1 class="explorer-title">Prediction</h1>
-            <h2 class="explorer-subtitle">Shows an overview of the student's program</h2>
-            <iron-icon class="card-info" icon="icons:info" track="studentskills.topcontent.infoicon"></iron-icon>
-          </div>
-          {{#if isOn}}
-          <div class="card-subtitle" track="grades.topcontent.subtitle">
-            <!-- No influence in prediction. -->
-          </div>
-          {{/if}}
+      <div class="card-title" track="studentskills.topcontent.title">
+        <div class="title-container">
+          <h1 class="profile-title">Student Profile</h1>
+          <iron-icon class="card-info" icon="icons:info" track="studentskills.topcontent.infoicon"></iron-icon>
         </div>
-      </div>
-      <div class="card-settings-icon" track="grades.topcontent.togglebutton">
+        <h2 class="explorer-subtitle">Shows an overview of the student's program</h2>
         <paper-toggle-button class="gc-toggle" checked track="grades.topcontent.togglebutton"></paper-toggle-button>
       </div>
       {{#if isOn}}

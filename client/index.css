@@ -211,3 +211,9 @@ paper-toast #label {
 iron-icon {
   margin-left: 5px;
 }
+
+paper-toggle-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
