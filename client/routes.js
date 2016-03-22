@@ -8,7 +8,7 @@ Router.route('/:_id', {
     var student = Router.current().params._id;
     if(Router.current().params.query.c) courses = _.uniq(Router.current().params.query.c.split(','));
     Session.set('student', student);
-    Session.set('courses', courses);
+    Session.set('courses',[]);
     Session.set("cc-compliance", 5);
     Session.set("gc-compliance", 5);
     Session.set("hc-compliance", 5);
@@ -21,6 +21,7 @@ Router.route('/:_id', {
     Session.set("data-to",  "2015");
     Session.set("studentdata","redo");
     Session.set("studentYear","all");
+    Session.set("workload",0);
     Session.set("loading",true);
     Session.set("stab","a");
     Session.set("riskValue",0.92);

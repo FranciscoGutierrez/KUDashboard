@@ -67,23 +67,22 @@ Template.studentprofile.events({
   },
   "change .timesp-slider": function(){
     var a = $(".timesp-slider").attr("value");
-    if(a==0) Session.set("riskValue",(14.65*1 + 3.86)/20);
-    if(a==1) Session.set("riskValue",(14.65*1 + 3.86)/20);
-    if(a==2) Session.set("riskValue",(14.65*1 + 3.86)/20);
-    if(a==3) Session.set("riskValue",(14.65*1 + 3.86)/20);
-    if(a==4) Session.set("riskValue",(14.65*1 + 3.86)/20);
-    if(a==5) Session.set("riskValue",(14.65*1 + 3.86)/20);
-    if(a==6) Session.set("riskValue",(14.65*1 + 3.86)/20);
-    if(a==7) Session.set("riskValue",(14.65*1 + 3.86)/20);
-    if(a==8) Session.set("riskValue",(14.65*1 + 3.86)/20);
-    if(a==9) Session.set("riskValue",(14.65*0.96  + 3.86)/20);
-    if(a==10) Session.set("riskValue",(14.65*0.84 + 3.86)/20);
-    if(a==11) Session.set("riskValue",(14.65*0.75 + 3.86)/20);
-    if(a==12) Session.set("riskValue",(14.65*0.62 + 3.86)/20);
-    if(a==13) Session.set("riskValue",(14.65*0.50 + 3.86)/20);
-    if(a==14) Session.set("riskValue",(14.65*0.37 + 3.86)/20);
-    if(a==15) Session.set("riskValue",(14.65*0.25 + 3.86)/20);
-    if(a==16) Session.set("riskValue",(14.65*0.12 + 3.86)/20);
+    if(a==1) Session.set("riskValue",(14.65*0.00 + 3.86)/20);
+    if(a==2) Session.set("riskValue",(14.65*0.12 + 3.86)/20);
+    if(a==3) Session.set("riskValue",(14.65*0.25 + 3.86)/20);
+    if(a==4) Session.set("riskValue",(14.65*0.37 + 3.86)/20);
+    if(a==5) Session.set("riskValue",(14.65*0.50 + 3.86)/20);
+    if(a==6) Session.set("riskValue",(14.65*0.62 + 3.86)/20);
+    if(a==7) Session.set("riskValue",(14.65*0.75 + 3.86)/20);
+    if(a==8) Session.set("riskValue",(14.65*0.84 + 3.86)/20);
+    if(a==9) Session.set("riskValue",(14.65*0.96 + 3.86)/20);
+    if(a==10) Session.set("riskValue",(14.65*1.0 + 3.86)/20);
+    if(a==11) Session.set("riskValue",(14.65*1.0 + 3.86)/20);
+    if(a==12) Session.set("riskValue",(14.65*1.0 + 3.86)/20);
+    if(a==13) Session.set("riskValue",(14.65*1.0 + 3.86)/20);
+    if(a==14) Session.set("riskValue",(14.65*1.0 + 3.86)/20);
+    if(a==15) Session.set("riskValue",(14.65*1.0 + 3.86)/20);
+    if(a==16) Session.set("riskValue",(14.65*1.0 + 3.86)/20);
   },
   "click": function(event,template){
     /*** Interaction Recorder ***/

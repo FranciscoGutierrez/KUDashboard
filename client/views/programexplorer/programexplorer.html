@@ -18,7 +18,7 @@
         <div class="fase-content">
           <div class="eerste semester">
             <div class="eerste-title">S1</div>
-            <div class="metadata">9.5 <span>score</span><iron-icon icon="icons:swap-horiz"></iron-icon></div>
+            <div class="metadata">9.5<span>score</span><iron-icon icon="icons:swap-horiz"></iron-icon></div>
             {{#each sem1}}
             <div class="course">
               <div class="course-title">{{opleidingsonderdeel}}</div>
@@ -29,7 +29,7 @@
           </div>
           <div class="tweede semester">
             <div class="tweede-title">S2</div>
-            <div class="metadata">9.5 <span>score</span><iron-icon icon="icons:swap-horiz"></iron-icon></div>
+            <div class="metadata">9.5<span>score</span><iron-icon icon="icons:swap-horiz"></iron-icon></div>
             {{#each sem2}}
             <div class="course">
               <div class="course-title">{{opleidingsonderdeel}}</div>
@@ -49,7 +49,7 @@
         <div class="fase-content">
           <div class="eerste semester">
             <div class="eerste-title">S1</div>
-            <div class="metadata">9.5 <span>score</span><iron-icon icon="icons:swap-horiz"></iron-icon></div>
+            <div class="metadata">9.5<span>score</span><iron-icon icon="icons:swap-horiz"></iron-icon></div>
             {{#each sem3}}
             <div class="course">
               <div class="course-title">{{opleidingsonderdeel}}</div>
@@ -60,24 +60,26 @@
           </div>
           <div class="tweede semester">
             <div class="tweede-title current">S2</div>
-            <div class="metadata">30 <span>credits</span><iron-icon icon="icons:swap-horiz"></iron-icon></div>
-            <div id="currentList" class="course course-add">
-              <div class="course-add-border last">
+            <div class="metadata"><div class="workload">{{workload}}/30</div><span>credits</span></div>
+            <div id="currentList">
+              <!-- <div class="course-add-border last">
                 <div class="text-add">drop course here</div>
                 <paper-ripple></paper-ripple>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
       </div>
       <!-- This is the navigation/selection area -->
       <div class="courses">
-        <div class="courses-title">Courses</div>
+        <div class="fase-title">
+          <iron-icon icon=""></iron-icon>Courses<iron-icon icon=""></iron-icon>
+        </div>
         <div class="available">
           <div class="available-title">Available For You</div>
           <div id="availableList" class="available-courses">
             {{#each courses}}
-            <div class="course">
+            <div class="course" id="{{code}}" credits="{{credits}}">
               <div class="course-title">{{name}}</div>
               <div class="course-credits"><span>{{credits}}</span> credits</div>
               <paper-ripple></paper-ripple>

@@ -2,3 +2,7 @@
   display: flex;
   align-items: baseline;
 }
+
+.student-data {
+  margin-top: -26px;
+}

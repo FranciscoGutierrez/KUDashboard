@@ -30,8 +30,9 @@
   min-height:80px;
   max-width: 80px;
   max-height: 80px;
-  background: #ecf0f1;
-  border: 3px solid white;
+  background: #ebebeb;
+  /*border: 3px solid white;*/
+  margin: 3px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -61,7 +62,7 @@
 }
 
 .eerste-title {
-  background: #7f8c8d;
+  background: #757575;
   color: white;
   font-weight: bold;
   text-align: center;
@@ -70,7 +71,7 @@
 }
 
 .tweede-title {
-  background: #7f8c8d;
+  background: #757575;
   color: white;
   font-weight: bold;
   text-align: center;
@@ -81,13 +82,13 @@
 .fase {
   display: flex;
   flex-direction: column;
-  /*background: #fafafa;*/
+  background: #fafafa;
 }
 
 .fase-content {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
 }
 
 .fase-title {
@@ -97,6 +98,8 @@
   font-weight: 300;
   display: flex;
   align-items: flex-end;
+  justify-content: center;
+  background: white;
 }
 
 .fase-title span {
@@ -111,12 +114,18 @@
   text-align: center;
   font-weight: 300;
   font-size: 12px;
+  height: 24px;
+  width: 86px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .semester .metadata span {
   color: #A1A1A1;
   font-weight: 500;
   font-size: 12px;
+  margin-left: 3px;
 }
 
 .courses {
@@ -186,7 +195,7 @@
 }
 
 .course:hover {
-  background: #c9d4d9;
+  background: #cccccc;
   cursor: pointer;
 }
 
@@ -231,7 +240,7 @@
 }
 
 .unavailable-title {
-  background: #7f8c8d;
+  background: #757575;
   color: white;
   font-weight: bold;
   text-align: center;
@@ -264,4 +273,10 @@ top: 0;
 
 .sortable-ghost {
   opacity: 0.25;
+}
+
+#currentList {
+  height: 710px;
+  position: relative;
+  border: 1px dashed #c5c5c5;
 }
