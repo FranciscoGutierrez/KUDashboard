@@ -1,8 +1,8 @@
 .good-grades > #checkboxContainer > #checkbox { border-color: #27AE60; }
 .good-grades /deep/ .checked { background: #27AE60 !important; }
 
-.best-grades > #checkboxContainer > #checkbox { border-color: #25A085; }
-.best-grades /deep/ .checked { background: #25A085 !important; }
+.best-grades > #checkboxContainer > #checkbox { border-color: #cfcfcf; }
+.best-grades /deep/ .checked { background: #cfcfcf !important; }
 
 .bad-grades > #checkboxContainer > #checkbox { border-color: #E74C3C; }
 .bad-grades /deep/ .checked { background: #E74C3C !important; }
@@ -19,7 +19,7 @@
   margin:  7px;
   height: 417px;
   min-width: 350px;
-  max-width: 350px;  
+  max-width: 350px;
 }
 
 /*chart*/

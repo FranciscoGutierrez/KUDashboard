@@ -214,7 +214,7 @@
   display: flex;
   /*justify-content: space-between;*/
   flex-wrap: wrap;
-  height: 350px;
+  height: 450px;
   overflow-y: scroll;
   overflow-x: hidden;
   border: 3px solid white;
@@ -224,7 +224,7 @@
   display: flex;
   /*justify-content: space-between;*/
   flex-wrap: wrap;
-  height: 350px;
+  height: 250px;
   overflow-y: scroll;
   overflow-x: hidden;
   border: 3px solid white;
@@ -279,4 +279,9 @@ top: 0;
   height: 710px;
   position: relative;
   border: 1px dashed #c5c5c5;
+}
+
+.course-overlay {
+  position: absolute;
+  z-index: 1000;
 }

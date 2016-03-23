@@ -232,6 +232,9 @@ Template.semesterplan.events({
 * Display data from helpers
 */
 Template.semesterplan.helpers({
+  done: function() {
+    return true;
+  },
   getCourses: function() {
     var a = PackageSearch.getData({
       transform: function(matchText, regExp) {

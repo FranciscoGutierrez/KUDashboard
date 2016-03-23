@@ -3,10 +3,10 @@
     <div class="chart-content gc-card-content animated fadeIn" track="grades.maincontainer">
       <div class="card-title" track="studentskills.topcontent.title">
         <div class="title-container">
-          <h1 class="profile-title">Student Profile</h1>
+          <h1 class="profile-title">You & Other Students</h1>
           <iron-icon class="card-info" icon="icons:info" track="studentskills.topcontent.infoicon"></iron-icon>
         </div>
-        <h2 class="explorer-subtitle">Shows an overview of the student's program</h2>
+        <h2 class="explorer-subtitle">Shows the performance of the student in relation to others based on their academic history.</h2>
         <paper-toggle-button class="gc-toggle" checked track="grades.topcontent.togglebutton"></paper-toggle-button>
       </div>
       {{#if isOn}}
@@ -79,14 +79,7 @@
           <div class="control-title" track="grades.bottomcontent.title">Grades</div>
           <div class="card-content-columns" track="grades.bottomcontent">
             <div class="card-content-column" track="grades.bottomcontent">
-              <paper-checkbox class="good-grades" style="margin-top: 10px;" checked track="grades.bottomcontent.checkbox.Very Good">Very Good</paper-checkbox>
-              <paper-checkbox class="lazy-grades" style="margin-top: 10px;" checked track="grades.bottomcontent.checkbox.Sufficient">Sufficient</paper-checkbox>
-            </div>
-            <div class="card-content-column" track="grades.bottomcontent">
-              <paper-checkbox class="best-grades" style="margin-top: 10px;" checked track="grades.bottomcontent.checkbox.Excellent">Excellent</paper-checkbox>
-              <paper-checkbox class="regular-grades" style="margin-top: 10px;" checked track="grades.bottomcontent.checkbox.Good">Good</paper-checkbox>
-            </div>
-            <div class="card-content-column" track="grades.bottomcontent">
+              <paper-checkbox class="best-grades" style="margin-top: 10px;" checked track="grades.bottomcontent.checkbox.Excellent">Other Students</paper-checkbox>
               <paper-checkbox class="student-grades" style="margin-top: 10px;" checked track="grades.bottomcontent.checkbox.This Student">This Student</paper-checkbox>
             </div>
           </div>

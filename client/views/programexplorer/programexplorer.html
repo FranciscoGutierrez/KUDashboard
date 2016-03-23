@@ -1,5 +1,16 @@
 <template name="programexplorer">
   <paper-material class="explorer-content" elevation="1">
+    {{#with overlay}}
+    <paper-material class="course-overlay" elevation="1">
+      <div class="card-title" track="studentskills.topcontent.title">
+        <div class="title-container">
+          <h1 class="explorer-title">{{name}}</h1>
+          <iron-icon class="card-info" icon="icons:info" track="studentskills.topcontent.infoicon"></iron-icon>
+        </div>
+        <h2 class="explorer-subtitle"><b>{{code}}</b> - {{credits}} credits</h2>
+      </div>
+    </paper-material>
+    {{/with}}
     <div class="card-title" track="studentskills.topcontent.title">
       <div class="title-container">
         <h1 class="explorer-title">Student Program</h1>
@@ -9,16 +20,17 @@
     </div>
     <div class="explorer-top"><!-- Program Filtering --></div>
     <div class="explorer-mid">
+      {{#with firstyear}}
       <div class="fase">
         <div class="fase-title">
-          <iron-icon icon="icons:chevron-left"></iron-icon>
-          Year 1<span> (2014-2015)</span>
-          <iron-icon icon="icons:chevron-right"></iron-icon>
+          <iron-icon icon=""></iron-icon>
+          Year 1<span>({{year}})</span>
+          <iron-icon icon=""></iron-icon>
         </div>
         <div class="fase-content">
           <div class="eerste semester">
             <div class="eerste-title">S1</div>
-            <div class="metadata">9.5<span>score</span><iron-icon icon="icons:swap-horiz"></iron-icon></div>
+            <div class="metadata"><div class="sc1">{{sc1}}</div><span>score</span></div>
             {{#each sem1}}
             <div class="course">
               <div class="course-title">{{opleidingsonderdeel}}</div>
@@ -29,7 +41,7 @@
           </div>
           <div class="tweede semester">
             <div class="tweede-title">S2</div>
-            <div class="metadata">9.5<span>score</span><iron-icon icon="icons:swap-horiz"></iron-icon></div>
+            <div class="metadata"><div class="sc2">{{sc2}}</div><span>score</span></div>
             {{#each sem2}}
             <div class="course">
               <div class="course-title">{{opleidingsonderdeel}}</div>
@@ -40,66 +52,111 @@
           </div>
         </div>
       </div>
+      {{/with}}
+
+      {{#with secondyear}}
       <div class="fase">
         <div class="fase-title">
           <iron-icon icon=""></iron-icon>
-          Year 2<span> (current)</span>
+          Year 2<span>({{year}})</span>
           <iron-icon icon=""></iron-icon>
         </div>
         <div class="fase-content">
           <div class="eerste semester">
             <div class="eerste-title">S1</div>
-            <div class="metadata">9.5<span>score</span><iron-icon icon="icons:swap-horiz"></iron-icon></div>
-            {{#each sem3}}
-            <div class="course">
-              <div class="course-title">{{opleidingsonderdeel}}</div>
-              <div class="course-score"><span style="border-bottom: 2px solid {{color}}">{{score}}</span> score</div>
-              <paper-ripple></paper-ripple>
-            </div>
-            {{/each}}
-          </div>
-          <div class="tweede semester">
-            <div class="tweede-title current">S2</div>
-            <div class="metadata"><div class="workload">{{workload}}/30</div><span>credits</span></div>
+            <div class="metadata"><div class="sc3">{{sc3}}</div><span>score</span><iron-icon icon=""></iron-icon></div>
             <div id="currentList">
               <!-- <div class="course-add-border last">
-                <div class="text-add">drop course here</div>
-                <paper-ripple></paper-ripple>
-              </div> -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- This is the navigation/selection area -->
-      <div class="courses">
-        <div class="fase-title">
-          <iron-icon icon=""></iron-icon>Courses<iron-icon icon=""></iron-icon>
-        </div>
-        <div class="available">
-          <div class="available-title">Available For You</div>
-          <div id="availableList" class="available-courses">
-            {{#each courses}}
-            <div class="course" id="{{code}}" credits="{{credits}}">
-              <div class="course-title">{{name}}</div>
-              <div class="course-credits"><span>{{credits}}</span> credits</div>
+              <div class="text-add">drop course here</div>
               <paper-ripple></paper-ripple>
-            </div>
-            {{/each}}
+            </div> -->
           </div>
         </div>
-        <div class="unavailable">
-          <div class="unavailable-title">Unavailable For You</div>
-          <div class="unavailable-courses">
-            {{#each courses}}
-            <div class="course" style="opacity: 0.6;">
-              <div class="course-title">{{name}}</div>
-              <div class="course-credits"><span>{{credits}}</span> credits</div>
-              <paper-ripple></paper-ripple>
-            </div>
-            {{/each}}
-          </div>
+        <div class="tweede semester">
+          <div class="tweede-title current">S2</div>
+          <div class="metadata"><div class="workload">{{workload}}/30</div><span>credits</span></div>
         </div>
       </div>
     </div>
-  </paper-material>
+    {{/with}}
+
+    {{#with thirdyear}}
+    <div class="fase">
+      <div class="fase-title">
+        <iron-icon icon=""></iron-icon>
+        Year 3<span> (current)</span>
+        <iron-icon icon=""></iron-icon>
+      </div>
+      <div class="fase-content">
+        <div class="eerste semester">
+          <div class="eerste-title">S1</div>
+          <div class="metadata"><div class="sc3">{{sc3}}</div><span>score</span><iron-icon icon=""></iron-icon></div>
+          <!-- <div id="currentList"> -->
+          <!-- <div class="course-add-border last">
+          <div class="text-add">drop course here</div>
+          <paper-ripple></paper-ripple>
+        </div> -->
+        <!-- </div> -->
+      </div>
+      <div class="tweede semester">
+        <div class="tweede-title current">S2</div>
+        <div class="metadata"><div class="workload">{{workload}}/30</div><span>credits</span></div>
+      </div>
+    </div>
+  </div>
+  {{/with}}
+
+  <div class="fase">
+    <div class="fase-title">
+      <iron-icon icon=""></iron-icon>
+      Year 2<span></span>
+      <iron-icon icon=""></iron-icon>
+    </div>
+    <div class="fase-content">
+      <div class="eerste semester">
+        <div class="eerste-title">current</div>
+        <div class="metadata"><div class="workload">{{workload}}/30</div><span>credits</span></div>
+        <div id="currentList">
+          <!-- <div class="course-add-border last">
+          <div class="text-add">drop course here</div>
+          <paper-ripple></paper-ripple>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- This is the navigation/selection area -->
+<div class="courses">
+  <div class="fase-title">
+    <iron-icon icon=""></iron-icon>Courses<iron-icon icon=""></iron-icon>
+  </div>
+  <div class="available">
+    <div class="available-title">Available For You</div>
+    <div id="availableList" class="available-courses">
+      {{#each courses}}
+      <div class="course" id="{{code}}" credits="{{credits}}">
+        <div class="course-title">{{name}}</div>
+        <div class="course-credits"><span>{{credits}}</span> credits</div>
+        <paper-ripple></paper-ripple>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  <div class="unavailable">
+    <div class="unavailable-title">Unavailable For You</div>
+    <div class="unavailable-courses">
+      {{#each courses}}
+      <div class="course" style="opacity: 0.6;">
+        <div class="course-title">{{name}}</div>
+        <div class="course-credits"><span>{{credits}}</span> credits</div>
+        <paper-ripple></paper-ripple>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
+</div>
+</paper-material>
 </template>
