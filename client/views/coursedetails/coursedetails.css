@@ -1,0 +1,5 @@
+.course-overlay {
+  position: absolute;
+  z-index: 1;
+  background: white;
+}

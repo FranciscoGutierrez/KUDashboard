@@ -280,8 +280,3 @@ top: 0;
   position: relative;
   border: 1px dashed #c5c5c5;
 }
-
-.course-overlay {
-  position: absolute;
-  z-index: 1000;
-}
