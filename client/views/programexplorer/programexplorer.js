@@ -3,8 +3,9 @@ Template.programexplorer.events({
     console.log("asd");
   },
   "click .course": function(event,template) {
-    console.log(this);
     Session.set("courseOverlay",this);
+    $(".course").css("border","0");
+    $("#"+this.code).css("border","3px solid #b45c7e");
   }
 });
 
@@ -189,6 +190,8 @@ Template.programexplorer.rendered = function () {
         w = Number(w) + Number(evt.item.getAttribute("credits"));
         Session.set("courses",c);
         Session.set("workload",w);
+
+        Session.set("riskValue",Math.round(Math.random() * (90 - 60) + 60)/100);
       },
       onRemove: function (evt) {
         var c = Session.get("courses");
@@ -204,6 +207,7 @@ Template.programexplorer.rendered = function () {
           }
         }
         Session.set("courses",courses);
+        Session.set("riskValue",Math.round(Math.random() * (90 - 60) + 60)/100);
       }
     });
 

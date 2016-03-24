@@ -1,5 +1,140 @@
 .course-overlay {
-  position: absolute;
-  z-index: 1;
+  /*position: absolute;*/
   background: white;
+  padding: 15px;
+  margin:  7px;
+  height: 417px;
+  min-width: 350px;
+  max-width: 350px;
+}
+
+.card-middle .difficulty {
+  display: flex;
+  margin-top: 15px;
+}
+
+.card-middle .difficulty .c {
+  min-width: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  max-height: 20px;
+  margin: 3px;
+  background: #ebebeb;
+}
+
+.card-middle .difficulty .d-row {
+  display: flex;
+}
+
+.card-middle .difficulty .d-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.difficulty .d-text {
+  padding: 0;
+  margin: 0;
+  color: #424242;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.4;
+  opacity: 0.7;
+  max-width: 140px;
+  align-self: flex-end;
+}
+
+.success-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.success-bottom {
+
+}
+
+.prediction {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chance {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chance-text {
+  padding: 0;
+  margin: 0;
+  color: #424242;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.1;
+  align-self: flex-end;
+  width: 200px;
+}
+
+.chance-sub {
+  padding: 0;
+  margin: 0;
+  margin-top: 8px;
+  color: #424242;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.4;
+  opacity: 0.7;
+}
+
+.predic-text {
+  padding: 0;
+  margin: 0;
+  color: #424242;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.predic-text span {
+  padding: 0;
+  margin: 0;
+  margin-top: 8px;
+  color: #424242;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.4;
+  opacity: 0.5;
+}
+
+.predic-sub {
+  padding: 0;
+  margin: 0;
+  color: #424242;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.4;
+  opacity: 0.7;
+  margin-right: 10px;
+  align-self: flex-end;
+}
+
+.close-details {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #b25d7e;
+}
+
+.success-bar {
+  display: block;
+  width: 100%;
+  margin: 10px 0 0;
+}
+
+.u-bar {
+  border-left:  1px solid #d9d9d9;
+  border-right: 1px solid #d9d9d9;
+  border-bottom:1px solid #d9d9d9;
+  height: 5px;
+  display: flex;
+  justify-content: center;
+  margin-top: 3px;
 }

@@ -55,22 +55,6 @@
   paper-spinner-lite.pink {
         --paper-spinner-color: #b25d7e;
   }
-  paper-checkbox.gender {
-    --paper-checkbox-unchecked-color: #0b4bba;
-    --paper-checkbox-checked-color:   #0b4bba;
-  }
-  paper-checkbox.marital {
-    --paper-checkbox-unchecked-color: #50c6bb;
-    --paper-checkbox-checked-color:   #50c6bb;
-  }
-  paper-checkbox.nationality {
-    --paper-checkbox-unchecked-color: #6882e6;
-    --paper-checkbox-checked-color:   #6882e6;
-  }
-  paper-checkbox.scholarship {
-    --paper-checkbox-unchecked-color: #41a5f3;
-    --paper-checkbox-checked-color:   #41a5f3;
-  }
   paper-checkbox.sf-similar {
     --paper-checkbox-unchecked-color: #bdbdbd;
     --paper-checkbox-checked-color:   #bdbdbd;
@@ -90,6 +74,17 @@
     --iron-icon-width: 32px;
     --iron-icon-height: 32px;
     --iron-icon-fill-color: #757575;
+  }
+
+  iron-icon.close-details {
+    --iron-icon-width: 32px;
+    --iron-icon-height: 32px;
+    --iron-icon-fill-color: #b25d7e;
+  }
+
+  paper-progress {
+    --paper-progress-height: 10px;
+    --paper-progress-secondary-color: #ebebeb;
   }
   </style>
   <script src="bower_components/Chart.js/Chart.js"></script>
@@ -149,7 +144,6 @@
       </div>
     </paper-toolbar> -->
     <div class="content">
-      {{> coursedetails}}
       <div style="display: flex; flex-direction:column;">
       {{> studentprofile}}
       {{> studentskills}}
@@ -159,6 +153,7 @@
       {{> predictionarea}}
       {{> gradescard}}
       </div>
+      {{> coursedetails}}
     </div>
   </paper-header-panel>
 </body>

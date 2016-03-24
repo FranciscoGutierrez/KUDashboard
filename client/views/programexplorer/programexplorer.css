@@ -38,6 +38,7 @@
   text-align: center;
   justify-content: center;
   position: relative;
+  box-sizing: border-box;
 }
 
 .explorer-content .course-add {
@@ -100,6 +101,7 @@
   align-items: flex-end;
   justify-content: center;
   background: white;
+  min-width: 96px;
 }
 
 .fase-title span {

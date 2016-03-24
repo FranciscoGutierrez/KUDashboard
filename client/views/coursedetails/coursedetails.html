@@ -4,9 +4,40 @@
     <div class="card-title" track="studentskills.topcontent.title">
       <div class="title-container">
         <h1 class="explorer-title">{{name}}</h1>
-        <iron-icon class="card-info" icon="icons:info" track="studentskills.topcontent.infoicon"></iron-icon>
       </div>
-      <h2 class="explorer-subtitle"><b>{{code}}</b> - {{credits}} credits</h2>
+      <h2 class="explorer-subtitle"><b>{{code}}</b> - <b>{{credits}}</b> credits - Nederlands - <b>41</b> uren</h2>
+      <iron-icon class="close-details" icon="icons:close" track=""></iron-icon>
+    </div>
+    <div class="card-middle">
+      <div class="success-top">
+        <div class="chance">
+          <div class="chance-text">Your chance of success in this course</div><div class="predic-text">{{success}}<span>%</span></div>
+        </div>
+        <div class="prediction">
+          <div class="chance-sub">Based in your <b>Skills</b> and <b>Performance</b></div><div class="predic-sub">Easy</div>
+        </div>
+      </div>
+      <div class="success-bottom">
+        <paper-progress class="success-bar" value="{{success}}" max="100"></paper-progress>
+        <div class="u-bar" style="width: 30%; margin-left: {{usuccess}}%;"><iron-icon icon="icons:arrow-drop-up" track=""></iron-icon></div>
+      </div>
+      <div class="difficulty">
+        <div class="d-rows">
+          <div class="d-row">
+            <div class="c"></div><div class="c"></div>
+            <div class="c"></div><div class="c"></div>
+            <div class="c"></div>
+          </div>
+          <div class="d-row">
+            <div class="c"></div>
+            <div class="c"></div><div class="c"></div>
+            <div class="c"></div><div class="c"></div>
+          </div>
+        </div>
+        <div class="d-text">
+          Typically, <b>{{difficulty}}</b> out of <b>10</b> students pass this course.
+        </div>
+      </div>
     </div>
   </paper-material>
   {{/with}}
