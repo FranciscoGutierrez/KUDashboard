@@ -46,6 +46,7 @@
 .success-top {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .success-bottom {
@@ -137,4 +138,12 @@
   display: flex;
   justify-content: center;
   margin-top: 3px;
+}
+
+.std-main {
+  position: absolute;
+  transition-timing-function: ease;
+  transition-property: left;
+  transition-duration: 1s;
+  transition-delay: 0s;
 }

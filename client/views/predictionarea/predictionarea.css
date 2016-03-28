@@ -8,6 +8,22 @@
 }
 
 .prediction-middle {
-  display: flex;
-  justify-content: space-between;
+/*  display: flex;
+  justify-content: space-between; */
+}
+
+.std {
+  min-width: 10px;
+  max-width: 10px;
+  min-height: 10px;
+  max-height: 10px;
+  margin-top: 1px;
+  background: #b45c7e;
+  border-radius: 50%;
+}
+
+.prediction-bar {
+  display: block;
+  width: 100%;
+  margin: 2px 0 0;
 }

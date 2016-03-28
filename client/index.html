@@ -53,7 +53,7 @@
     --paper-progress-secondary-color: #cfcecf;
   }
   paper-spinner-lite.pink {
-        --paper-spinner-color: #b25d7e;
+    --paper-spinner-color: #b25d7e;
   }
   paper-checkbox.sf-similar {
     --paper-checkbox-unchecked-color: #bdbdbd;
@@ -84,7 +84,11 @@
 
   paper-progress {
     --paper-progress-height: 10px;
-    --paper-progress-secondary-color: #ebebeb;
+    --paper-progress-container-color: #ebebeb;
+
+    --paper-progress-transition-duration: 1s;
+    --paper-progress-transition-timing-function: ease;
+    --paper-progress-transition-transition-delay: 0s;
   }
   </style>
   <script src="bower_components/Chart.js/Chart.js"></script>
@@ -136,24 +140,24 @@
   </paper-toast>
   <paper-header-panel mode="seamed">
     <!-- <paper-toolbar class="tall">
-      <div class="top">
-        {{> topribbon}}
-        {{> topwidgets}}
-      </div>
-      <div class="middle">
-      </div>
-    </paper-toolbar> -->
-    <div class="content">
-      <div style="display: flex; flex-direction:column;">
-      {{> studentprofile}}
-      {{> studentskills}}
-      </div>
-      {{> programexplorer}}
-      <div style="display: flex; flex-direction:column;">
-      {{> predictionarea}}
-      {{> gradescard}}
-      </div>
-      {{> coursedetails}}
-    </div>
-  </paper-header-panel>
+    <div class="top">
+    {{> topribbon}}
+    {{> topwidgets}}
+  </div>
+  <div class="middle">
+</div>
+</paper-toolbar> -->
+<div class="content">
+  <div style="display: flex; flex-direction:column;">
+    {{> studentprofile}}
+    {{> studentskills}}
+  </div>
+  {{> programexplorer}}
+  <div style="display: flex; flex-direction:column;">
+    {{> predictionarea}}
+    {{> gradescard}}
+  </div>
+  {{> coursedetails}}
+</div>
+</paper-header-panel>
 </body>
