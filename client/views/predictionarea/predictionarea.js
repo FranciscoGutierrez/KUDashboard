@@ -1,4 +1,3 @@
-
 Template.predictionarea.events({
   "change #currentList": function(event,template){
     console.log("asd");
@@ -6,6 +5,12 @@ Template.predictionarea.events({
   "click .course": function(event,template) {
     $(".c").css("background","#ebebeb");
     Session.set("courseOverlay",this);
+  },
+  "click .adjust-p": function(event, template) {
+    $(".prediction").fadeOut(function(){
+      $(".adjust-p").text("reset");
+      $(".performance-slider").fadeIn();
+    });
   }
 });
 

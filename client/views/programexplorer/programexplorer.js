@@ -1,12 +1,8 @@
 Template.programexplorer.events({
-  "change #currentList": function(event,template){
-    console.log("asd");
-  },
   "click .course": function(event,template) {
     Session.set("courseOverlay",this);
     $(".course").css("border","0");
     $("#"+this._id).css("border","3px solid #b45c7e");
-    console.log(this);
   }
 });
 
@@ -86,10 +82,11 @@ Template.programexplorer.helpers({
       if(sc[i].score >= 10) sc[i].color = "#27ae60";
       if(sc[i].score <  10) sc[i].color = "#f39c12";
       if(sc[i].score <   8) sc[i].color = "#e74c3c";
+      sc[i].opleidingsonderdeel.toLowerCase();
       if(!isNaN(sc[i].score)) av = Number(sc[i].score) + av;
     }
     if(sc.length > 0) av = av/sc.length;
-    Session.set("sem1",av.toFixed(1));
+    Session.set("sem1",Math.round((av/20)*100));
     return sc;
   },
   sem2: function() {
@@ -100,9 +97,10 @@ Template.programexplorer.helpers({
       if(sc[i].score <  10) sc[i].color = "#f39c12";
       if(sc[i].score <   8) sc[i].color = "#e74c3c";
       if(!isNaN(sc[i].score)) av = Number(sc[i].score) + av;
+      sc[i].opleidingsonderdeel.toLowerCase();
     }
     if(sc.length > 0) av = av/sc.length;
-    Session.set("sem2",av.toFixed(1));
+    Session.set("sem2",Math.round((av/20)*100));
     return sc;
   },
   sem3: function() {
@@ -112,10 +110,11 @@ Template.programexplorer.helpers({
       if(sc[i].score >= 10) sc[i].color = "#27ae60";
       if(sc[i].score <  10) sc[i].color = "#f39c12";
       if(sc[i].score <   8) sc[i].color = "#e74c3c";
+      sc[i].opleidingsonderdeel.toLowerCase();
       if(!isNaN(sc[i].score)) av = Number(sc[i].score) + av;
     }
     if(sc.length > 0) av = av/sc.length;
-    Session.set("sem3",av.toFixed(1));
+    Session.set("sem3",Math.round((av/20)*100));
     return sc;
   },
   sem4: function() {
@@ -125,10 +124,11 @@ Template.programexplorer.helpers({
       if(sc[i].score >= 10) sc[i].color = "#27ae60";
       if(sc[i].score <  10) sc[i].color = "#f39c12";
       if(sc[i].score <   8) sc[i].color = "#e74c3c";
+      sc[i].opleidingsonderdeel.toLowerCase();
       if(!isNaN(sc[i].score)) av = Number(sc[i].score) + av;
     }
     if(sc.length > 0) av = av/sc.length;
-    Session.set("sem4",av.toFixed(1));
+    Session.set("sem4",Math.round((av/20)*100));
     return sc;
   },
   sem5: function() {
@@ -138,10 +138,11 @@ Template.programexplorer.helpers({
       if(sc[i].score >= 10) sc[i].color = "#27ae60";
       if(sc[i].score <  10) sc[i].color = "#f39c12";
       if(sc[i].score <   8) sc[i].color = "#e74c3c";
+      sc[i].opleidingsonderdeel.toLowerCase();
       if(!isNaN(sc[i].score)) av = Number(sc[i].score) + av;
     }
     if(sc.length > 0) av = av/sc.length;
-    Session.set("sem5",av.toFixed(1));
+    Session.set("sem5",Math.round((av/20)*100));
     return sc;
   },
   sem6: function() {
@@ -151,10 +152,11 @@ Template.programexplorer.helpers({
       if(sc[i].score >= 10) sc[i].color = "#27ae60";
       if(sc[i].score <  10) sc[i].color = "#f39c12";
       if(sc[i].score <   8) sc[i].color = "#e74c3c";
+      sc[i].opleidingsonderdeel.toLowerCase();
       if(!isNaN(sc[i].score)) av = Number(sc[i].score) + av;
     }
     if(sc.length > 0) av = av/sc.length;
-    Session.set("sem6",av.toFixed(1));
+    Session.set("sem6",Math.round((av/20)*100));
     return sc;
   },
   workload: function() {

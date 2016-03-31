@@ -13,12 +13,17 @@
       <div class="success-top">
         <div class="chance">
           <div class="chance-text">Your performance is</div>
-          <div class="predic-text">{{performance}}<span>%</span></div>
+          <div class="predic-text">{{performance}}<span>%</span>
+            <div class="adjust-p">adjust
+              <paper-ripple></paper-ripple>
+            </div>
+          </div>
         </div>
         <div class="prediction">
-          <div class="chance-sub">Based in your <b>score record</b> and your <b>avaibility</b> for studies</div>
+          <div class="chance-sub">Based in your <b>score record</b> and your <b>time</b> for study</div>
           <div class="predic-sub">{{text}}</div>
         </div>
+        <paper-slider class="performance-slider" style="display: none;" pin value="{{performance}}" max="100" min="1" step="1"></paper-slider>
       </div>
 
       <div class="success-top" style="height: 112px;">

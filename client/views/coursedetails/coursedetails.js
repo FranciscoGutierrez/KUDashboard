@@ -14,7 +14,7 @@ Template.coursedetails.helpers({
     if(course) {
       course.difficulty = Math.round(course.difficulty * 10);
       course.success    = Math.round(((course.a + (course.b*Session.get("performance")))/20)*100);
-      course.usuccess   = course.success - 25;
+      course.usuccess   = course.success - 16;
       if (course.success >= 0) {
         course.text = "Very Hard";
         $(".success-bar").find("#primaryProgress").css("background","#e74c3c");
@@ -24,11 +24,11 @@ Template.coursedetails.helpers({
         $(".success-bar").find("#primaryProgress").css("background","#e74c3c");
       }
       if (course.success >= 40) {
-        course.text = "Normal";
+        course.text = "Regular";
         $(".success-bar").find("#primaryProgress").css("background","#f39c12");
       }
       if (course.success >= 60) {
-        course.text = "Easy";
+        course.text = "Very Easy";
         $(".success-bar").find("#primaryProgress").css("background","#27ae60");
       }
       if (course.success >= 80) {

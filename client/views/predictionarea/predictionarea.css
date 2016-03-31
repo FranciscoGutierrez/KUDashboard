@@ -27,3 +27,14 @@
   width: 100%;
   margin: 2px 0 0;
 }
+
+.adjust-p {
+  color: #b25d7e;
+  text-decoration: underline;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: right;
+  position: absolute;
+  top: -14px;
+  right: 0;
+}

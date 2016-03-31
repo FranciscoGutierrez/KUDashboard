@@ -95,13 +95,12 @@
 .fase-title {
   color: #424242;
   text-align: center;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 300;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   background: white;
-  min-width: 96px;
 }
 
 .fase-title span {
@@ -119,7 +118,7 @@
   height: 24px;
   width: 86px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -127,11 +126,10 @@
   color: #A1A1A1;
   font-weight: 500;
   font-size: 12px;
-  margin-left: 3px;
 }
 
 .courses {
-  width: 200px;
+  width: 192px;
   /*background: #fafafa;*/
 }
 
@@ -149,7 +147,7 @@
 .course-credits {
   display: flex;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
   color: #A1A1A1;
   justify-content: center;
@@ -159,7 +157,7 @@
 .course-score {
   display: flex;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
   color: #A1A1A1;
   justify-content: center;
@@ -186,7 +184,6 @@
 .course-score span {
   color: #757575;
   background: none;
-  border-bottom: 2px solid #27ae60;
   max-width: 20px;
   min-width: 20px;
   text-align: center;
@@ -214,7 +211,7 @@
 
 .available-courses {
   display: flex;
-  /*justify-content: space-between;*/
+  justify-content: space-between;
   flex-wrap: wrap;
   height: 450px;
   overflow-y: scroll;
@@ -224,7 +221,7 @@
 
 .unavailable-courses {
   display: flex;
-  /*justify-content: space-between;*/
+  justify-content: space-between;
   flex-wrap: wrap;
   height: 250px;
   overflow-y: scroll;

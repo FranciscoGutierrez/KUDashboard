@@ -139,6 +139,11 @@
   display: flex;
   justify-content: center;
   margin-top: 3px;
+
+  transition-timing-function: ease;
+  transition-property: margin-left;
+  transition-duration: 1s;
+  transition-delay: 0s;
 }
 
 .std-main {
