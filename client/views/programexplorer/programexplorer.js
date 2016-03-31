@@ -5,7 +5,8 @@ Template.programexplorer.events({
   "click .course": function(event,template) {
     Session.set("courseOverlay",this);
     $(".course").css("border","0");
-    $("#"+this.code).css("border","3px solid #b45c7e");
+    $("#"+this._id).css("border","3px solid #b45c7e");
+    console.log(this);
   }
 });
 

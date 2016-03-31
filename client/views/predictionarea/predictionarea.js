@@ -10,6 +10,19 @@ Template.predictionarea.events({
 });
 
 Template.predictionarea.helpers({
+  performance: function() {
+    return Math.round(Session.get("performance")*100);
+  },
+  text: function(){
+    var p = Session.get("performance");
+    var t = "";
+    if(p > 0.0) t= "Insufficient";
+    if(p > 0.2) t= "More Work is Required";
+    if(p > 0.4) t= "Sufficient";
+    if(p > 0.6) t= "Good";
+    if(p > 0.8) t= "Excellent";
+    return t;
+  },
   success: function() {
     var success = Math.round(Session.get("riskValue")*100);
     console.log(success);

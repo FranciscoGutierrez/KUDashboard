@@ -56,6 +56,7 @@ Router.route('/:_id', {
               var failed = [];
               for (j = 0; j< grades.length; j++) failed.push(grades[j].course);
               Session.set("courses",failed);
+              Session.set("performance",Students.findOne().performance/20);
               for (i = 0; i<failed.length; i++){
                 Meteor.subscribe('sufficientgrades',failed[i], function(){});
                 Meteor.subscribe('failuregrades',   failed[i], function(){});

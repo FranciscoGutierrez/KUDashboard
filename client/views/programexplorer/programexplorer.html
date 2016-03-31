@@ -125,7 +125,7 @@
     <div class="available-title">Available For You</div>
     <div id="availableList" class="available-courses">
       {{#each courses}}
-      <div class="course" id="{{code}}" credits="{{credits}}">
+      <div class="course" id="{{this._id}}" credits="{{credits}}">
         <div class="course-title">{{name}}</div>
         <div class="course-credits"><span>{{credits}}</span> credits</div>
         <paper-ripple></paper-ripple>

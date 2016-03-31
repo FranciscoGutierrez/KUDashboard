@@ -18,15 +18,14 @@ ecmascript                # Enable ECMAScript2015+ syntax in app code
 # autopublish             # Publish all data to the clients (for prototyping)
 insecure                  # Allow all DB writes from clients (for prototyping)
 
-mquandalle:bower          # The power of bower in meteor
-d3js:d3                   # Turned off when dependency from bower_components
-meteorhacks:search-source # Needed for instant search
-check                     # Needed for instant search
-ejson                     # Needed for instant search
-natestrauser:animate-css  # Daneden's Animate CSS
-iron:router
-aslagle:reactive-table
-lookback:tooltips
-rubaxa:sortable
 standard-minifier-css
 standard-minifier-js
+
+iron:router
+mquandalle:bower          # The power of bower in meteor
+d3js:d3                   # Turned off when dependency from bower_components
+natestrauser:animate-css  # Daneden's Animate CSS
+
+meteorhacks:search-source# Needed for instant search
+check                    # Needed for instant search
+ejson                    # Needed for instant search

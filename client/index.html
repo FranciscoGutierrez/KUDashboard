@@ -1,7 +1,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
   <title>Dashboard</title>
   <!-- Custom Style Looks awful but this is the only way... -->
   <style is="custom-style">
@@ -35,15 +34,6 @@
   }
   paper-radio-button.radio-grass {
     --paper-radio-button-checked-color: #249f84;
-  }
-  paper-radio-button.radio-green {
-    --paper-radio-button-checked-color: #26ae60;
-  }
-  paper-radio-button.radio-red {
-    --paper-radio-button-checked-color: #e74c3c;
-  }
-  paper-radio-button.radio-orange {
-    --paper-radio-button-checked-color: #e67d22;
   }
   paper-radio-button.radio-yellow {
     --paper-radio-button-checked-color: #f0c30e;
@@ -91,11 +81,10 @@
     --paper-progress-transition-transition-delay: 0s;
   }
   </style>
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/Sortable/1.4.2/Sortable.min.js"></script>
   <script src="bower_components/Chart.js/Chart.js"></script>
-  <script src="bower_components/ion.rangeslider/js/ion.rangeSlider.min.js"></script>
-  <link rel="stylesheet" href="bower_components/ion.rangeslider/css/normalize.css" />
-  <link rel="stylesheet" href="bower_components/ion.rangeslider/css/ion.rangeSlider.css" />
-  <link rel="stylesheet" href="bower_components/ion.rangeslider/css/ion.rangeSlider.skinFlat.css" />
+
   <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto:900,400,300,100' type='text/css'>
   <link rel="import" href="bower_components/progress-bubble/progress-bubble.html">
 

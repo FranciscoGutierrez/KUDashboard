@@ -9,6 +9,18 @@
       <paper-toggle-button class="gc-toggle" checked track="grades.topcontent.togglebutton"></paper-toggle-button>
     </div>
     <div class="prediction-middle">
+
+      <div class="success-top">
+        <div class="chance">
+          <div class="chance-text">Your performance is</div>
+          <div class="predic-text">{{performance}}<span>%</span></div>
+        </div>
+        <div class="prediction">
+          <div class="chance-sub">Based in your <b>score record</b> and your <b>avaibility</b> for studies</div>
+          <div class="predic-sub">{{text}}</div>
+        </div>
+      </div>
+
       <div class="success-top" style="height: 112px;">
         <div class="std-main" style="left: {{success}}%;">
           <div class="std"></div>
@@ -26,7 +38,7 @@
       <div class="success-bottom">
         <paper-progress class="prediction-bar transiting" value="{{success}}" max="100"></paper-progress>
         <div class="u-bar" style="width: 30%; margin-left: {{usuccess}}%;"><iron-icon icon="icons:arrow-drop-up" track=""></iron-icon></div>
-        <div class="chance-sub">Typically, <b>{{difficulty}}</b> out of <b>10</b> students pass score with <b>{{score}}</b>.</div>
+        <div class="chance-sub">Typically, <b>{{difficulty}}</b> out of <b>10</b> students pass score with <b>{{score}}</b></div>
       </div>
       <!-- {{> riskwidget}}    -->
       <!-- {{> qualitywidget}} -->

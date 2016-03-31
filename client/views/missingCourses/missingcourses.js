@@ -79,9 +79,9 @@ Template.studentdata.events({
   }
 });
 
-Template.reactiveTable.onCreated(function () {
-  Filter = new ReactiveTable.Filter('group', ['group']);
-});
+// Template.reactiveTable.onCreated(function () {
+//   Filter = new ReactiveTable.Filter('group', ['group']);
+// });
 
 /*
 * Display data from helpers

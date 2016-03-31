@@ -5,21 +5,21 @@
       <div class="title-container">
         <h1 class="explorer-title">{{name}}</h1>
       </div>
-      <h2 class="explorer-subtitle"><b>{{code}}</b> - <b>{{credits}}</b> credits - Nederlands - <b>41</b> uren</h2>
+      <h2 class="explorer-subtitle"><b>{{this._id}}</b> - <b>{{credits}}</b> credits - {{language}} - <b>{{hours}}</b> uren</h2>
       <iron-icon class="close-details" icon="icons:close" track=""></iron-icon>
     </div>
     <div class="card-middle">
       <div class="success-top">
         <div class="chance">
-          <div class="chance-text">Your chance of success in this course</div><div class="predic-text">{{success}}<span>%</span></div>
+          <div class="chance-text">Your chance of success for this course</div><div class="predic-text">{{success}}<span>%</span></div>
         </div>
         <div class="prediction">
-          <div class="chance-sub">Based in your <b>Skills</b> and <b>Performance</b></div><div class="predic-sub">Easy</div>
+          <div class="chance-sub">Based in your <b>performance</b></div><div class="predic-sub">{{text}}</div>
         </div>
       </div>
       <div class="success-bottom">
-        <paper-progress class="success-bar transiting" value="{{success}}" max="100"></paper-progress>
-        <div class="u-bar" style="width: 30%; margin-left: {{usuccess}}%;"><iron-icon icon="icons:arrow-drop-up" track=""></iron-icon></div>
+        <paper-progress class="success-bar transiting {{color}}" value="{{success}}" max="100"></paper-progress>
+        <!-- <div class="u-bar" style="width: 30%; margin-left: {{usuccess}}%;"><iron-icon icon="icons:arrow-drop-up" track=""></iron-icon></div> -->
       </div>
       <div class="difficulty">
         <div class="d-rows">
@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="d-text">
-          Typically, <b>{{difficulty}}</b> out of <b>10</b> students pass this course.
+          Typically, <b>{{difficulty}}</b> out of <b>10</b> students pass this course
         </div>
       </div>
     </div>

@@ -37,7 +37,6 @@
   color: #424242;
   font-size: 14px;
   font-weight: normal;
-  line-height: 1.4;
   opacity: 0.7;
   max-width: 140px;
   align-self: flex-end;
@@ -83,6 +82,7 @@
   font-weight: normal;
   line-height: 1.4;
   opacity: 0.7;
+  width: 200px;
 }
 
 .predic-text {
@@ -114,7 +114,8 @@
   line-height: 1.4;
   opacity: 0.7;
   margin-right: 10px;
-  align-self: flex-end;
+  align-self: center;
+  text-align: right;
 }
 
 .close-details {
