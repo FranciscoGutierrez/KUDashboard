@@ -129,7 +129,7 @@
 }
 
 .courses {
-  width: 180px;
+  width: 174px;
   /*background: #fafafa;*/
 }
 
@@ -216,7 +216,7 @@
   height: 450px;
   overflow-y: overlay;
   overflow-x: hidden;
-  border: 3px solid white;
+  border: 1px solid white;
 }
 
 .unavailable-courses {
@@ -226,7 +226,7 @@
   height: 250px;
   overflow-y: overlay;
   overflow-x: hidden;
-  border: 3px solid white;
+  border: 1px solid white;
 }
 
 .available-title {

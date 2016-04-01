@@ -13,7 +13,7 @@ Template.programexplorer.helpers({
     var a = 0;
     var b = 0;
     var r = 0;
-    if (c) {
+    if (c.length > 0) {
       for(var i=0; i < c.length; i ++){
         a += Courses.findOne({"_id": c[i]}).a;
         b += Courses.findOne({"_id": c[i]}).b;
@@ -192,7 +192,13 @@ Template.programexplorer.rendered = function () {
         name: "available",
         put: ["added"]
       },
-      animation: 100
+      animation: 100,
+      onStart: function (evt) {
+        $("#currentList").css("border","1px dashed #b45c7e");
+      },
+      onEnd: function (evt) {
+        $("#currentList").css("border","1px dashed #c5c5c5");
+      }
     });
 
     Sortable.create(currentList, {
@@ -202,6 +208,14 @@ Template.programexplorer.rendered = function () {
         put: ["available"]
       },
       animation: 100,
+      onStart: function (evt) {
+        $("#currentList").css("border","1px dashed #fafafa");
+        $(".available-courses").css("border","1px dashed #b45c7e");
+      },
+      onEnd: function (evt) {
+        $("#currentList").css("border","1px dashed #c5c5c5");
+        $(".available-courses").css("border","1px dashed white");
+      },
       onAdd: function (evt) {
         // evt.from;  // previous list
         var c = Session.get("courses");
