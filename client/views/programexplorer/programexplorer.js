@@ -7,6 +7,22 @@ Template.programexplorer.events({
 });
 
 Template.programexplorer.helpers({
+  prediction: function() {
+    var c = Session.get("courses");
+    var p = Session.get("performance");
+    var a = 0;
+    var b = 0;
+    var r = 0;
+    if (c) {
+      for(var i=0; i < c.length; i ++){
+        a += Courses.findOne({"_id": c[i]}).a;
+        b += Courses.findOne({"_id": c[i]}).b;
+      }
+      r = Math.round((((a/c.length)+((b/c.length)*p))/20)*100);
+      Session.set("riskValue",r);
+    }
+    return r;
+  },
   overlay: function() {
     return Session.get("courseOverlay");
   },
@@ -23,7 +39,7 @@ Template.programexplorer.helpers({
   },
   sc1: function() {
     var sc = Session.get("sem1");
-    var color = "black";
+    var color = "#f39c12";
     if(sc >= 10) color = "#27ae60";
     if(sc <  10) color = "#f39c12";
     if(sc <   8) color = "#e74c3c";
@@ -32,7 +48,7 @@ Template.programexplorer.helpers({
   },
   sc2: function() {
     var sc = Session.get("sem2");
-    var color = "black";
+    var color = "#f39c12";
     if(sc >= 10) color = "#27ae60";
     if(sc <  10) color = "#f39c12";
     if(sc <   8) color = "#e74c3c";
@@ -41,7 +57,7 @@ Template.programexplorer.helpers({
   },
   sc3: function() {
     var sc = Session.get("sem3");
-    var color = "black";
+    var color = "#f39c12";
     if(sc >= 10) color = "#27ae60";
     if(sc <  10) color = "#f39c12";
     if(sc <   8) color = "#e74c3c";
@@ -50,7 +66,7 @@ Template.programexplorer.helpers({
   },
   sc4: function() {
     var sc = Session.get("sem4");
-    var color = "black";
+    var color = "#f39c12";
     if(sc >= 10) color = "#27ae60";
     if(sc <  10) color = "#f39c12";
     if(sc <   8) color = "#e74c3c";
@@ -59,7 +75,7 @@ Template.programexplorer.helpers({
   },
   sc5: function() {
     var sc = Session.get("sem5");
-    var color = "black";
+    var color = "#f39c12";
     if(sc >= 10) color = "#27ae60";
     if(sc <  10) color = "#f39c12";
     if(sc <   8) color = "#e74c3c";
@@ -68,7 +84,7 @@ Template.programexplorer.helpers({
   },
   sc6: function() {
     var sc = Session.get("sem6");
-    var color = "black";
+    var color = "#f39c12";
     if(sc >= 10) color = "#27ae60";
     if(sc <  10) color = "#f39c12";
     if(sc <   8) color = "#e74c3c";
@@ -161,9 +177,11 @@ Template.programexplorer.helpers({
   },
   workload: function() {
     var a = Session.get("workload");
-    if (a <  30 ) $(".workload").css("border-bottom", "2px solid #27ae60");
-    if (a == 30 ) $(".workload").css("border-bottom", "2px solid #f39c12");
-    if (a >  30 ) $(".workload").css("border-bottom", "2px solid #e74c3c");
+      if (a >   0 ) $(".pscore").css("border-bottom", "2px solid #27ae60");
+      if (a >  20 ) $(".pscore").css("border-bottom", "2px solid #27ae60");
+      if (a <  40 ) $(".pscore").css("border-bottom", "2px solid #f39c12");
+      if (a >  60 ) $(".pscore").css("border-bottom", "2px solid #e74c3c");
+      if (a >  80 ) $(".pscore").css("border-bottom", "2px solid #e74c3c");
     return Session.get("workload");
   }
 });
@@ -193,8 +211,6 @@ Template.programexplorer.rendered = function () {
         w = Number(w) + Number(evt.item.getAttribute("credits"));
         Session.set("courses",c);
         Session.set("workload",w);
-
-        Session.set("riskValue",Math.round(Math.random() * (90 - 60) + 60)/100);
       },
       onRemove: function (evt) {
         var c = Session.get("courses");

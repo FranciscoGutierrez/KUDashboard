@@ -15,6 +15,15 @@ Template.predictionarea.events({
 });
 
 Template.predictionarea.helpers({
+  prediction: function() {
+    var rv = Session.get("riskValue");
+    if (rv >=  0) $(".prediction-bar").find("#primaryProgress").css("background","#e74c3c");
+    if (rv >= 20) $(".prediction-bar").find("#primaryProgress").css("background","#e74c3c");
+    if (rv >= 40) $(".prediction-bar").find("#primaryProgress").css("background","#f39c12");
+    if (rv >= 60) $(".prediction-bar").find("#primaryProgress").css("background","#27ae60");
+    if (rv >= 80) $(".prediction-bar").find("#primaryProgress").css("background","#27ae60");
+    return rv;
+  },
   performance: function() {
     return Math.round(Session.get("performance")*100);
   },

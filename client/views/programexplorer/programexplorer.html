@@ -79,7 +79,7 @@
         <div class="tweede semester">
           <div class="tweede-title current">S2</div>
           <div class="metadata">
-            <div class="pscore">{{pscore}}</div><span>%</span>
+            <div class="pscore">{{performance}}</div><span>%</span>
             <div class="workload">{{workload}}/30</div>
           </div>
         </div>
@@ -121,8 +121,9 @@
     </div>
     <div class="fase-content">
       <div class="eerste semester">
-        <div class="eerste-title">current</div>
+        <div class="eerste-title" style="background: #B45C7E;">Current</div>
         <div class="metadata">
+          <div class="pscore" style="border-bottom: 2px solid {{color}}">{{prediction}}%</div>
           <div class="workload">{{workload}}/30</div>
         </div>
         <div id="currentList">
@@ -147,7 +148,7 @@
       {{#each courses}}
       <div class="course" id="{{this._id}}" credits="{{credits}}">
         <div class="course-title">{{name}}</div>
-        <div class="course-credits"><span>{{credits}}</span> credits</div>
+        <div class="course-credits"><span>{{credits}}</span>ects</div>
         <paper-ripple></paper-ripple>
       </div>
       {{/each}}
@@ -159,7 +160,7 @@
       {{#each courses}}
       <div class="course" style="opacity: 0.6;">
         <div class="course-title">{{name}}</div>
-        <div class="course-credits"><span>{{credits}}</span> credits</div>
+        <div class="course-credits"><span>{{credits}}</span>ects</div>
         <paper-ripple></paper-ripple>
       </div>
       {{/each}}

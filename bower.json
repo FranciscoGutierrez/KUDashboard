@@ -6,6 +6,7 @@
     "paper-elements": "PolymerElements/paper-elements#~1.0.5",
     "iron-elements": "PolymerElements/iron-elements#~1.0.4",
     "progress-bubble": "~1.1.0",
-    "Chart.js": "~1.0.2"
+    "Chart.js": "~1.0.2",
+    "sortable": "^0.8.0"
   }
 }
