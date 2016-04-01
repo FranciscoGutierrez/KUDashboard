@@ -10,6 +10,21 @@
     </div>
     <div class="prediction-middle">
 
+      <div class="success-top" style="height: 112px;">
+        <div class="std-main" style="left: {{prediction}}%;">
+          <div class="std"></div><div class="std"></div>
+          <div class="std"></div><div class="std"></div>
+          <div class="std"></div><div class="std"></div>
+          <div class="std"></div><div class="std"></div>
+          <div class="std"></div><div class="std"></div>
+        </div>
+      </div>
+      <div class="success-bottom">
+        <paper-progress class="prediction-bar transiting" value="{{prediction}}" max="100"></paper-progress>
+        <div class="u-bar" style="width: 30%; margin-left: {{usuccess}}%;"><iron-icon icon="icons:arrow-drop-up" track=""></iron-icon></div>
+        <div class="chance-sub">With your <b>current plan</b>, <b>8</b> out of <b>10</b> students score with <b>{{prediction}}</b>%</div>
+      </div>
+
       <div class="success-top">
         <div class="chance">
           <div class="chance-text">Your performance is</div>
@@ -26,25 +41,6 @@
         <paper-slider class="performance-slider" style="display: none;" pin value="{{performance}}" max="100" min="1" step="1"></paper-slider>
       </div>
 
-      <div class="success-top" style="height: 112px;">
-        <div class="std-main" style="left: {{success}}%;">
-          <div class="std"></div>
-          <div class="std"></div>
-          <div class="std"></div>
-          <div class="std"></div>
-          <div class="std"></div>
-          <div class="std"></div>
-          <div class="std"></div>
-          <div class="std"></div>
-          <div class="std"></div>
-          <div class="std"></div>
-        </div>
-      </div>
-      <div class="success-bottom">
-        <paper-progress class="prediction-bar transiting" value="{{prediction}}" max="100"></paper-progress>
-        <div class="u-bar" style="width: 30%; margin-left: {{usuccess}}%;"><iron-icon icon="icons:arrow-drop-up" track=""></iron-icon></div>
-        <div class="chance-sub">Typically, <b>{{difficulty}}</b> out of <b>10</b> students score with <b>{{prediction}}</b>%</div>
-      </div>
       <!-- {{> riskwidget}}    -->
       <!-- {{> qualitywidget}} -->
       <!-- {{> aspectswidget}} -->

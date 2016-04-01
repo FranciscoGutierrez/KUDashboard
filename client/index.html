@@ -2,7 +2,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <title>Dashboard</title>
-  <!-- Custom Style Looks awful but this is the only way... -->
+  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tab.html">
+  <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
   <style is="custom-style">
   :root {
     --paper-toolbar-background: #fefefe;
@@ -71,11 +73,9 @@
     --iron-icon-height: 32px;
     --iron-icon-fill-color: #b25d7e;
   }
-
   paper-progress {
     --paper-progress-height: 10px;
     --paper-progress-container-color: #ebebeb;
-
     --paper-progress-transition-duration: 1s;
     --paper-progress-transition-timing-function: ease;
     --paper-progress-transition-transition-delay: 0s;
@@ -87,15 +87,13 @@
 
   <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto:900,400,300,100' type='text/css'>
   <link rel="import" href="bower_components/progress-bubble/progress-bubble.html">
-
   <link rel="import" href="bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="bower_components/iron-icons/maps-icons.html">
   <link rel="import" href="bower_components/iron-icons/editor-icons.html">
   <link rel="import" href="bower_components/iron-icons/av-icons.html">
-
   <link rel="import" href="bower_components/paper-input/paper-input.html">
   <link rel="import" href="bower_components/paper-slider/paper-slider.html">
-  <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+
   <link rel="import" href="bower_components/paper-menu/paper-menu.html">
   <link rel="import" href="bower_components/paper-item/paper-item.html">
   <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
@@ -111,9 +109,6 @@
   <link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
   <link rel="import" href="bower_components/paper-button/paper-button.html">
   <link rel="import" href="bower_components/paper-tooltip/paper-tooltip.html">
-
-  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
-  <link rel="import" href="bower_components/paper-tabs/paper-tab.html">
 
 </head>
 <body class="unresolved fullbleed layout vertical">

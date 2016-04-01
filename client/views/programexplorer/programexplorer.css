@@ -214,7 +214,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   height: 450px;
-  overflow-y: scroll;
+  overflow-y: overlay;
   overflow-x: hidden;
   border: 3px solid white;
 }
@@ -224,7 +224,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   height: 250px;
-  overflow-y: scroll;
+  overflow-y: overlay;
   overflow-x: hidden;
   border: 3px solid white;
 }

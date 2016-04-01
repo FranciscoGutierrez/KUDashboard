@@ -21,6 +21,11 @@ Template.programexplorer.helpers({
       r = Math.round((((a/c.length)+((b/c.length)*p))/20)*100);
       Session.set("riskValue",r);
     }
+    if (r >=   0 ) $(".pscore").css("border-bottom", "2px solid #e74c3c");
+    if (r >=  20 ) $(".pscore").css("border-bottom", "2px solid #e74c3c");
+    if (r >=  40 ) $(".pscore").css("border-bottom", "2px solid #f39c12");
+    if (r >=  60 ) $(".pscore").css("border-bottom", "2px solid #27ae60");
+    if (r >=  80 ) $(".pscore").css("border-bottom", "2px solid #27ae60");
     return r;
   },
   overlay: function() {
@@ -176,12 +181,6 @@ Template.programexplorer.helpers({
     return sc;
   },
   workload: function() {
-    var a = Session.get("workload");
-      if (a >   0 ) $(".pscore").css("border-bottom", "2px solid #27ae60");
-      if (a >  20 ) $(".pscore").css("border-bottom", "2px solid #27ae60");
-      if (a <  40 ) $(".pscore").css("border-bottom", "2px solid #f39c12");
-      if (a >  60 ) $(".pscore").css("border-bottom", "2px solid #e74c3c");
-      if (a >  80 ) $(".pscore").css("border-bottom", "2px solid #e74c3c");
     return Session.get("workload");
   }
 });
