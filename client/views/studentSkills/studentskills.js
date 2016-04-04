@@ -5,11 +5,11 @@
 Template.studentskills.events({
   "click .sf-student": function(event,template){
     if(template.$(".sf-student").attr("checked")){
-      StudentFactorsChart.datasets[1].points[0].value = Students.findOne({_id:Session.get("student")}).factor1*100;
-      StudentFactorsChart.datasets[1].points[1].value = Students.findOne({_id:Session.get("student")}).factor2*100;
-      StudentFactorsChart.datasets[1].points[2].value = Students.findOne({_id:Session.get("student")}).factor3*100;
-      StudentFactorsChart.datasets[1].points[3].value = Students.findOne({_id:Session.get("student")}).factor4*100;
-      StudentFactorsChart.datasets[1].points[4].value = Students.findOne({_id:Session.get("student")}).factor5*100;
+      StudentFactorsChart.datasets[1].points[0].value = Students.findOne().f1*100;
+      StudentFactorsChart.datasets[1].points[1].value = Students.findOne().f2*100;
+      StudentFactorsChart.datasets[1].points[2].value = Students.findOne().f3*100;
+      StudentFactorsChart.datasets[1].points[3].value = Students.findOne().f4*100;
+      StudentFactorsChart.datasets[1].points[4].value = Students.findOne().f5*100;
       StudentFactorsChart.update();
     } else {
       StudentFactorsChart.datasets[1].points[0].value = 0;
@@ -150,11 +150,11 @@ Template.studentskills.rendered = function () {
           pointHighlightFill:"#fff",
           pointHighlightStroke:"rgba(179,93,126,1.0)",
           data: [
-            Students.findOne({_id:Session.get("student")}).factor1*100,
-            Students.findOne({_id:Session.get("student")}).factor2*100,
-            Students.findOne({_id:Session.get("student")}).factor3*100,
-            Students.findOne({_id:Session.get("student")}).factor4*100,
-            Students.findOne({_id:Session.get("student")}).factor5*100
+            Students.findOne().f5*100,  //General Education
+            Students.findOne().f2*100, //Informatie
+            Students.findOne().f3*100, //Wiskunde
+            Students.findOne().f1*100, //Energy and stuff
+            Students.findOne().f4*100  //P&O
           ]}
         ]
       };

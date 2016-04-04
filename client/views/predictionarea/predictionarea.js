@@ -2,15 +2,23 @@ Template.predictionarea.events({
   "change .performance-slider": function(event,template){
     var s = $(".performance-slider").val();
     Session.set("performance",s/100);
+    $(".based-in").text("custom criteria");
   },
   "click .course": function(event,template) {
     $(".c").css("background","#ebebeb");
     Session.set("courseOverlay",this);
   },
   "click .adjust-p": function(event, template) {
-    $(".prediction").fadeOut(function(){
-      $(".adjust-p").text("reset");
-      $(".performance-slider").fadeIn();
+    $(".adjust-p").text("reset");
+    $(".performance-slider").fadeIn();
+    $(".adjust-p").addClass("adjusted-p");
+  },
+  "click .adjusted-p": function(event, template) {
+    $(".performance-slider").fadeOut(function(){
+      $(".adjusted-p").removeClass("adjusted-p");
+      $(".adjust-p").text("adjust");
+      $(".based-in").text("score records");
+      Session.set("performance",Students.findOne().performance/20);
     });
   }
 });

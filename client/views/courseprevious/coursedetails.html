@@ -1,7 +1,8 @@
-<template name="coursedetails">
+<template name="courseprevious">
   {{#with overlay}}
   <paper-material class="course-overlay" elevation="1">
     <div class="card-title" track="studentskills.topcontent.title">
+      <i>Previously selected...</i>
       <div class="title-container">
         <h1 class="explorer-title">{{name}}</h1>
       </div>
@@ -18,20 +19,20 @@
         </div>
       </div>
       <div class="success-bottom">
-        <paper-progress class="success-bar transiting {{color}}" value="{{success}}" max="100"></paper-progress>
+        <paper-progress class="success-barp transiting {{color}}" value="{{success}}" max="100"></paper-progress>
         <div class="u-bar" style="width: 30%; margin-left: {{usuccess}}%;"><iron-icon icon="icons:arrow-drop-up" track=""></iron-icon></div>
       </div>
       <div class="difficulty">
         <div class="d-rows">
           <div class="d-row">
-            <div class="c"></div><div class="c"></div>
-            <div class="c"></div><div class="c"></div>
-            <div class="c"></div>
+            <div class="p"></div><div class="p"></div>
+            <div class="p"></div><div class="p"></div>
+            <div class="p"></div>
           </div>
           <div class="d-row">
-            <div class="c"></div>
-            <div class="c"></div><div class="c"></div>
-            <div class="c"></div><div class="c"></div>
+            <div class="p"></div>
+            <div class="p"></div><div class="p"></div>
+            <div class="p"></div><div class="p"></div>
           </div>
         </div>
         <div class="d-text">

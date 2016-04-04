@@ -1,5 +1,6 @@
 Template.programexplorer.events({
   "click .course": function(event,template) {
+    Session.set("courseOverlayP", Session.get("courseOverlay"));
     Session.set("courseOverlay",this);
     $(".course").css("border","0");
     $("#"+this._id).css("border","3px solid #b45c7e");

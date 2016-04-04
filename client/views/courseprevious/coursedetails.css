@@ -1,0 +1,26 @@
+.card-title i {
+  padding: 0;
+  margin: 0;
+  margin-top: 8px;
+  color: #424242;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1.4;
+  opacity: 0.5;
+}
+
+.card-middle .difficulty .p {
+  min-width: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  max-height: 20px;
+  margin: 3px;
+  background: #ebebeb;
+  border-radius: 50%;
+}
+
+.success-barp {
+  display: block;
+  width: 100%;
+  margin: 10px 0 0;
+}

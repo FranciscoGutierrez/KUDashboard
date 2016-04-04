@@ -39,7 +39,7 @@ Meteor.publish('studentgrades', function(who){
 });
 
 Meteor.publish("this_student", function (who) {
-  return Students.find({ "_id": who});
+  return Students.find({ "_id": Number(who)});
 });
 
 Meteor.publish("historial", function (who) {
