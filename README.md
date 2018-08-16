@@ -9,7 +9,9 @@ In particular, for our case of study (*Academic Risk based on Historical Data)*.
 
 ## Early Prototype
 
-<img src="http://s19.postimg.org/amw859i1f/sc1.png">
+<img src="public/a.png">
+
+<img src="public/b.jpg">
 
 ## How to
 
@@ -23,18 +25,14 @@ meteor
 URLs for testing:
 
 ```bash
-// anibal
+// a
 // http://localhost:3000/200909893?c=ICM00166,FIEC03046,FIEC01545
 //
-// roger
+// b
 // http://localhost:3000/200834711?c=ICM00166,FIEC03046,FIEC01545
 ```
 
 # Technical Documentation
-
-## Architecture Overview
-
-<img src="http://s19.postimg.org/g3gwral5f/arq1.png">
 
 The following are useful scripts for the development/deployment of the dashboard.
 
